@@ -1,0 +1,263 @@
+<?xml version='1.0'?>
+<config
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xsi:noNamespaceSchemaLocation='urn:magento:module:Df_Config:etc/system_file.xsd'
+>
+	<system>
+		<section id='df_payment'>
+<!--
+2015-09-25
+1-я и 2-я цифры sortOrder соответствуют порядковому номеру первой буквы модуля
+в английском алфавите: https://en.wikipedia.org/wiki/English_alphabet
+3-я и 4-я цифры sortOrder соответствуют порядковому номеру второй буквы модуля
+в английском алфавите.
+-->
+			<group
+				id='klarna'
+				translate='label'
+				type='text'
+				sortOrder='1112'
+				showInDefault='1'
+				showInWebsite='1'
+				showInStore='1'
+			>
+				<label>Klarna</label>
+				<dfExtension>Dfe\Klarna\Ext</dfExtension>
+				<frontend_model>Df\Config\Block\System\Config\Form\Fieldset\Ext</frontend_model>
+				<field
+					id='enable'
+					translate='label'
+					type='Df\Framework\Form\Element\Checkbox'
+					sortOrder='1'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Enable?</label>
+					<backend_model>Df\Config\Backend\Checkbox</backend_model>
+					<dfValidator>Dfe\Klarna\Validator\Currency</dfValidator>
+					<comment><![CDATA[Enable the «<a href='https://mage2.pro/c/extensions/klarna' target='_blank'>Klarna</a>» payment extension?]]></comment>
+				</field>
+				<field
+					id='title'
+					translate='label'
+					type='text'
+					sortOrder='2'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Title</label>
+					<comment><![CDATA[It is shown on the checkout screen.]]></comment>
+					<depends><field id='enable'>1</field></depends>
+					<validate>required-entry</validate>
+				</field>
+				<field
+					id='test'
+					translate='label'
+					type='Df\Framework\Form\Element\Checkbox'
+					sortOrder='3'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Test Mode?</label>
+					<backend_model>Df\Config\Backend\Checkbox</backend_model>
+					<comment><![CDATA[<a href='https://mage2.pro/t/2394' target='_blank'>The test bank card</a>.]]></comment>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='testMerchantID'
+					translate='label'
+					type='text'
+					sortOrder='4'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Store ID (EID)</label>
+					<comment><![CDATA[<a href='https://mage2.pro/t/2398' target='_blank'>How to get it?</a>]]></comment>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>1</field>
+					</depends>
+					<validate>required-entry</validate>
+				</field>
+				<field
+					id='testSharedSecret'
+					translate='label'
+					type='obscure'
+					sortOrder='5'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Test Shared Secret</label>
+					<comment><![CDATA[<a href='https://mage2.pro/t/2398' target='_blank'>How to get it?</a>]]></comment>
+					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>1</field>
+					</depends>
+					<validate>required-entry</validate>
+				</field>
+				<field
+					id='prefill'
+					translate='label'
+					type='Df\Framework\Form\Element\Checkbox'
+					sortOrder='6'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Prefill the Payment Form with Test Data?</label>
+					<comment><![CDATA[If you do not want it, then please use the following <a href='https://mage2.pro/t/2262' target='_blank'>test card</a>.]]></comment>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>1</field>
+					</depends>
+				</field>
+				<field
+					id='liveMerchantID'
+					translate='label'
+					type='text'
+					sortOrder='7'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Store ID (EID)</label>
+					<comment><![CDATA[<a href='https://www.klarna.com/us/business' target='_blank'>How to get it?</a>]]></comment>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>0</field>
+					</depends>
+					<validate>required-entry</validate>
+				</field>
+				<field
+					id='liveSharedSecret'
+					translate='label'
+					type='obscure'
+					sortOrder='8'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Live Shared Secret</label>
+					<comment><![CDATA[<a href='https://www.klarna.com/us/business' target='_blank'>How to get it?</a>]]></comment>
+					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>0</field>
+					</depends>
+					<validate>required-entry</validate>
+				</field>
+				<field
+					id='currency'
+					translate='label'
+					type='Df\Payment\FormElement\Currency'
+					dfValues='DKK,EUR,NOK,SEK'
+					sortOrder='9'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Payment Currency</label>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='description'
+					translate='label'
+					type='textarea'
+					sortOrder='10'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Description</label>
+					<comment><![CDATA[It will be displayed in the Omise web interface alongside the payment.
+<br/>This value can be searched for in your Omise web interface.]]></comment>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='askForBillingAddress'
+					translate='label'
+					type='Df\Framework\Form\Element\Checkbox'
+					sortOrder='11'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Ask for the Billing Address?</label>
+					<backend_model>Df\Config\Backend\Checkbox</backend_model>
+					<comment><![CDATA[If <b>checked</b>, Magento will require the billing address. It it the default Magento behaviour.<br/>If <b>unchecked</b>, Magento will not require the billing address, and even will not ask for it.]]></comment>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='min_order_total'
+					translate='label'
+					type='text'
+					sortOrder='12'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Minimum Order Total</label>
+					<comment><![CDATA[]]></comment>
+					<validate>validate-number validate-greater-than-zero</validate>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='max_order_total'
+					translate='label'
+					type='text'
+					sortOrder='13'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Maximum Order Total</label>
+					<comment><![CDATA[]]></comment>
+					<validate>validate-number validate-greater-than-zero</validate>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='country_restriction'
+					translate='label'
+					type='select'
+					sortOrder='14'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Country Restriction</label>
+					<source_model>Df\Config\Source\NoWhiteBlack</source_model>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='countries'
+					translate='label'
+					type='Df\Framework\Form\Element\Multiselect'
+					sortOrder='15'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Countries</label>
+					<source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+					<can_be_empty>1</can_be_empty>
+					<depends>
+						<field id='enable'>1</field>
+<!--
+2016-03-08
+«The negative syntax for a backend config field <depends> condition»
+https://mage2.pro/t/329
+-->
+						<field id='country_restriction' negative='1'>0</field>
+					</depends>
+					<comment><![CDATA[Customers from which countries can (or can not) use the method?]]></comment>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

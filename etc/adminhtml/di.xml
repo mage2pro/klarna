@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<config
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xsi:noNamespaceSchemaLocation='urn:magento:framework:ObjectManager/etc/config.xsd'
+>
+	<virtualType name='Dfe\Klarna\Validator\Currency' type='Df\Framework\Validator\Currency'>
+		<arguments>
+<!--
+2016-12-17
+https://developers.klarna.com/sdk-references/kpm_dotnet/html/c49ffbc1-c5a2-5f61-960f-c46989c2bd7b.htm
+-->
+			<argument name='iso3' xsi:type='string'>DKK,EUR,NOK,SEK</argument>
+		</arguments>
+	</virtualType>
+</config>

@@ -1,0 +1,35 @@
+<?xml version='1.0'?>
+<config
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='urn:magento:module:Magento_Store:etc/config.xsd'
+>
+    <default>
+		<df_payment>
+			<klarna>
+				<actionForNew>review</actionForNew>
+				<actionForReturned>authorize_capture</actionForReturned>
+				<askForBillingAddress>1</askForBillingAddress>
+<!--
+	2016-11-12
+    https://www.omise.co/which-currency-does-omise-support
+    «Currently, we only support Thai Baht (THB).»
+-->
+				<currency>THB</currency>
+<!--
+	2016-11-16
+	«A custom description for the charge. This value can be searched for in your dashboard.»
+	https://www.omise.co/charges-api#charges-create
+-->
+				<description>{order.id}</description>
+				<payment_action>authorize_capture</payment_action>
+				<title>Bank Card</title>
+				<title_backend>Omise</title_backend>
+			</klarna>
+		</df_payment>
+        <payment>
+            <dfe_omise>
+				<model>Dfe\Omise\Method</model>
+            </dfe_omise>
+        </payment>
+    </default>
+</config>
