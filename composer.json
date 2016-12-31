@@ -13,7 +13,7 @@
 	}]
 	,"require": {
 		"klarna/kco_rest": "*"
-		,"mage2pro/core": "^1.10.7"
+		,"mage2pro/core": "^1.11.2"
 	}
 	,"autoload": {"files": ["registration.php"], "psr-4": {"Dfe\\Klarna\\": ""}}
 }
