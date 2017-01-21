@@ -9,7 +9,7 @@ You can use it for free for testing puprose only.
 
 ## How to buy
 
-The extension is not released yet, so there is no way to buy just now.  
+The extension is not released yet, so there is no way to buy it just now.  
 The extension will be released before 2017-02-14.   
 
 ## Installation
@@ -21,6 +21,7 @@ Follow the [installation instruction](https://mage2.pro/t/263).
 Please note that the extension is not a free software. 
 
 ## Support
+- [The extension's **forum** branch](https://mage2.pro/c/extensions/klarna).
 - [Where and how to report a Mage2.PRO extension's issue?](https://mage2.pro/t/topic/2034)
-- [The extension's forum branch](https://mage2.pro/c/extensions/klarna).
+
 
