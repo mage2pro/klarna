@@ -156,6 +156,17 @@
 					</depends>
 					<validate>required-entry</validate>
 				</field>
+<!--
+2016-12-17
+https://developers.klarna.com/sdk-references/kpm_dotnet/html/c49ffbc1-c5a2-5f61-960f-c46989c2bd7b.htm
+2017-01-21
+На самом деле, ссылка выше перечисляет поддерживаемые валюты для Checkout API версии 2.
+Checkout API версии 3 наверняка поддерживает другое множество валют, потому что
+Checkout API версии 3 работает только в США и Великобритании,
+а валюты этих стран даже не входят в перечень из документа выше.
+Спросил только что у техподдержки:
+«There can I find the full list of the Klarna's supported payment currencies?»
+-->
 				<field
 					id='currency'
 					translate='label'
