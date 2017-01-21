@@ -54,8 +54,8 @@
 				</field>
 <!-- 
 2017-01-21
-Why does the Klarna dashboard on the «online.testdrive.klarna.com» domain shows
-«Test mode: No. Test mode was deactivated»?
+Why does the Klarna dashboard show the «Test mode: No. Test mode was deactivated» message
+under the «online.testdrive.klarna.com» domain?
 https://mage2.pro/t/2506
 -->
 				<field
