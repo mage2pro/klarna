@@ -172,10 +172,11 @@ Checkout API версии 3 наверняка поддерживает друг
 Checkout API версии 3 работает только в США и Великобритании,
 а валюты этих стран даже не входят в перечень из документа выше.
 Спросил только что у техподдержки:
-«There can I find the full list of the Klarna's supported payment currencies?»
+«Which payment currencies do Klarna accept?» https://mage2.pro/t/2507
 
 Замечание №2
 Я так понял, что поддерживаются следующие страны магазинов: https://developers.klarna.com/en
+«Which merchant countries do Klarna support?» https://mage2.pro/t/2508
 1) Austria (AT, EUR)
 2) Denmark (DK, DKK)
 3) Finland (FI, EUR)
