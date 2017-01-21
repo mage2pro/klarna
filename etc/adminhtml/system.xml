@@ -178,6 +178,9 @@ Checkout API версии 3 работает только в США и Вели�
 8) United Kingdom (GBP)
 9) United States (USD)
 Отсюда мы берём и список поддерживаемых валют.
+
+Спросил у техподдержки:
+«Is any programmatic way (maybe API) to detect a Klarna merchant country by a given EID?»
 -->
 				<field
 					id='currency'
