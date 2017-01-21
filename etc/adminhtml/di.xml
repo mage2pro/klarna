@@ -6,31 +6,9 @@
 	<virtualType name='Dfe\Klarna\Validator\Currency' type='Df\Framework\Validator\Currency'>
 		<arguments>
 <!--
-2016-12-17
-https://developers.klarna.com/sdk-references/kpm_dotnet/html/c49ffbc1-c5a2-5f61-960f-c46989c2bd7b.htm
 2017-01-21
-На самом деле, ссылка выше перечисляет поддерживаемые валюты для Checkout API версии 2.
-Checkout API версии 3 наверняка поддерживает другое множество валют, потому что
-Checkout API версии 3 работает только в США и Великобритании,
-а валюты этих стран даже не входят в перечень из документа выше.
-Спросил только что у техподдержки:
-«There can I find the full list of the Klarna's supported payment currencies?»
-
-Я так понял, что поддерживаются следующие страны магазинов: https://developers.klarna.com/en
-1) Austria (EUR)
-2) Denmark (DKK)
-3) Finland (EUR)
-4) Germany (EUR)
-5) Netherlands (EUR)
-6) Norway (NOK)
-7) Sweden (SEK)
-8) United Kingdom (GBP)
-9) United States (USD)
-Отсюда мы берём и список поддерживаемых валют.
-
-
-Спросил у техподдержки:
-«Is any programmatic way (maybe API) to detect a Klarna merchant country by a given EID?»
+Это не совсем правильно и должно быть переделано:
+https://github.com/mage2pro/klarna/blob/6ef6ebb/etc/adminhtml/system.xml#L160-L183
 -->
 			<argument name='iso3' xsi:type='string'>DKK,EUR,NOK,SEK</argument>
 		</arguments>
