@@ -52,6 +52,12 @@
 					<depends><field id='enable'>1</field></depends>
 					<validate>required-entry</validate>
 				</field>
+<!-- 
+2017-01-21
+Why does the Klarna dashboard on the «online.testdrive.klarna.com» domain shows
+«Test mode: No. Test mode was deactivated»?
+https://mage2.pro/t/2506
+-->
 				<field
 					id='test'
 					translate='label'
@@ -170,15 +176,15 @@ Checkout API версии 3 работает только в США и Вели�
 
 Замечание №2
 Я так понял, что поддерживаются следующие страны магазинов: https://developers.klarna.com/en
-1) Austria (EUR)
-2) Denmark (DKK)
-3) Finland (EUR)
-4) Germany (EUR)
-5) Netherlands (EUR)
-6) Norway (NOK)
-7) Sweden (SEK)
-8) United Kingdom (GBP)
-9) United States (USD)
+1) Austria (AT, EUR)
+2) Denmark (DK, DKK)
+3) Finland (FI, EUR)
+4) Germany (DE, EUR)
+5) Netherlands (NL, EUR)
+6) Norway (NO, NOK)
+7) Sweden (SE, SEK)
+8) United Kingdom (GB, GBP)
+9) United States (US, USD)
 Отсюда мы берём и список поддерживаемых валют.
 
 Замечание №3
@@ -211,6 +217,19 @@ Checkout API версии 3 работает только в США и Вели�
 					showInStore='1'
 				>
 					<label>Payment Currency</label>
+					<depends><field id='enable'>1</field></depends>
+				</field>
+				<field
+					id='country'
+					translate='label'
+					type='Df\Directory\FormElement\Country'
+					dfValues='AT,DE,DK,FI,NL,NO,SE,GB,US'
+					sortOrder='9'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Store Country</label>
 					<depends><field id='enable'>1</field></depends>
 				</field>
 				<field
