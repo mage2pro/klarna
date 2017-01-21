@@ -17,8 +17,7 @@ The extension will be released before 2017-02-14.
 If you have already bought the extension, then its installation is a **free service** for you. Just provide [me](https://mage2.pro/users/dmitry_fedyuk) an SSH access to your store's server. You can use [my public SSH key](https://mage2.pro/t/2092) for it.
 
 ### Self-installation 
-Follow the [installation instruction](https://mage2.pro/t/263).  
-Please note that the extension is not a free software. 
+Follow the [installation instruction](https://mage2.pro/t/263). 
 
 ## Support
 - [The extension's **forum** branch](https://mage2.pro/c/extensions/klarna).
