@@ -166,6 +166,18 @@ Checkout API версии 3 работает только в США и Вели�
 а валюты этих стран даже не входят в перечень из документа выше.
 Спросил только что у техподдержки:
 «There can I find the full list of the Klarna's supported payment currencies?»
+
+Я так понял, что поддерживаются следующие страны магазинов: https://developers.klarna.com/en
+1) Austria (EUR)
+2) Denmark (DKK)
+3) Finland (EUR)
+4) Germany (EUR)
+5) Netherlands (EUR)
+6) Norway (NOK)
+7) Sweden (SEK)
+8) United Kingdom (GBP)
+9) United States (USD)
+Отсюда мы берём и список поддерживаемых валют.
 -->
 				<field
 					id='currency'
