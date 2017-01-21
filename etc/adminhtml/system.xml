@@ -76,7 +76,9 @@
 					showInStore='1'
 				>
 					<label>Store ID (EID)</label>
-					<comment><![CDATA[<a href='https://mage2.pro/t/2398' target='_blank'>How to get it?</a>]]></comment>
+					<comment><![CDATA[An unique number that identifies your e-store. <a href='https://mage2.pro/t/2398' target='_blank'>How to get it?</a>
+<br/>Klarna itself uses the <b>3</b> different terms for the <b>same</b> thing: «<b>EID</b>», «<b>Merchant ID</b>», «<b>Store ID</b>».
+]]></comment>
 					<depends>
 						<field id='enable'>1</field>
 						<field id='test'>1</field>
@@ -127,7 +129,9 @@
 					showInStore='1'
 				>
 					<label>Store ID (EID)</label>
-					<comment><![CDATA[<a href='https://www.klarna.com/us/business' target='_blank'>How to get it?</a>]]></comment>
+					<comment><![CDATA[An unique number that identifies your e-store. <a href='https://mage2.pro/t/2398' target='_blank'>How to get it?</a>
+<br/>Klarna itself uses the <b>3</b> different terms for the <b>same</b> thing: «<b>EID</b>», «<b>Merchant ID</b>», «<b>Store ID</b>».
+]]></comment>
 					<depends>
 						<field id='enable'>1</field>
 						<field id='test'>0</field>
