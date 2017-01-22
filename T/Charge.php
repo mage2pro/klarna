@@ -15,10 +15,11 @@ class Charge extends \Df\Core\TestCase {
 	public function t01() {
 		/**
 		 * 2017-01-22
+		 * https://developers.klarna.com/api/?json#checkout-api-order
 		 * https://developers.klarna.com/en/us/kco-v3/checkout/2-render-the-checkout#add-cart-items
-		 * @var array(String => mixed) $params
+		 * @var array(String => mixed) $order
 		 */
-		$params = [
+		$order = [
 			// 2017-01-22
 			// «The applicable order lines (max 1000).»
 			// required
@@ -35,12 +36,38 @@ class Charge extends \Df\Core\TestCase {
 	private function item() {return [
 		/**
 		 * 2017-01-22
+		 * «URL to an image that can be later embedded in communications
+		 * between Klarna and the customer. (max 1024 characters).»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/#checkout-api__order__order_lines__image_url
+		 */
+		'image_url' => ''
+		/**
+		 * 2017-01-22
+		 * «Pass through field. (max 255 characters)»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/#checkout-api__order__order_lines__merchant_data
+		 */
+		,'merchant_data' => ''
+		/**
+		 * 2017-01-22
 		 * «Descriptive item name.»
 		 * Required: yes.
 		 * string
 		 * https://developers.klarna.com/api/#checkout-api__order__order_lines__name
 		 */
-		'name' => 'Tomatoes'
+		,'name' => 'Tomatoes'
+		/**
+		 * 2017-01-22
+		 * «URL to the product page that can be later embedded in communications
+		 * between Klarna and the customer. (max 1024 characters).»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/#checkout-api__order__order_lines__product_url
+		 */
+		,'product_url' => ''
 		/**
 		 * 2017-01-22
 		 * «Non-negative. The item quantity.»
@@ -103,8 +130,10 @@ class Charge extends \Df\Core\TestCase {
 		,'total_discount_amount' => 0
 		/**
 		 * 2017-01-22
-		 * «STUB.»
-		 * Required: ?.
+		 * «Must be within ±1 of total_amount - total_amount 10000 / (10000 + tax_rate).
+		 * Negative when type is discount.»
+		 * Required: true.
+		 * https://developers.klarna.com/api/#checkout-api__order__order_lines__total_tax_amount
 		 */
 		,'total_tax_amount' => 1200
 		/**
