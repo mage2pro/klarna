@@ -13,19 +13,8 @@ class Charge extends \Df\Core\TestCase {
 	 * 2017-01-22
 	 */
 	public function t01() {
-		/**
-		 * 2017-01-22
-		 * https://developers.klarna.com/api/?json#checkout-api-order
-		 * https://developers.klarna.com/en/us/kco-v3/checkout/2-render-the-checkout#add-cart-items
-		 * @var array(String => mixed) $order
-		 */
-		$order = [
-			// 2017-01-22
-			// «The applicable order lines (max 1000).»
-			// required
-			// https://developers.klarna.com/api/#checkout-api__order__order_lines
-			'order_lines' => [$this->item()]
-		];
+		/** @var array(string => mixed) $order */
+		$order = $this->order();
 	}
 
 	/**
@@ -145,4 +134,53 @@ class Charge extends \Df\Core\TestCase {
 		 */
 		,'unit_price' => 600
 	];}
+
+	/**
+	 * 2017-01-22
+	 * https://developers.klarna.com/api/?json#checkout-api-order
+	 * https://developers.klarna.com/en/us/kco-v3/checkout/2-render-the-checkout#add-cart-items
+	 * @return array(string => mixed)
+	 */
+	private function order() {return [
+		/**
+		 * 2017-01-22
+		 * «Once the customer has provided any data in the checkout iframe,
+		 * updates to this object will be ignored (without generating an error).»
+		 * Required: no.
+		 * object
+		 * https://developers.klarna.com/api/?json#checkout-api__order__billing_address
+		 */
+		'billing_address' => []
+		/**
+		 * 2017-01-22
+		 * «RFC 1766 customer's locale.»
+		 * Required: yes.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__order__locale
+		 */
+		,'locale' => 'en-US'
+		/**
+		 * 2017-01-22
+		 * «The applicable order lines (max 1000).»
+		 * Required: yes.
+		 * https://developers.klarna.com/api/#checkout-api__order__order_lines
+		 */
+		,'order_lines' => [$this->item()]
+		/**
+		 * 2017-01-22
+		 * «ISO 3166 alpha-2 purchase country.»
+		 * Required: yes.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__order__purchase_country
+		 */
+		,'purchase_country' => 'US'
+		/**
+		 * 2017-01-22
+		 * «ISO 4217 purchase currency.»
+		 * Required: yes.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__order__purchase_currency
+		 */
+		,'purchase_currency' => 'USD'
+	];}		
 }
