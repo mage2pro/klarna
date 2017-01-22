@@ -233,18 +233,18 @@ Checkout API версии 3 работает только в США и Вели�
 					<depends><field id='enable'>1</field></depends>
 				</field>
 				<field
-					id='description'
+					id='toc'
 					translate='label'
-					type='textarea'
+					type='select'
 					sortOrder='10'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
 				>
-					<label>Description</label>
-					<comment><![CDATA[It will be displayed in the Omise web interface alongside the payment.
-<br/>This value can be searched for in your Omise web interface.]]></comment>
+					<label>Terms and Conditions page</label>
+					<comment><![CDATA[Klarna <a target="_blank" href="https://developers.klarna.com/en/us/kco-v3/checkout/2-render-the-checkout#configure-checkout-order">requires</a> it.]]></comment>
 					<depends><field id='enable'>1</field></depends>
+					<source_model>Magento\Cms\Model\Config\Source\Page</source_model>
 				</field>
 				<field
 					id='askForBillingAddress'

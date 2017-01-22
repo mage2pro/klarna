@@ -18,6 +18,7 @@
 				<payment_action>authorize_capture</payment_action>
 				<title>Klarna</title>
 				<title_backend>Klarna</title_backend>
+				<toc>customer-service</toc>
 			</klarna>
 		</df_payment>
         <payment>
