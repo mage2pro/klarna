@@ -18,8 +18,109 @@ class Charge extends \Df\Core\TestCase {
 	}
 
 	/**
+	 * 2017-01-23
+	 * https://developers.klarna.com/api/?json#checkout-api__order__billing_address
+	 * @used-by order()
+	 * @return array(string => mixed)
+	 */
+	private function ba() {return [
+		/**
+		 * 2017-01-23
+		 * «City»
+		 * Required: no.
+		 * string.
+		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__city
+		 */
+		'city' => ''
+		/**
+		 * 2017-01-23
+		 * «ISO 3166 alpha-2. Country.»
+		 * Required: no.
+		 * string.
+		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__country
+		 */
+		,'country' => ''
+		/**
+		 * 2017-01-23
+		 * «E-mail address»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__email
+		 */
+		,'email' => 'admin@mage2.pro'
+		/**
+		 * 2017-01-23
+		 * «Family name»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__family_name
+		 */
+		,'family_name' => 'Family name'
+		/**
+		 * 2017-01-23
+		 * «Given name»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__given_name
+		 */
+		,'given_name' => 'Dmitry'
+		/**
+		 * 2017-01-23
+		 * «Phone number»
+		 * Required: no.
+		 * string.
+		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__phone
+		 */
+		,'phone' => ''
+		/**
+		 * 2017-01-23
+		 * «Postal/post code.»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__postal_code
+		 */
+		,'postal_code' => ''
+		/**
+		 * 2017-01-23
+		 * «Street address, first line.»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__street_address
+		 */
+		,'street_address' => ''
+		/**
+		 * 2017-01-23
+		 * «Street address, second line.»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__street_address2
+		 */
+		,'street_address2' => ''
+		/**
+		 * 2017-01-23
+		 * «Title.
+		 * Valid values for UK: Mr, Ms, Mrs, Miss.
+		 * Valid values for DACH: Herr, Frau.»
+		 * DACH: https://de.wikipedia.org/wiki/D-A-CH
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__title
+		 */
+		,'title' => ''
+		/**
+		 * 2017-01-23
+		 * «State or Region»
+		 * Required: no.
+		 * string.
+		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__region
+		 */
+		,'region' => ''
+	];}
+
+	/**
 	 * 2017-01-22
 	 * https://developers.klarna.com/api/#checkout-api__order__order_lines
+	 * @used-by order()
 	 * @return array(string => string|int)
 	 */
 	private function item() {return [
@@ -150,7 +251,7 @@ class Charge extends \Df\Core\TestCase {
 		 * object
 		 * https://developers.klarna.com/api/?json#checkout-api__order__billing_address
 		 */
-		'billing_address' => []
+		'billing_address' => $this->ba()
 		/**
 		 * 2017-01-22
 		 * «RFC 1766 customer's locale.»
