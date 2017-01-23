@@ -21,7 +21,7 @@ class Charge extends \Df\Core\TestCase {
 	 * 2017-01-23
 	 * https://developers.klarna.com/api/?json#checkout-api__order__billing_address
 	 * @used-by order()
-	 * @return array(string => mixed)
+	 * @return array(string => string)
 	 */
 	private function ba() {return [
 		/**
@@ -115,6 +115,26 @@ class Charge extends \Df\Core\TestCase {
 		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__region
 		 */
 		,'region' => ''
+	];}
+
+	/**
+	 * 2017-01-23
+	 * «Information about the liable customer of the order.»
+	 * https://developers.klarna.com/api/?json#checkout-api__order__customer
+	 * @used-by order()
+	 * @return array(string => string)
+	 */
+	private function customer() {return [
+		/**
+		 * 2017-01-23
+		 * «ISO 8601 date. The customer date of birth.»
+		 * https://developers.klarna.com/api/?json#checkout-api__ordercustomer__date_of_birth
+		 * https://developers.klarna.com/api/?json#data-types
+		 * В документации формат даты в примерах именно такой.
+		 * Required: no.
+		 * string
+		 */
+		'date_of_birth' => '1982-07-08'
 	];}
 
 	/**
@@ -253,6 +273,14 @@ class Charge extends \Df\Core\TestCase {
 		 */
 		'billing_address' => $this->ba()
 		/**
+		 * 2017-01-23
+		 * «Information about the liable customer of the order.»
+		 * Required: no.
+		 * object
+		 * https://developers.klarna.com/api/?json#checkout-api__order__customer
+		 */
+		,'customer' => $this->customer()
+		/**
 		 * 2017-01-22
 		 * «RFC 1766 customer's locale.»
 		 * Required: yes.
@@ -261,12 +289,30 @@ class Charge extends \Df\Core\TestCase {
 		 */
 		,'locale' => 'en-US'
 		/**
+		 * 2017-01-23
+		 * «Non-negative, minor units.
+		 * Total amount of the order, including tax and any discounts.»
+		 * Required: yes.
+		 * integer
+		 * https://developers.klarna.com/api/?json#checkout-api__order__order_amount
+		 */
+		,'order_amount' => 1000
+		/**
 		 * 2017-01-22
 		 * «The applicable order lines (max 1000).»
 		 * Required: yes.
 		 * https://developers.klarna.com/api/#checkout-api__order__order_lines
 		 */
 		,'order_lines' => [$this->item()]
+		/**
+		 * 2017-01-23
+		 * «Non-negative, minor units.
+		 * The total tax amount of the order.»
+		 * Required: yes.
+		 * integer
+		 * https://developers.klarna.com/api/?json#checkout-api__order__order_tax_amount
+		 */
+		,'order_tax_amount' => 0
 		/**
 		 * 2017-01-22
 		 * «ISO 3166 alpha-2 purchase country.»
