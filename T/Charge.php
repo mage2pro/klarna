@@ -53,6 +53,34 @@ class Charge extends \Df\Core\TestCase {
 
 	/**
 	 * 2017-01-23
+	 * «Additional purchase information required for some industries.»
+	 * https://developers.klarna.com/api/?json#checkout-api__order__attachment
+	 * @used-by kl_order()
+	 * @return array(string => string)
+	 */
+	private function kl_attachment() {return [
+		/**
+		 * 2017-01-23
+		 * «This field should be a string containing the body of the attachment.
+		 * The body should be an object containing any of the keys and sub objects
+		 * described below serialised to JSON.»
+		 * Required: yes.
+		 * string.
+		 * https://developers.klarna.com/api/?json#checkout-api__orderattachment__body
+		 */
+		'body' => []
+		/**
+		 * 2017-01-23
+		 * «The content type of the body property.»
+		 * Required: yes.
+		 * string.
+		 * https://developers.klarna.com/api/?json#checkout-api__orderattachment__content_type
+		 */
+		,'content_type' => ''
+	];}		
+
+	/**
+	 * 2017-01-23
 	 * https://developers.klarna.com/api/?json#checkout-api__order__billing_address
 	 * @used-by kl_order()
 	 * @return array(string => string)
@@ -409,6 +437,14 @@ class Charge extends \Df\Core\TestCase {
 	 */
 	private function kl_order() {return [
 		/**
+		 * 2017-01-23
+		 * «Additional purchase information required for some industries.»
+		 * Required: no.
+		 * object
+		 * https://developers.klarna.com/api/?json#checkout-api__order__attachment
+		 */
+		'attachment' => $this->kl_attachment()
+		/**
 		 * 2017-01-22
 		 * «Once the customer has provided any data in the checkout iframe,
 		 * updates to this object will be ignored (without generating an error).»
@@ -416,7 +452,7 @@ class Charge extends \Df\Core\TestCase {
 		 * object
 		 * https://developers.klarna.com/api/?json#checkout-api__order__billing_address
 		 */
-		'billing_address' => $this->kl_billing_address()
+		,'billing_address' => $this->kl_billing_address()
 		/**
 		 * 2017-01-23
 		 * «Information about the liable customer of the order.»
@@ -425,6 +461,22 @@ class Charge extends \Df\Core\TestCase {
 		 * https://developers.klarna.com/api/?json#checkout-api__order__customer
 		 */
 		,'customer' => $this->kl_customer()
+		/**
+		 * 2017-01-23
+		 * «List of external checkouts.»
+		 * Required: no.
+		 * array of payment providers
+		 * https://developers.klarna.com/api/?json#checkout-api__order__external_checkouts
+		 */
+		,'external_checkouts' => []
+		/**
+		 * 2017-01-23
+		 * «List of external payment methods.»
+		 * Required: no.
+		 * array of payment providers
+		 * https://developers.klarna.com/api/?json#checkout-api__order__external_payment_methods
+		 */
+		,'external_payment_methods' => []
 		/**
 		 * 2017-01-22
 		 * «RFC 1766 customer's locale.»
@@ -509,6 +561,15 @@ class Charge extends \Df\Core\TestCase {
 		 * https://developers.klarna.com/api/?json#checkout-api__order__purchase_currency
 		 */
 		,'purchase_currency' => 'USD'
+		/**
+		 * 2017-01-23
+		 * «A list of countries (ISO 3166 alpha-2).
+		 * Default is purchase_country only.»
+		 * Required: no.
+		 * array of strings
+		 * https://developers.klarna.com/api/?json#checkout-api__order__shipping_countries
+		 */
+		,'shipping_countries' => []
 	];}
 
 	/**
