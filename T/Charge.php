@@ -19,6 +19,40 @@ class Charge extends \Df\Core\TestCase {
 
 	/**
 	 * 2017-01-23
+	 * @used-by kl_options()
+	 * @return array(string => string|bool)
+	 */
+	private function kl_additional_checkbox() {return [
+		/**
+		 * 2017-01-23
+		 * «Default state of the additional checkbox.
+		 * It will use this value when loaded for the first time.»
+		 * Required: yes.
+		 * boolean
+		 * https://developers.klarna.com/api/?json#checkout-api__orderoptionsadditional_checkbox__checked
+		 */
+		'checked' => ''
+		/**
+		 * 2017-01-23
+		 * «Whether it is required for the consumer
+		 * to check the additional checkbox box or not in order to complete the purchase.»
+		 * Required: yes.
+		 * boolean
+		 * https://developers.klarna.com/api/?json#checkout-api__orderoptionsadditional_checkbox__required
+		 */
+		,'required' => ''
+		/**
+		 * 2017-01-23
+		 * «Text that will be displayed to the consumer aside the checkbox. (max 255 characters)»
+		 * Required: yes.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__orderoptionsadditional_checkbox__text
+		 */
+		,'text' => ''
+	];}
+
+	/**
+	 * 2017-01-23
 	 * https://developers.klarna.com/api/?json#checkout-api__order__billing_address
 	 * @used-by kl_order()
 	 * @return array(string => string)
@@ -233,6 +267,141 @@ class Charge extends \Df\Core\TestCase {
 	];}
 
 	/**
+	 * 2017-01-23
+	 * «Options for this purchase.»
+	 * https://developers.klarna.com/api/?json#checkout-api__order__options
+	 * @used-by kl_order()
+	 * @return array(string => string|boolean)
+	 */
+	private function kl_options() {return [
+		/**
+		 * 2017-01-23
+		 * «Additional merchant defined checkbox. e.g. for Newsletter opt-in.»
+		 * Required: yes.
+		 * object
+		 */
+		'additional_checkbox' => $this->kl_additional_checkbox()
+		/**
+		 * 2017-01-23
+		 * «If true, Checkout will allow the consumer to use any billing country supported,
+		 * otherwise the selection will be limited to the countries provided in shipping_countries field.
+		 * Default: false.»
+		 * Required: no.
+		 * boolean
+		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__allow_global_billing_countries
+		 */
+		,'allow_global_billing_countries' => ''
+		/**
+		 * 2017-01-23
+		 * «If true, the consumer can enter different billing and shipping addresses.
+		 * Default: false»
+		 * Required: no.
+		 * boolean
+		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__allow_separate_shipping_address
+		 */
+		,'allow_separate_shipping_address' => ''
+		/**
+		 * 2017-01-23
+		 * «CSS hex color, e.g. "#FF9900"»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_button
+		 */
+		,'color_button' => ''
+		/**
+		 * 2017-01-23
+		 * «CSS hex color, e.g. "#FF9900"»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_button_text
+		 */
+		,'color_button_text' => ''
+		/**
+		 * 2017-01-23
+		 * «CSS hex color, e.g. "#FF9900"»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_checkbox
+		 */
+		,'color_checkbox' => ''
+		/**
+		 * 2017-01-23
+		 * «CSS hex color, e.g. "#FF9900"»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_checkbox_checkmark
+		 */
+		,'color_checkbox_checkmark' => ''
+		/**
+		 * 2017-01-23
+		 * «CSS hex color, e.g. "#FF9900"»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_header
+		 */
+		,'color_header' => ''
+		/**
+		 * 2017-01-23
+		 * «CSS hex color, e.g. "#FF9900"»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_link
+		 */
+		,'color_link' => ''
+		/**
+		 * 2017-01-23
+		 * «If true, the consumer cannot skip date of birth.
+		 * Default: false»
+		 * Required: no.
+		 * boolean
+		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__date_of_birth_mandatory
+		 */
+		,'date_of_birth_mandatory' => ''
+		/**
+		 * 2017-01-23
+		 * «Border radius»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__radius_border
+		 */
+		,'radius_border' => ''
+		/**
+		 * 2017-01-23
+		 * «If true, validate callback must get a positive response to not stop purchase.
+		 * Default: false.»
+		 * Required: no.
+		 * boolean
+		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__require_validate_callback_success
+		 */
+		,'require_validate_callback_success' => ''
+		/**
+		 * 2017-01-23
+		 * «A message that will be presented on the confirmation page under the headline "Delivery".»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__shipping_details
+		 */
+		,'shipping_details' => ''
+		/**
+		 * 2017-01-23
+		 * «If true, the Order Detail subtodals view is expanded.
+		 * Default: false»
+		 * Required: no.
+		 * boolean
+		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__show_subtotal_detail
+		 */
+		,'show_subtotal_detail' => ''
+		/**
+		 * 2017-01-23
+		 * «If specified to false, title becomes optional in countries that by default require title.»
+		 * Required: no.
+		 * boolean
+		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__title_mandatory
+		 */
+		,'title_mandatory' => ''
+	];}
+
+	/**
 	 * 2017-01-22
 	 * https://developers.klarna.com/api/?json#checkout-api-order
 	 * https://developers.klarna.com/en/us/kco-v3/checkout/2-render-the-checkout#add-cart-items
@@ -291,6 +460,14 @@ class Charge extends \Df\Core\TestCase {
 		 * https://developers.klarna.com/api/?json#checkout-api__order__merchant_urls
 		 */
 		,'merchant_urls' => $this->kl_merchant_urls()
+		/**
+		 * 2017-01-23
+		 * «Options for this purchase.»
+		 * Required: no.
+		 * object
+		 * https://developers.klarna.com/api/?json#checkout-api__order__options
+		 */
+		,'options' => $this->kl_options()
 		/**
 		 * 2017-01-23
 		 * «Non-negative, minor units.
