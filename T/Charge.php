@@ -478,6 +478,14 @@ class Charge extends \Df\Core\TestCase {
 		 */
 		,'external_payment_methods' => []
 		/**
+		 * 2017-01-23
+		 * «The gui object.»
+		 * Required: no.
+		 * object
+		 * https://developers.klarna.com/api/?json#checkout-api__order__gui
+		 */
+		,'gui' => []
+		/**
 		 * 2017-01-22
 		 * «RFC 1766 customer's locale.»
 		 * Required: yes.
@@ -485,6 +493,14 @@ class Charge extends \Df\Core\TestCase {
 		 * https://developers.klarna.com/api/?json#checkout-api__order__locale
 		 */
 		,'locale' => 'en-US'
+		/**
+		 * 2017-01-23
+		 * «Pass through field (max 1024 characters).»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__order__merchant_data
+		 */
+		,'merchant_data' => ''
 		/**
 		 * 2017-01-23
 		 * «Used for storing merchant's internal order number or other reference.
@@ -570,6 +586,14 @@ class Charge extends \Df\Core\TestCase {
 		 * https://developers.klarna.com/api/?json#checkout-api__order__shipping_countries
 		 */
 		,'shipping_countries' => []
+		/**
+		 * 2017-01-23
+		 * «A list of shipping options available for this order.»
+		 * Required: no.
+		 * array of shipping options
+		 * https://developers.klarna.com/api/?json#checkout-api__order__shipping_options
+		 */
+		,'shipping_options' => []
 	];}
 
 	/**
