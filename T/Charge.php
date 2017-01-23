@@ -257,6 +257,101 @@ class Charge extends \Df\Core\TestCase {
 	];}
 
 	/**
+	 * 2017-01-23
+	 * «The merchant_urls object.»
+	 * https://developers.klarna.com/api/?json#checkout-api__order__merchant_urls
+	 * @used-by order()
+	 * @return array(string => string)
+	 */
+	private function merchant_urls() {return [
+		/**
+		 * 2017-01-23
+		 * «URL for shipping, tax and purchase currency updates.
+		 * Will be called on address changes.
+		 * (must be https, max 2000 characters)»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__ordermerchant_urls__address_update
+		 */
+		'address_update' => ''
+		/**
+		 * 2017-01-23
+		 * «URL of merchant checkout page.
+		 * Should be different than terms, confirmation and push URLs.
+		 * (max 2000 characters)»
+		 * Required: yes.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__ordermerchant_urls__checkout
+		 */
+		,'checkout' => ''
+		/**
+		 * 2017-01-23
+		 * «URL of merchant confirmation page.
+		 * Should be different than checkout and confirmation URLs.
+		 * (max 2000 characters)»
+		 * Required: yes.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__ordermerchant_urls__confirmation
+		 */
+		,'confirmation' => ''
+		/**
+		 * 2017-01-23
+		 * «URL for shipping, tax and purchase currency updates.
+		 * Will be called on purchase country changes.
+		 * (must be https, max 2000 characters)»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__ordermerchant_urls__country_change
+		 */
+		,'country_change' => ''
+		/**
+		 * 2017-01-23
+		 * «URL for notifications on pending orders. (max 2000 characters)»
+		 * Required: no.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__ordermerchant_urls__notification
+		 */
+		,'notification' => ''
+		/**
+		 * 2017-01-23
+		 * «URL that will be requested when an order is completed.
+		 * Should be different than checkout and confirmation URLs.
+		 * (max 2000 characters)»
+		 * Required: yes.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__ordermerchant_urls__push
+		 */
+		,'push' => ''
+		/**
+		 * 2017-01-23
+		 * «URL for shipping option update.
+		 * (must be https, max 2000 characters)»
+		 * Required: no.
+		 * string
+		 * URL for shipping option update. (must be https, max 2000 characters)
+		 */
+		,'shipping_option_update' => ''
+		/**
+		 * 2017-01-23
+		 * «URL of merchant terms and conditions.
+		 * Should be different than checkout, confirmation and push URLs.
+		 * (max 2000 characters)»
+		 * Required: yes.
+		 * string
+		 * https://developers.klarna.com/api/?json#checkout-api__ordermerchant_urls__terms
+		 */
+		,'terms' => ''
+		/**
+		 * 2017-01-23
+		 * «URL that will be requested for final merchant validation.
+		 * (must be https, max 2000 characters)»
+		 * Required: no.
+		 * string
+		 */
+		,'validation' => ''
+	];}
+
+	/**
 	 * 2017-01-22
 	 * https://developers.klarna.com/api/?json#checkout-api-order
 	 * https://developers.klarna.com/en/us/kco-v3/checkout/2-render-the-checkout#add-cart-items
@@ -288,6 +383,14 @@ class Charge extends \Df\Core\TestCase {
 		 * https://developers.klarna.com/api/?json#checkout-api__order__locale
 		 */
 		,'locale' => 'en-US'
+		/**
+		 * 2017-01-23
+		 * «The merchant_urls object.»
+		 * Required: yes.
+		 * object
+		 * https://developers.klarna.com/api/?json#checkout-api__order__merchant_urls
+		 */
+		,'merchant_urls' => $this->merchant_urls()
 		/**
 		 * 2017-01-23
 		 * «Non-negative, minor units.
