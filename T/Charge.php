@@ -1,6 +1,8 @@
 <?php
 // 2017-01-22
 namespace Dfe\Klarna\T;
+use Dfe\Klarna\Settings as S;
+use Klarna\Rest\Transport\Connector as Con;
 class Charge extends \Df\Core\TestCase {
 	/**
 	 * @test
@@ -13,6 +15,10 @@ class Charge extends \Df\Core\TestCase {
 	 * 2017-01-22
 	 */
 	public function t01() {
+		/** @var S $s */
+		$s = S::s();
+		/** @var Con $con */
+		$con = Con::create($s->merchantID(), $s->sharedSecret(), Con::EU_TEST_BASE_URL);
 		/** @var array(string => mixed) $order */
 		$order = $this->kl_order();
 	}
