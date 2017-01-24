@@ -81,7 +81,7 @@ https://mage2.pro/t/2506
 					showInWebsite='1'
 					showInStore='1'
 				>
-					<label>Store ID (EID)</label>
+					<label>Test Store ID (EID)</label>
 					<comment><![CDATA[An unique number that identifies your e-store. <a href='https://mage2.pro/t/2398' target='_blank'>How to get it?</a>
 <br/>Klarna itself uses the <b>3</b> different terms for the <b>same</b> thing: «<b>EID</b>», «<b>Merchant ID</b>», «<b>Store ID</b>».]]></comment>
 					<depends>
@@ -105,59 +105,6 @@ https://mage2.pro/t/2506
 					<depends>
 						<field id='enable'>1</field>
 						<field id='test'>1</field>
-					</depends>
-					<validate>required-entry</validate>
-				</field>
-				<field
-					id='prefill'
-					translate='label'
-					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='6'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
-				>
-					<label>Prefill the Payment Form with Test Data?</label>
-					<comment><![CDATA[If you do not want it, then please use the following <a href='https://mage2.pro/t/2262' target='_blank'>test card</a>.]]></comment>
-					<depends>
-						<field id='enable'>1</field>
-						<field id='test'>1</field>
-					</depends>
-				</field>
-				<field
-					id='liveMerchantID'
-					translate='label'
-					type='text'
-					sortOrder='7'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
-				>
-					<label>Store ID (EID)</label>
-					<comment><![CDATA[An unique number that identifies your e-store. <a href='https://mage2.pro/t/2398' target='_blank'>How to get it?</a>
-<br/>Klarna itself uses the <b>3</b> different terms for the <b>same</b> thing: «<b>EID</b>», «<b>Merchant ID</b>», «<b>Store ID</b>».
-]]></comment>
-					<depends>
-						<field id='enable'>1</field>
-						<field id='test'>0</field>
-					</depends>
-					<validate>required-entry</validate>
-				</field>
-				<field
-					id='liveSharedSecret'
-					translate='label'
-					type='obscure'
-					sortOrder='8'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
-				>
-					<label>Live Shared Secret</label>
-					<comment><![CDATA[<a href='https://www.klarna.com/us/business' target='_blank'>How to get it?</a>]]></comment>
-					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
-					<depends>
-						<field id='enable'>1</field>
-						<field id='test'>0</field>
 					</depends>
 					<validate>required-entry</validate>
 				</field>
@@ -211,36 +158,111 @@ Checkout API версии 3 работает только в США и Вели�
 а также делать настройку модуля более понятной администратору.
 -->
 				<field
-					id='currency'
+					id='testCurrency'
 					translate='label'
 					type='Df\Directory\FormElement\Currency'
 					dfValues='DKK,EUR,NOK,SEK'
+					sortOrder='6'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Test Payment Currency</label>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>1</field>
+					</depends>
+				</field>
+				<field
+					id='testCountry'
+					translate='label'
+					type='Df\Directory\FormElement\Country'
+					dfValues='AT,DE,DK,FI,NL,NO,SE,GB,US'
+					sortOrder='7'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Test Store Country</label>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>1</field>
+					</depends>
+				</field>
+				<field
+					id='liveMerchantID'
+					translate='label'
+					type='text'
+					sortOrder='8'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Store ID (EID)</label>
+					<comment><![CDATA[An unique number that identifies your e-store. <a href='https://mage2.pro/t/2398' target='_blank'>How to get it?</a>
+<br/>Klarna itself uses the <b>3</b> different terms for the <b>same</b> thing: «<b>EID</b>», «<b>Merchant ID</b>», «<b>Store ID</b>».
+]]></comment>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>0</field>
+					</depends>
+					<validate>required-entry</validate>
+				</field>
+				<field
+					id='liveSharedSecret'
+					translate='label'
+					type='obscure'
 					sortOrder='9'
+					showInDefault='1'
+					showInWebsite='1'
+					showInStore='1'
+				>
+					<label>Live Shared Secret</label>
+					<comment><![CDATA[<a href='https://www.klarna.com/us/business' target='_blank'>How to get it?</a>]]></comment>
+					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>0</field>
+					</depends>
+					<validate>required-entry</validate>
+				</field>
+				<field
+					id='liveCurrency'
+					translate='label'
+					type='Df\Directory\FormElement\Currency'
+					dfValues='DKK,EUR,NOK,SEK'
+					sortOrder='10'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
 				>
 					<label>Payment Currency</label>
-					<depends><field id='enable'>1</field></depends>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>0</field>
+					</depends>
 				</field>
 				<field
-					id='country'
+					id='liveCountry'
 					translate='label'
 					type='Df\Directory\FormElement\Country'
 					dfValues='AT,DE,DK,FI,NL,NO,SE,GB,US'
-					sortOrder='9'
+					sortOrder='11'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
 				>
 					<label>Store Country</label>
-					<depends><field id='enable'>1</field></depends>
+					<depends>
+						<field id='enable'>1</field>
+						<field id='test'>0</field>
+					</depends>
 				</field>
 				<field
 					id='toc'
 					translate='label'
 					type='select'
-					sortOrder='10'
+					sortOrder='12'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -254,7 +276,7 @@ Checkout API версии 3 работает только в США и Вели�
 					id='askForBillingAddress'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='11'
+					sortOrder='13'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -268,7 +290,7 @@ Checkout API версии 3 работает только в США и Вели�
 					id='min_order_total'
 					translate='label'
 					type='text'
-					sortOrder='12'
+					sortOrder='14'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -282,7 +304,7 @@ Checkout API версии 3 работает только в США и Вели�
 					id='max_order_total'
 					translate='label'
 					type='text'
-					sortOrder='13'
+					sortOrder='15'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -296,7 +318,7 @@ Checkout API версии 3 работает только в США и Вели�
 					id='country_restriction'
 					translate='label'
 					type='select'
-					sortOrder='14'
+					sortOrder='16'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
@@ -309,7 +331,7 @@ Checkout API версии 3 работает только в США и Вели�
 					id='countries'
 					translate='label'
 					type='Df\Framework\Form\Element\Multiselect'
-					sortOrder='15'
+					sortOrder='17'
 					showInDefault='1'
 					showInWebsite='1'
 					showInStore='1'
