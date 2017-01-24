@@ -83,8 +83,7 @@ https://mage2.pro/t/2506
 				>
 					<label>Store ID (EID)</label>
 					<comment><![CDATA[An unique number that identifies your e-store. <a href='https://mage2.pro/t/2398' target='_blank'>How to get it?</a>
-<br/>Klarna itself uses the <b>3</b> different terms for the <b>same</b> thing: «<b>EID</b>», «<b>Merchant ID</b>», «<b>Store ID</b>».
-]]></comment>
+<br/>Klarna itself uses the <b>3</b> different terms for the <b>same</b> thing: «<b>EID</b>», «<b>Merchant ID</b>», «<b>Store ID</b>».]]></comment>
 					<depends>
 						<field id='enable'>1</field>
 						<field id='test'>1</field>
@@ -205,6 +204,11 @@ Checkout API версии 3 работает только в США и Вели�
 а использовать вместо этого значение стандартной опции Magento 2:
 «General» → «General» → «Store Information» → «Country».
 Эта опция может настраивается администратором для каждого сайта индивидуально.
+
+2017-01-24
+Однако, своя опция для страны вместо стандартной
+даёт нам возможность делать её разной для тестового и промышленного режимов,
+а также делать настройку модуля более понятной администратору.
 -->
 				<field
 					id='currency'
