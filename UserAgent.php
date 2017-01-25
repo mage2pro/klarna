@@ -1,6 +1,12 @@
 <?php
 // 2017-01-25
 namespace Dfe\Klarna;
+/**
+ * 2017-01-25
+ * @see \Klarna\Rest\Transport\Connector::createRequest()
+ * 		$options['headers']['User-Agent'] = strval($this->userAgent);
+ * https://github.com/klarna/kco_rest_php/blob/v2.2.0/src/Klarna/Rest/Transport/Connector.php#L105
+ */
 class UserAgent extends \Klarna\Rest\Transport\UserAgent {
 	/**
 	 * 2017-01-25
@@ -43,8 +49,12 @@ class UserAgent extends \Klarna\Rest\Transport\UserAgent {
 		 * 2017-01-25
 		 * «This is used to indicate if the integration is done using a partner.»
 		 * https://github.com/klarna/kco_rest_php/blob/v2.2.0/src/Klarna/Rest/Transport/UserAgentInterface.php#L56-L62
+		 * Хотел поставить здесь значение «https://mage2.pro/c/extensions/klarna»,
+		 * но тогда слеши URL будут перемешаны со слешами User-Agent:
+		 * «Language/PHP_5.6.22 <...> Partner/https://mage2.pro/c/extensions/klarna <...>»
+		 * Не уверен, что Klarna это корректно обработает.
 		 */
-        $this->f('Partner', 'https://mage2.pro/c/extensions/klarna');
+        $this->f('Partner', 'mage2.pro');
 		/**
 		 * 2017-01-25
 		 * «This is used to indicate if the integration is done using a partner.»
