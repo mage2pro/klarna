@@ -18,7 +18,7 @@ class Charge extends \Df\Core\TestCase {
 		/** @var S $s */
 		$s = S::s();
 		/** @var Con $con */
-		$con = Con::create($s->merchantID(), $s->sharedSecret(), $s->apiUrl());
+		$con = Con::create($s->merchantID(), $s->sharedSecret(), $s->apiUrl('US'));
 		/** @var array(string => mixed) $order */
 		$order = $this->kl_order();
 	}

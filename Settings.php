@@ -13,18 +13,18 @@ final class Settings extends \Df\Payment\Settings {
 	 * https://mage2.pro/t/2517
 	 * «Why are Klarna's API URLs for USA buyers different from others?» https://mage2.pro/t/2516
 	 * Поэтому текущий алгоритм неверен и нуждается в переделке.
+	 * @param string $buyerCountryIso2
 	 * @return string
 	 */
-	public function apiUrl() {return dfc($this, function() {return
+	public function apiUrl($buyerCountryIso2) {return
 		sprintf('https://api%s%s.klarna.com/',
-			'US' === $this->country() ? '-na' : ''
+			'US' === $buyerCountryIso2 ? '-na' : ''
 			,$this->test() ? '.playground' : ''
 		)
-	;});}
+	;}
 
 	/**
-	 * 2016-12-24  
-	 * @used-by apiUrl()
+	 * 2016-12-24
 	 * @return string
 	 */
 	public function country() {return $this->testable();}
