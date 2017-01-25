@@ -126,7 +126,7 @@ class Charge extends \Df\Core\TestCase {
 		 * string
 		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__family_name
 		 */
-		,'family_name' => 'Family name'
+		,'family_name' => 'Fedyuk'
 		/**
 		 * 2017-01-23
 		 * «Given name»

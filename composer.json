@@ -1,6 +1,6 @@
 {
 	"name": "mage2pro/klarna"
-	,"version": "0.0.3"
+	,"version": "0.0.4"
 	,"description": "«Klarna» Magento 2 payment extension."
 	,"type": "magento2-module"
 	,"homepage": "https://mage2.pro/c/extensions/klarna"
@@ -12,7 +12,8 @@
 		"role": "Developer"
 	}]
 	,"require": {
-		"klarna/kco_rest": "*"
+		"klarna/checkout": "*"
+		,"klarna/kco_rest": "*"
 		,"mage2pro/core": "^1.11.2"
 	}
 	,"autoload": {"files": ["registration.php"], "psr-4": {"Dfe\\Klarna\\": ""}}
