@@ -2,7 +2,8 @@
 // 2017-01-22
 namespace Dfe\Klarna\T;
 use Dfe\Klarna\Settings as S;
-use Klarna\Rest\Transport\Connector as Con;
+use Klarna\Rest\Checkout\Order as klOrder;
+use Klarna\Rest\Transport\Connector as klConnector;
 class Charge extends \Df\Core\TestCase {
 	/**
 	 * @test
@@ -17,10 +18,11 @@ class Charge extends \Df\Core\TestCase {
 	public function t01() {
 		/** @var S $s */
 		$s = S::s();
-		/** @var Con $con */
-		$con = Con::create($s->merchantID(), $s->sharedSecret(), $s->apiUrl('US'));
-		/** @var array(string => mixed) $order */
-		$order = $this->kl_order();
+		/** @var klConnector $connector */
+		$connector = klConnector::create($s->merchantID(), $s->sharedSecret(), $s->apiUrl('US'));
+		/** @var klOrder $order */
+		$order = new klOrder($connector);
+		$order->create($this->kl_order());
 	}
 
 	/**
