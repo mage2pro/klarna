@@ -40,6 +40,18 @@ class Charge {
 
 	/**
 	 * 2017-01-26
+	 * «Merchant related information.»
+	 * Required: yes.
+	 * Type: merchant object.
+	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#merchant-object-properties
+	 * @used-by kl_order()
+	 * @return array(string => string)
+	 */
+	private function kl_merchant_urls() {return [
+	];}
+
+	/**
+	 * 2017-01-26
 	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#resource-properties
 	 * https://developers.klarna.com/en/se/kco-v2/checkout/2-embed-the-checkout#configure-checkout-order
 	 * @used-by p()
@@ -104,6 +116,14 @@ class Charge {
 		 * https://mage2.pro/t/2533
 		 */
 		,'locale' => ''
+		/**
+		 * 2017-01-26
+		 * «Merchant related information.»
+		 * Required: yes.
+		 * Type: merchant object.
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#merchant-object-properties
+		 */
+		,'merchant' => $this->kl_merchant_urls()
 		/**
 		 * 2017-01-26
 		 * «Merchant references»
