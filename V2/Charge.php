@@ -82,6 +82,13 @@ class Charge {
 	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#address-object-properties
 	 * @used-by kl_order()
 	 * @return array(string => mixed)
+	 * Похоже, что при использовании Checkout API версии 2
+	 * мы не можем передать адрес покупателя сервису,
+	 * потому что «billing_address» полностью read-only,
+	 * а у «shipping_address» все важные для нас поля read-only.
+	 * @todo Надо всё-таки проверить, попытаться что-то передать (имя, фамилию...).
+	 * В то же время, Checkout API версии 3 позвляет нам передавать сервису «billing_address»:
+	 * https://developers.klarna.com/api/?json#checkout-api__order__billing_address
 	 */
 	private function kl_shipping_address() {return [];}
 
