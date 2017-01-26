@@ -53,7 +53,7 @@ final class Charge {
 		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderattachment__body
 		 */
-		'body' => []
+		'body' => ''
 		/**
 		 * 2017-01-23
 		 * «The content type of the body property.»

@@ -18,7 +18,7 @@ class Charge {
 		 * Required: yes.
 		 * Type: string.
 		 */
-		'body' => []
+		'body' => ''
 		/**
 		 * 2017-01-26
 		 * «The content type of the body property.»
