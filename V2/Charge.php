@@ -12,6 +12,30 @@ class Charge {
 	 * @return array(string => string)
 	 */
 	private function kl_customer() {return [
+		/**
+		 * 2017-01-26
+		 * «If provided by customer, or retrieved from national ID.
+		 * The customer's birthdate (YYYY-MM-DD)»
+		 * Required: no.
+		 * Type: string.
+		 */
+		'date_of_birth' => '1982-07-08'
+		/**
+		 * 2017-01-26
+		 * «Retrieved from national ID or billing_address.title in Germany.
+		 * 'female' or 'male'»
+		 * Required: no.
+		 * Type: string.
+		 */
+		,'gender' => 'male'
+		/**
+		 * 2017-01-26
+		 * «For B2B, this field is used for the organization's official registration id
+		 * (Organization number).»
+		 * Required: no.
+		 * Type: string.
+		 */
+		,'organization_registration_id' => ''
 	];}
 
 	/**
