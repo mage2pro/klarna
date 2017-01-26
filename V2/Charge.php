@@ -48,6 +48,64 @@ class Charge {
 	 * @return array(string => string)
 	 */
 	private function kl_merchant_urls() {return [
+		/**
+		 * 2017-01-26
+		 * «URI of your store page. Used on the settlement page.»
+		 * Required: no.
+		 * Type: string.
+		 */
+		'back_to_store_uri' => ''
+		/**
+		 * 2017-01-26
+		 * «URI of the cancellation terms»
+		 * Required: no.
+		 * Type: string.
+		 */
+		,'cancellation_terms_uri' => ''
+		/**
+		 * 2017-01-26
+		 * «URI of your checkout page»
+		 * Required: yes.
+		 * Type: string.
+		 */
+		,'checkout_uri' => ''
+		/**
+		 * 2017-01-26
+		 * «URI of your confirmation page»
+		 * Required: yes.
+		 * Type: string.
+		 */
+		,'confirmation_uri' => ''
+		/**
+		 * 2017-01-26
+		 * «URI of your terms and conditions for B2B purchases/organizations
+		 * (may be used in the B2B flow).»
+		 * Required: no.
+		 * Type: string.
+		 */
+		,'organization_terms_uri' => ''
+		/**
+		 * 2017-01-26
+		 * «URI of your push-notification page»
+		 * Required: yes.
+		 * Type: string.
+		 */
+		,'push_uri' => ''
+		/**
+		 * 2017-01-26
+		 * «URI of your terms and conditions»
+		 * Required: yes.
+		 * Type: string.
+		 */
+		,'terms_uri' => ''
+		/**
+		 * 2017-01-26
+		 * «URI of your validation page, see validate a checkout order.»
+		 * https://developers.klarna.com/en/se/kco-v2/checkout/use-cases#validate-checkout-order
+		 * Required: no.
+		 * Type: string.
+		 */
+		,'validation_uri' => ''
 	];}
 
 	/**
