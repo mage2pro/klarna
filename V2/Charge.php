@@ -102,6 +102,81 @@ class Charge {
 	 * @return array(string => string|int)
 	 */
 	private function kl_order_lines() {return [[
+		/**
+		 * 2017-01-26
+		 * «Percentage of discount, multiplied by 100 and provided as an integer.
+		 * I.e. 9.57% should be sent as 957.»
+		 * Required: no.
+		 * Type: integer.
+		 */
+		'discount_rate' => 0
+		/**
+		 * 2017-01-26
+		 * «The item's International Article Number.
+		 * Please note this property is currently not returned when fetching the full order resource.»
+		 * Required: no.
+		 * Type: string.
+		 */
+		,'ean' => ''
+		/**
+		 * 2017-01-26
+		 * «Item image URI.
+		 * Please note this property is currently not returned when fetching the full order resource.»
+		 * Required: no.
+		 * Type: string.
+		 */
+		,'image_uri' => ''
+		/**
+		 * 2017-01-26
+		 * «Name, usually a short description»
+		 * Required: yes.
+		 * Type: string.
+		 */
+		,'name' => ''
+		/**
+		 * 2017-01-26
+		 * «Quantity»
+		 * Required: yes.
+		 * Type: integer.
+		 */
+		,'quantity' => 1
+		/**
+		 * 2017-01-26
+		 * «Reference, usually the article number»
+		 * Required: yes.
+		 * Type: string.
+		 */
+		,'reference' => ''
+		/**
+		 * 2017-01-26
+		 * «Percentage of tax rate, multiplied by 100 and provided as an integer.
+		 * I.e. 13.57% should be sent as 1357.»
+		 * Required: yes.
+		 * Type: integer.
+		 */
+		,'tax_rate' => 0
+		/**
+		 * 2017-01-26
+		 * «Type. `physical` by default, alternatively `discount`, `shipping_fee`»
+		 * Required: no.
+		 * Type: string.
+		 */
+		,'type' => 'physical'
+		/**
+		 * 2017-01-26
+		 * «Unit price in cents, including tax»
+		 * Required: yes.
+		 * Type: integer.
+		 */
+		,'unit_price' => 1
+		/**
+		 * 2017-01-26
+		 * «Item product page URI.
+		 * Please note this property is currently not returned when fetching the full order resource.»
+		 * Required: no.
+		 * Type: string.
+		 */
+		,'uri' => ''
 	]];}
 
 	/**
