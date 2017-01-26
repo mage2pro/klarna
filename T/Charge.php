@@ -1,10 +1,10 @@
 <?php
 // 2017-01-22
 namespace Dfe\Klarna\T;
+use Dfe\Klarna\Api\Factory;
 use Dfe\Klarna\Settings as S;
-use Dfe\Klarna\UserAgent as UA;
-use Klarna\Rest\Checkout\Order as klOrder;
-use Klarna\Rest\Transport\Connector as klConnector;
+use Klarna_Checkout_Order as klOrder2;
+use Klarna\Rest\Checkout\Order as klOrder3;
 class Charge extends \Df\Core\TestCase {
 	/**
 	 * @test
@@ -17,12 +17,8 @@ class Charge extends \Df\Core\TestCase {
 	 * 2017-01-22
 	 */
 	public function t01() {
-		/** @var S $s */
-		$s = S::s();
-		/** @var klConnector $connector */
-		$connector = klConnector::create($s->merchantID(), $s->sharedSecret(), $s->apiUrl('US'), new UA);
-		/** @var klOrder $order */
-		$order = new klOrder($connector);
+		/** @var klOrder2|klOrder3 $order */
+		$order = Factory::order(S::s(), 'SE');
 		$order->create($this->kl_order());
 	}
 
