@@ -107,5 +107,14 @@ final class Api {
 		catch (\GuzzleHttp\Exception\ClientException $e) {
 			throw new Exception3_Guzzle($e, $request);
 		}
+		/**
+		 * 2017-01-26
+		 * Checkout API версии 3.
+		 * Сюда мы попадаем в случае, описанном здесь:
+		 * https://github.com/mage2pro/klarna/blob/0.0.5/V3/Exception/Connector.php?ts=4#L5-L7
+		 */
+		catch (\Klarna\Rest\Transport\Exception\ConnectorException $e) {
+			throw new Exception3_Connector($e, $request);
+		}
 	}
 }
