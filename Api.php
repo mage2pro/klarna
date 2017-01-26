@@ -1,20 +1,22 @@
 <?php
 // 2017-01-25
-namespace Dfe\Klarna\Api;
+namespace Dfe\Klarna;
 use Dfe\Klarna\Settings as S;
 use Dfe\Klarna\UserAgent as UA;
+use Dfe\Klarna\V2\Exception as Exception2;
 use Klarna_Checkout_Connector as klConnector2;
 use Klarna_Checkout_Order as klOrder2;
 use Klarna\Rest\Checkout\Order as klOrder3;
 use Klarna\Rest\Transport\Connector as klConnector3;
-final class Factory {
+final class Api {
 	/**
 	 * 2017-01-25
 	 * @param S $s
 	 * @param string $buyerCountry
-	 * @return klOrder2|klOrder3
+	 * @param array(string => mixed) $request
+	 * @throws Exception2
 	 */
-	public static function order(S $s, $buyerCountry) {
+	public static function order(S $s, $buyerCountry, array $request) {
 		/** @var bool $isV2 */
 		$isV2 = !in_array($buyerCountry, ['GB', 'US']);
 		/**
@@ -63,9 +65,33 @@ final class Factory {
 		);
 		/** @var string $secret */
 		$secret = $s->sharedSecret();
-		return $isV2
+		/** @var klOrder2|klOrder3 $order */
+		$order = $isV2
 			? new klOrder2(klConnector2::create($secret, $url))
 			: new klOrder3(klConnector3::create($s->merchantID(), $secret, $url, new UA))
 		;
+		try {
+			$order->create($request);
+		}
+		/**
+		 * 2017-01-26
+		 * Для получения диагностической информации можно использовать метод
+		 * @see \Klarna_Checkout_ApiErrorException::getPayload()
+		 * Он возвращает массив следующей структуры:
+				{
+					"http_status_code": 400,
+					"http_status_message": "Bad Request",
+					"internal_message": "Bad format: 'shipping_countries' is not part of the schema"
+				}
+		 * В то же время простое $e->getMessage() вернёт просто «API Error».
+		 * @see \Klarna_Checkout_BasicConnector::verifyResponse():
+				throw new Klarna_Checkout_ApiErrorException(
+					"API Error", $result->getStatus(), $payload
+				);
+		 * https://github.com/klarna/kco_php/blob/v4.0.0/src/Klarna/Checkout/BasicConnector.php#L237-L239
+		 */
+		catch (\Klarna_Checkout_ApiErrorException $e) {
+			throw new Exception2($e, $request);
+		}
 	}
 }

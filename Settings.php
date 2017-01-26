@@ -23,14 +23,14 @@ final class Settings extends \Df\Payment\Settings {
 
 	/**
 	 * 2017-01-24
-	 * @used-by \Dfe\Klarna\Api\Factory::order()
+	 * @used-by \Dfe\Klarna\Api::order()
 	 * @return int
 	 */
 	public function merchantID() {return $this->testable();}
 
 	/**
 	 * 2017-01-24
-	 * @used-by \Dfe\Klarna\Api\Factory::order()
+	 * @used-by \Dfe\Klarna\Api::order()
 	 * @return string
 	 */
 	public function sharedSecret() {return $this->testableP();}

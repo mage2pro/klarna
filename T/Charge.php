@@ -1,10 +1,9 @@
 <?php
 // 2017-01-22
 namespace Dfe\Klarna\T;
-use Dfe\Klarna\Api\Factory;
+use Dfe\Klarna\Api;
+use Dfe\Klarna\Exception as E;
 use Dfe\Klarna\Settings as S;
-use Klarna_Checkout_Order as klOrder2;
-use Klarna\Rest\Checkout\Order as klOrder3;
 class Charge extends \Df\Core\TestCase {
 	/**
 	 * @test
@@ -17,9 +16,12 @@ class Charge extends \Df\Core\TestCase {
 	 * 2017-01-22
 	 */
 	public function t01() {
-		/** @var klOrder2|klOrder3 $order */
-		$order = Factory::order(S::s(), 'SE');
-		$order->create($this->kl_order());
+		try {
+			Api::order(S::s(), 'SE', $this->kl_order());
+		}
+		catch (E $e) {
+			echo df_etsd($e);
+		}
 	}
 
 	/**
