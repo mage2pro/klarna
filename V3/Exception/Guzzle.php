@@ -1,5 +1,7 @@
 <?php
 namespace Dfe\Klarna\V3\Exception;
+use GuzzleHttp\Message\Response;
+use GuzzleHttp\Message\ResponseInterface as IResponse;
 /**
  * 2017-01-26
  * Исключительная ситуация этого класса возбуждается в 2 случаях:
@@ -25,4 +27,21 @@ namespace Dfe\Klarna\V3\Exception;
  *
  * @used-by \Dfe\Klarna\Api::order()
  */
-class Guzzle extends \Dfe\Klarna\V3\Exception {}
+class Guzzle extends \Dfe\Klarna\V3\Exception {
+	/**
+	 * 2017-01-26
+	 * @override
+	 * @see \Dfe\Klarna\Exception::responseA()
+	 * @used-by \Dfe\Klarna\Exception::message()
+	 * @param \Exception|\GuzzleHttp\Exception\ClientException $e
+	 * @return array(string => mixed)
+	 */
+	protected function responseA(\Exception $e) {
+		/** @var IResponse|Response $r */
+		$r = $e->getResponse();
+		return [
+			'HTTP Status Code' => $r->getStatusCode()
+			,'Reason' => $r->getReasonPhrase()
+		];
+	}
+}
