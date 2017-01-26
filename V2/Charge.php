@@ -73,6 +73,30 @@ class Charge {
 		,'customer' => $this->kl_customer()
 		/**
 		 * 2017-01-26
+		 * «The gui object»
+		 * Required: no.
+		 * Type: gui object.
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#gui-object-properties
+		 */
+		,'gui' => [
+			/**
+			 * 2017-01-26
+			 * «Layout. `desktop` by default, alternatively `mobile`»
+			 * Required: no.
+			 * Type: string.
+			 */
+			'layout' => 'desktop'
+			/**
+			 * 2017-01-26
+			 * «An array of options to define the checkout behaviour.
+			 * Supported options `disable_autofocus`.»
+			 * Required: no.
+			 * Type: array of strings.
+			 */
+			,'options' => []
+		]
+		/**
+		 * 2017-01-26
 		 * «Locale indicative for language & other location-specific details (RFC1766)»
 		 * Required: yes.
 		 * Type: string.
