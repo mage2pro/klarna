@@ -65,7 +65,25 @@ class Charge {
 		 * Type: boolean.
 		 */
 		,'recurring' => ''
+		/**
+		 * 2017-01-26
+		 * «The shipping address»
+		 * Required: no.
+		 * Type: address object.
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#address-object-properties
+		 */
+		,'shipping_address' => $this->kl_shipping_address()
 	];}
+
+	/**
+	 * 2017-01-26
+	 * «The shipping address»
+	 * Type: address object.
+	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#address-object-properties
+	 * @used-by kl_order()
+	 * @return array(string => mixed)
+	 */
+	private function kl_shipping_address() {return [];}
 
 	/**
 	 * 2017-01-26
