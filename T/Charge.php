@@ -2,7 +2,6 @@
 // 2017-01-22
 namespace Dfe\Klarna\T;
 use Dfe\Klarna\Api;
-use Dfe\Klarna\Exception as E;
 use Dfe\Klarna\Settings as S;
 class Charge extends \Df\Core\TestCase {
 	/**
@@ -17,9 +16,9 @@ class Charge extends \Df\Core\TestCase {
 	 */
 	public function t01() {
 		try {
-			Api::order(S::s(), 'SE', $this->kl_order());
+			Api::order(S::s(), 'US', $this->kl_order());
 		}
-		catch (E $e) {
+		catch (\Exception $e) {
 			echo df_etsd($e);
 		}
 	}

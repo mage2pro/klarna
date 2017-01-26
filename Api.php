@@ -4,6 +4,8 @@ namespace Dfe\Klarna;
 use Dfe\Klarna\Settings as S;
 use Dfe\Klarna\UserAgent as UA;
 use Dfe\Klarna\V2\Exception as Exception2;
+use Dfe\Klarna\V3\Exception\Guzzle as Exception3_Guzzle;
+use Dfe\Klarna\V3\Exception\Guzzle as Exception3_Connector;
 use Klarna_Checkout_Connector as klConnector2;
 use Klarna_Checkout_Order as klOrder2;
 use Klarna\Rest\Checkout\Order as klOrder3;
@@ -14,7 +16,9 @@ final class Api {
 	 * @param S $s
 	 * @param string $buyerCountry
 	 * @param array(string => mixed) $request
-	 * @throws Exception2
+	 * @throws Exception2 
+	 * @throws Exception3_Guzzle
+	 * @throws Exception3_Connector
 	 */
 	public static function order(S $s, $buyerCountry, array $request) {
 		/** @var bool $isV2 */
@@ -75,6 +79,7 @@ final class Api {
 		}
 		/**
 		 * 2017-01-26
+		 * Checkout API версии 2.
 		 * Для получения диагностической информации можно использовать метод
 		 * @see \Klarna_Checkout_ApiErrorException::getPayload()
 		 * Он возвращает массив следующей структуры:
@@ -92,6 +97,33 @@ final class Api {
 		 */
 		catch (\Klarna_Checkout_ApiErrorException $e) {
 			throw new Exception2($e, $request);
+		}
+		/**
+		 * 2017-01-26
+		 * Checkout API версии 3.
+		 * Сюда мы попадаем в 2 случаях:
+		 *
+		 * Случай 1)
+		 * Klarna нас не авторизовала:
+		 * @see \Klarna\Rest\Transport\Connector::send():
+				if ($response->getHeader('Content-Type') !== 'application/json') {
+					throw $e;
+				}
+		 * https://github.com/klarna/kco_rest_php/blob/v2.2.0/src/Klarna/Rest/Transport/Connector.php#L132-L134
+		 * В этом случае ответ сервера имеет тип «text/html», а не «application/json».
+		 * При этом тело ответа пусто, а код HTTP ответа — 401.
+		 *
+		 * Случай 2)
+		 * Klarna вернула непонятный ответ:
+		 * @see \Klarna\Rest\Transport\Connector::send():
+				$data = $response->json();
+				if (!is_array($data) || !array_key_exists('error_code', $data)) {
+					throw $e;
+				}
+		 * https://github.com/klarna/kco_rest_php/blob/v2.2.0/src/Klarna/Rest/Transport/Connector.php#L136-L140
+		 */
+		catch (\GuzzleHttp\Exception\ClientException $e) {
+			throw new Exception3_Guzzle($e, $request);
 		}
 	}
 }

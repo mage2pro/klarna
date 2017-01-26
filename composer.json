@@ -1,6 +1,6 @@
 {
 	"name": "mage2pro/klarna"
-	,"version": "0.0.4"
+	,"version": "0.0.5"
 	,"description": "«Klarna» Magento 2 payment extension."
 	,"type": "magento2-module"
 	,"homepage": "https://mage2.pro/c/extensions/klarna"
