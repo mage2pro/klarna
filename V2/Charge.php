@@ -12,13 +12,30 @@ class Charge {
 	private function kl_order() {return [
 		/**
 		 * 2017-01-26
+		 * «The cart»
+		 * Required: yes.
+		 * Type: cart object.
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#cart-object-properties
+		 */
+		'cart' => [
+			/**
+			 * 2017-01-26
+			 * «List of cart items»
+			 * Required: yes.
+			 * Type: array of cart item objects.
+			 * https://developers.klarna.com/en/se/kco-v2/checkout-api#cart-item-object-properties
+			 */
+			'items' => $this->kl_order_lines()
+		]
+		/**
+		 * 2017-01-26
 		 * «Locale indicative for language & other location-specific details (RFC1766)»
 		 * Required: yes.
 		 * Type: string.
 		 * «Which locales are supported by the version 2 of Klarna Checkout API?»
 		 * https://mage2.pro/t/2533
 		 */
-		'locale' => ''
+		,'locale' => ''
 		/**
 		 * 2017-01-26
 		 * «Merchant references»
@@ -74,6 +91,18 @@ class Charge {
 		 */
 		,'shipping_address' => $this->kl_shipping_address()
 	];}
+
+	/**
+	 * 2017-01-26
+	 * «List of cart items»
+	 * Required: yes.
+	 * Type: array of cart item objects.
+	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#cart-item-object-properties
+	 * @used-by kl_order()
+	 * @return array(string => string|int)
+	 */
+	private function kl_order_lines() {return [[
+	]];}
 
 	/**
 	 * 2017-01-26
