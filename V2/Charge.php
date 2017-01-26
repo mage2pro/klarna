@@ -4,6 +4,18 @@ namespace Dfe\Klarna\V2;
 class Charge {
 	/**
 	 * 2017-01-26
+	 * «Information about the liable customer of the order.»
+	 * Required: no.
+	 * Type: customer object.
+	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#customer-object-properties
+	 * @used-by kl_order()
+	 * @return array(string => string)
+	 */
+	private function kl_customer() {return [
+	];}
+
+	/**
+	 * 2017-01-26
 	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#resource-properties
 	 * https://developers.klarna.com/en/se/kco-v2/checkout/2-embed-the-checkout#configure-checkout-order
 	 * @used-by p()
@@ -27,6 +39,14 @@ class Charge {
 			 */
 			'items' => $this->kl_order_lines()
 		]
+		/**
+		 * 2017-01-26
+		 * «Information about the liable customer of the order.»
+		 * Required: no.
+		 * Type: customer object.
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#customer-object-properties
+		 */
+		,'customer' => $this->kl_customer()
 		/**
 		 * 2017-01-26
 		 * «Locale indicative for language & other location-specific details (RFC1766)»
