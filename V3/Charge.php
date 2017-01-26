@@ -50,7 +50,7 @@ final class Charge {
 		 * The body should be an object containing any of the keys and sub objects
 		 * described below serialised to JSON.»
 		 * Required: yes.
-		 * string.
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderattachment__body
 		 */
 		'body' => []
@@ -58,7 +58,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «The content type of the body property.»
 		 * Required: yes.
-		 * string.
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderattachment__content_type
 		 */
 		,'content_type' => ''
@@ -75,7 +75,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «City»
 		 * Required: no.
-		 * string.
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__city
 		 */
 		'city' => ''
@@ -83,7 +83,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «ISO 3166 alpha-2. Country.»
 		 * Required: no.
-		 * string.
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__country
 		 */
 		,'country' => ''
@@ -91,7 +91,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «E-mail address»
 		 * Required: no.
-		 * string
+		 * Type: string
 		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__email
 		 */
 		,'email' => 'admin@mage2.pro'
@@ -99,7 +99,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «Family name»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__family_name
 		 */
 		,'family_name' => 'Fedyuk'
@@ -107,7 +107,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «Given name»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__given_name
 		 */
 		,'given_name' => 'Dmitry'
@@ -115,7 +115,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «Phone number»
 		 * Required: no.
-		 * string.
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__phone
 		 */
 		,'phone' => ''
@@ -123,7 +123,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «Postal/post code.»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__postal_code
 		 */
 		,'postal_code' => ''
@@ -131,7 +131,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «Street address, first line.»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__street_address
 		 */
 		,'street_address' => ''
@@ -139,7 +139,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «Street address, second line.»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__street_address2
 		 */
 		,'street_address2' => ''
@@ -150,7 +150,7 @@ final class Charge {
 		 * Valid values for DACH: Herr, Frau.»
 		 * DACH: https://de.wikipedia.org/wiki/D-A-CH
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__title
 		 */
 		,'title' => ''
@@ -158,7 +158,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «State or Region»
 		 * Required: no.
-		 * string.
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__ordershipping_address__region
 		 */
 		,'region' => ''
@@ -179,7 +179,7 @@ final class Charge {
 		 * https://developers.klarna.com/api/?json#data-types
 		 * В документации формат даты в примерах именно такой.
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 */
 		'date_of_birth' => '1982-07-08'
 	];}
@@ -198,7 +198,7 @@ final class Charge {
 		 * Will be called on address changes.
 		 * (must be https, max 2000 characters)»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__ordermerchant_urls__address_update
 		 */
 		'address_update' => ''
@@ -208,7 +208,7 @@ final class Charge {
 		 * Should be different than terms, confirmation and push URLs.
 		 * (max 2000 characters)»
 		 * Required: yes.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__ordermerchant_urls__checkout
 		 */
 		,'checkout' => ''
@@ -218,7 +218,7 @@ final class Charge {
 		 * Should be different than checkout and confirmation URLs.
 		 * (max 2000 characters)»
 		 * Required: yes.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__ordermerchant_urls__confirmation
 		 */
 		,'confirmation' => ''
@@ -228,7 +228,7 @@ final class Charge {
 		 * Will be called on purchase country changes.
 		 * (must be https, max 2000 characters)»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__ordermerchant_urls__country_change
 		 */
 		,'country_change' => ''
@@ -236,7 +236,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «URL for notifications on pending orders. (max 2000 characters)»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__ordermerchant_urls__notification
 		 */
 		,'notification' => ''
@@ -246,7 +246,7 @@ final class Charge {
 		 * Should be different than checkout and confirmation URLs.
 		 * (max 2000 characters)»
 		 * Required: yes.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__ordermerchant_urls__push
 		 */
 		,'push' => ''
@@ -255,7 +255,7 @@ final class Charge {
 		 * «URL for shipping option update.
 		 * (must be https, max 2000 characters)»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * URL for shipping option update. (must be https, max 2000 characters)
 		 */
 		,'shipping_option_update' => ''
@@ -265,7 +265,7 @@ final class Charge {
 		 * Should be different than checkout, confirmation and push URLs.
 		 * (max 2000 characters)»
 		 * Required: yes.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__ordermerchant_urls__terms
 		 */
 		,'terms' => ''
@@ -274,7 +274,7 @@ final class Charge {
 		 * «URL that will be requested for final merchant validation.
 		 * (must be https, max 2000 characters)»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 */
 		,'validation' => ''
 	];}
@@ -291,7 +291,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «Additional merchant defined checkbox. e.g. for Newsletter opt-in.»
 		 * Required: yes.
-		 * object
+		 * Type: object.
 		 */
 		'additional_checkbox' => $this->kl_additional_checkbox()
 		/**
@@ -300,7 +300,7 @@ final class Charge {
 		 * otherwise the selection will be limited to the countries provided in shipping_countries field.
 		 * Default: false.»
 		 * Required: no.
-		 * boolean
+		 * Type: boolean.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__allow_global_billing_countries
 		 */
 		,'allow_global_billing_countries' => ''
@@ -309,7 +309,7 @@ final class Charge {
 		 * «If true, the consumer can enter different billing and shipping addresses.
 		 * Default: false»
 		 * Required: no.
-		 * boolean
+		 * Type: boolean.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__allow_separate_shipping_address
 		 */
 		,'allow_separate_shipping_address' => ''
@@ -317,7 +317,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «CSS hex color, e.g. "#FF9900"»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_button
 		 */
 		,'color_button' => ''
@@ -325,7 +325,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «CSS hex color, e.g. "#FF9900"»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_button_text
 		 */
 		,'color_button_text' => ''
@@ -333,7 +333,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «CSS hex color, e.g. "#FF9900"»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_checkbox
 		 */
 		,'color_checkbox' => ''
@@ -341,7 +341,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «CSS hex color, e.g. "#FF9900"»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_checkbox_checkmark
 		 */
 		,'color_checkbox_checkmark' => ''
@@ -349,7 +349,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «CSS hex color, e.g. "#FF9900"»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_header
 		 */
 		,'color_header' => ''
@@ -357,7 +357,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «CSS hex color, e.g. "#FF9900"»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_link
 		 */
 		,'color_link' => ''
@@ -366,7 +366,7 @@ final class Charge {
 		 * «If true, the consumer cannot skip date of birth.
 		 * Default: false»
 		 * Required: no.
-		 * boolean
+		 * Type: boolean.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__date_of_birth_mandatory
 		 */
 		,'date_of_birth_mandatory' => ''
@@ -374,7 +374,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «Border radius»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__radius_border
 		 */
 		,'radius_border' => ''
@@ -383,7 +383,7 @@ final class Charge {
 		 * «If true, validate callback must get a positive response to not stop purchase.
 		 * Default: false.»
 		 * Required: no.
-		 * boolean
+		 * Type: boolean.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__require_validate_callback_success
 		 */
 		,'require_validate_callback_success' => ''
@@ -391,7 +391,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «A message that will be presented on the confirmation page under the headline "Delivery".»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__shipping_details
 		 */
 		,'shipping_details' => ''
@@ -400,7 +400,7 @@ final class Charge {
 		 * «If true, the Order Detail subtodals view is expanded.
 		 * Default: false»
 		 * Required: no.
-		 * boolean
+		 * Type: boolean.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__show_subtotal_detail
 		 */
 		,'show_subtotal_detail' => ''
@@ -408,7 +408,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «If specified to false, title becomes optional in countries that by default require title.»
 		 * Required: no.
-		 * boolean
+		 * Type: boolean.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__title_mandatory
 		 */
 		,'title_mandatory' => ''
@@ -426,7 +426,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «Additional purchase information required for some industries.»
 		 * Required: no.
-		 * object
+		 * Type: object.
 		 * https://developers.klarna.com/api/?json#checkout-api__order__attachment
 		 */
 		'attachment' => $this->kl_attachment()
@@ -435,7 +435,7 @@ final class Charge {
 		 * «Once the customer has provided any data in the checkout iframe,
 		 * updates to this object will be ignored (without generating an error).»
 		 * Required: no.
-		 * object
+		 * Type: object.
 		 * https://developers.klarna.com/api/?json#checkout-api__order__billing_address
 		 */
 		,'billing_address' => $this->kl_billing_address()
@@ -443,7 +443,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «Information about the liable customer of the order.»
 		 * Required: no.
-		 * object
+		 * Type: object.
 		 * https://developers.klarna.com/api/?json#checkout-api__order__customer
 		 */
 		,'customer' => $this->kl_customer()
@@ -451,7 +451,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «List of external checkouts.»
 		 * Required: no.
-		 * array of payment providers
+		 * Type: array of payment providers.
 		 * https://developers.klarna.com/api/?json#checkout-api__order__external_checkouts
 		 */
 		,'external_checkouts' => []
@@ -459,7 +459,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «List of external payment methods.»
 		 * Required: no.
-		 * array of payment providers
+		 * Type: array of payment providers.
 		 * https://developers.klarna.com/api/?json#checkout-api__order__external_payment_methods
 		 */
 		,'external_payment_methods' => []
@@ -467,7 +467,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «The gui object.»
 		 * Required: no.
-		 * object
+		 * Type: object.
 		 * https://developers.klarna.com/api/?json#checkout-api__order__gui
 		 */
 		,'gui' => []
@@ -475,7 +475,7 @@ final class Charge {
 		 * 2017-01-22
 		 * «RFC 1766 customer's locale.»
 		 * Required: yes.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__order__locale
 		 */
 		,'locale' => 'en-US'
@@ -483,7 +483,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «Pass through field (max 1024 characters).»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__order__merchant_data
 		 */
 		,'merchant_data' => ''
@@ -493,7 +493,7 @@ final class Charge {
 		 * If set, will be shown on the confirmation page as "order number"
 		 * (max 255 characters).»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__order__merchant_reference1
 		 */
 		,'merchant_reference1' => ''
@@ -502,7 +502,7 @@ final class Charge {
 		 * «Used for storing merchant's internal order number or other reference
 		 * (max 255 characters).»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__order__merchant_reference2
 		 */
 		,'merchant_reference2' => ''
@@ -510,7 +510,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «The merchant_urls object.»
 		 * Required: yes.
-		 * object
+		 * Type: object.
 		 * https://developers.klarna.com/api/?json#checkout-api__order__merchant_urls
 		 */
 		,'merchant_urls' => $this->kl_merchant_urls()
@@ -518,7 +518,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «Options for this purchase.»
 		 * Required: no.
-		 * object
+		 * Type: object.
 		 * https://developers.klarna.com/api/?json#checkout-api__order__options
 		 */
 		,'options' => $this->kl_options()
@@ -527,7 +527,7 @@ final class Charge {
 		 * «Non-negative, minor units.
 		 * Total amount of the order, including tax and any discounts.»
 		 * Required: yes.
-		 * integer
+		 * Type: integer.
 		 * https://developers.klarna.com/api/?json#checkout-api__order__order_amount
 		 */
 		,'order_amount' => 1000
@@ -535,6 +535,7 @@ final class Charge {
 		 * 2017-01-22
 		 * «The applicable order lines (max 1000).»
 		 * Required: yes.
+		 * Type: array.
 		 * https://developers.klarna.com/api/#checkout-api__order__order_lines
 		 */
 		,'order_lines' => $this->kl_order_lines()
@@ -543,7 +544,7 @@ final class Charge {
 		 * «Non-negative, minor units.
 		 * The total tax amount of the order.»
 		 * Required: yes.
-		 * integer
+		 * Type: integer.
 		 * https://developers.klarna.com/api/?json#checkout-api__order__order_tax_amount
 		 */
 		,'order_tax_amount' => 0
@@ -551,7 +552,7 @@ final class Charge {
 		 * 2017-01-22
 		 * «ISO 3166 alpha-2 purchase country.»
 		 * Required: yes.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__order__purchase_country
 		 */
 		,'purchase_country' => 'US'
@@ -559,7 +560,7 @@ final class Charge {
 		 * 2017-01-22
 		 * «ISO 4217 purchase currency.»
 		 * Required: yes.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__order__purchase_currency
 		 */
 		,'purchase_currency' => 'USD'
@@ -568,7 +569,7 @@ final class Charge {
 		 * «A list of countries (ISO 3166 alpha-2).
 		 * Default is purchase_country only.»
 		 * Required: no.
-		 * array of strings
+		 * Type: array of strings.
 		 * https://developers.klarna.com/api/?json#checkout-api__order__shipping_countries
 		 */
 		,'shipping_countries' => []
@@ -576,7 +577,7 @@ final class Charge {
 		 * 2017-01-23
 		 * «A list of shipping options available for this order.»
 		 * Required: no.
-		 * array of shipping options
+		 * Type: array of shipping options.
 		 * https://developers.klarna.com/api/?json#checkout-api__order__shipping_options
 		 */
 		,'shipping_options' => []
@@ -594,7 +595,7 @@ final class Charge {
 		 * «URL to an image that can be later embedded in communications
 		 * between Klarna and the customer. (max 1024 characters).»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/#checkout-api__order__order_lines__image_url
 		 */
 		'image_url' => ''
@@ -602,7 +603,7 @@ final class Charge {
 		 * 2017-01-22
 		 * «Pass through field. (max 255 characters)»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/#checkout-api__order__order_lines__merchant_data
 		 */
 		,'merchant_data' => ''
@@ -610,7 +611,7 @@ final class Charge {
 		 * 2017-01-22
 		 * «Descriptive item name.»
 		 * Required: yes.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/#checkout-api__order__order_lines__name
 		 */
 		,'name' => 'Tomatoes'
@@ -619,7 +620,7 @@ final class Charge {
 		 * «URL to the product page that can be later embedded in communications
 		 * between Klarna and the customer. (max 1024 characters).»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/#checkout-api__order__order_lines__product_url
 		 */
 		,'product_url' => ''
@@ -627,7 +628,7 @@ final class Charge {
 		 * 2017-01-22
 		 * «Non-negative. The item quantity.»
 		 * Required: yes.
-		 * integer
+		 * Type: integer.
 		 * https://developers.klarna.com/api/#checkout-api__order__order_lines__quantity
 		 */
 		,'quantity' => 10
@@ -636,7 +637,7 @@ final class Charge {
 		 * «Unit used to describe the quantity, e.g. kg, pcs...
 		 * If defined has to be 1-8 characters.»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/#checkout-api__order__order_lines__quantity_unit
 		 */
 		,'quantity_unit' => 'kg'
@@ -644,7 +645,7 @@ final class Charge {
 		 * 2017-01-22
 		 * «Article number, SKU or similar.»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/#checkout-api__order__order_lines__reference
 		 */
 		,'reference' => '123050'
@@ -653,7 +654,7 @@ final class Charge {
 		 * «Order line type. Possible values: digital, discount, gift_card, physical,
 		 * sales_tax, shipping_fee, store_credit, surcharge.»
 		 * Required: no.
-		 * string
+		 * Type: string.
 		 * https://developers.klarna.com/api/#checkout-api__order__order_lines__type
 		 */
 		,'type' => 'physical'
@@ -661,7 +662,7 @@ final class Charge {
 		 * 2017-01-22
 		 * «Non-negative. In percent, two implicit decimals. I.e 2500 = 25%.»
 		 * Required: yes.
-		 * integer
+		 * Type: integer.
 		 * https://developers.klarna.com/api/#checkout-api__order__order_lines__tax_rate
 		 */
 		,'tax_rate' => 2500
@@ -671,7 +672,7 @@ final class Charge {
 		 * Must match (quantity unit_price) - total_discount_amount within ±quantity.
 		 * (max value: 100000000)»
 		 * Required: true.
-		 * integer
+		 * Type: integer.
 		 * https://developers.klarna.com/api/#checkout-api__order__order_lines__total_amount
 		 */
 		,'total_amount' => 6000
@@ -679,7 +680,7 @@ final class Charge {
 		 * 2017-01-22
 		 * «Non-negative minor units. Includes tax.»
 		 * Required: no.
-		 * integer
+		 * Type: integer.
 		 * https://developers.klarna.com/api/#checkout-api__order__order_lines__total_discount_amount
 		 */
 		,'total_discount_amount' => 0
@@ -688,6 +689,7 @@ final class Charge {
 		 * «Must be within ±1 of total_amount - total_amount 10000 / (10000 + tax_rate).
 		 * Negative when type is discount.»
 		 * Required: true.
+		 * Type: integer.
 		 * https://developers.klarna.com/api/#checkout-api__order__order_lines__total_tax_amount
 		 */
 		,'total_tax_amount' => 1200
@@ -695,7 +697,7 @@ final class Charge {
 		 * 2017-01-22
 		 * «Minor units. Includes tax, excludes discount. (max value: 100000000)»
 		 * Required: yes.
-		 * integer
+		 * Type: integer.
 		 * https://developers.klarna.com/api/#checkout-api__order__order_lines__unit_price
 		 */
 		,'unit_price' => 600
