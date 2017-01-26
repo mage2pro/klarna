@@ -82,7 +82,7 @@ https://mage2.pro/t/2506
 					showInStore='1'
 				>
 					<label>Test Store ID (EID)</label>
-					<comment><![CDATA[An unique number that identifies your e-store. <a href='https://mage2.pro/t/2398' target='_blank'>How to get it?</a>
+					<comment><![CDATA[An unique number that identifies your e-store. <a href='https://mage2.pro/t/2532' target='_blank'>How to get it?</a>
 <br/>Klarna itself uses the <b>3</b> different terms for the <b>same</b> thing: «<b>EID</b>», «<b>Merchant ID</b>», «<b>Store ID</b>».]]></comment>
 					<depends>
 						<field id='enable'>1</field>
@@ -100,7 +100,7 @@ https://mage2.pro/t/2506
 					showInStore='1'
 				>
 					<label>Test Shared Secret</label>
-					<comment><![CDATA[<a href='https://mage2.pro/t/2398' target='_blank'>How to get it?</a>]]></comment>
+					<comment><![CDATA[<a href='https://mage2.pro/t/2532' target='_blank'>How to get it?</a>]]></comment>
 					<backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
 					<depends>
 						<field id='enable'>1</field>
