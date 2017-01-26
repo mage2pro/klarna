@@ -4,6 +4,32 @@ namespace Dfe\Klarna\V2;
 class Charge {
 	/**
 	 * 2017-01-26
+	 * «Additional purchase information required for some industries.»
+	 * Required: no.
+	 * Type: attachment object.
+	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#attachment-object-properties
+	 * @used-by kl_order()
+	 * @return array(string => string)
+	 */
+	private function kl_attachment() {return [
+		/**
+		 * 2017-01-26
+		 * «The attachment body.»
+		 * Required: yes.
+		 * Type: string.
+		 */
+		'body' => []
+		/**
+		 * 2017-01-26
+		 * «The content type of the body property.»
+		 * Required: yes.
+		 * Type: string.
+		 */
+		,'content_type' => ''
+	];}
+
+	/**
+	 * 2017-01-26
 	 * «Information about the liable customer of the order.»
 	 * Required: no.
 	 * Type: customer object.
@@ -118,12 +144,20 @@ class Charge {
 	private function kl_order() {return [
 		/**
 		 * 2017-01-26
+		 * «Additional purchase information required for some industries.»
+		 * Required: no.
+		 * Type: attachment object.
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#attachment-object-properties
+		 */
+		'attachment' => $this->kl_attachment()
+		/**
+		 * 2017-01-26
 		 * «The cart»
 		 * Required: yes.
 		 * Type: cart object.
 		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#cart-object-properties
 		 */
-		'cart' => [
+		,'cart' => [
 			/**
 			 * 2017-01-26
 			 * «List of cart items»
