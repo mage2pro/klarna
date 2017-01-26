@@ -15,6 +15,8 @@ class Connector extends \Dfe\Klarna\V3\Exception {
 	 * @used-by \Dfe\Klarna\Exception::message()
 	 * @param \Exception|\Klarna\Rest\Transport\Exception\ConnectorException $e
 	 * @return array(string => mixed)
+	 * @todo Ещё не реализовано, потому что у меня нет пока доступов к API версии 3:
+	 * https://mage2.pro/t/2531
 	 */
 	protected function responseA(\Exception $e) {return [];}
 }
