@@ -21,6 +21,29 @@ class Charge {
 		'locale' => ''
 		/**
 		 * 2017-01-26
+		 * «Merchant references»
+		 * Required: no.
+		 * Type: object.
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#merchant_reference-object-properties
+		 */
+		,'merchant_reference' => [
+			/**
+			 * 2017-01-26
+			 * «Used for storing merchant's internal order number or other reference.»
+			 * Required: no.
+			 * Type: string.
+			 */
+			'orderid1' => ''
+			/**
+			 * 2017-01-26
+			 * «Used for storing merchant's internal order number or other reference.»
+			 * Required: no.
+			 * Type: string.
+			 */
+			,'orderid2' => ''
+		]
+		/**
+		 * 2017-01-26
 		 * «Country in which the purchase is done (ISO-3166-alpha2)»
 		 * Required: yes.
 		 * Type: string.
