@@ -23,4 +23,21 @@ Follow the generic [installation instruction](https://mage2.pro/t/263).
 - [The extension's **forum** branch](https://mage2.pro/c/extensions/klarna).
 - [Where and how to report a Mage2.PRO extension's issue?](https://mage2.pro/t/topic/2034)
 
+## Need another payment extension for Magento 2?
+
+- «[**歐付寶 allPay**](https://mage2.pro/c/extensions/allpay)» payment extension (for Taiwan)
+- «[**2Checkout**](https://mage2.pro/c/extensions/2checkout)» payment extension
+- «[**Checkout.com**](https://mage2.pro/c/extensions/checkout-com)» payment extension
+- «[**Omise**](https://mage2.pro/c/extensions/omise)» payment extension (for Thailand and Japan)
+- «[**SecurePay**](https://mage2.pro/c/extensions/securepay)» payment extension (for Australia)
+- «[**Square**](https://mage2.pro/c/extensions/square)» payment extension (for USA and Canada)
+- «[**Stripe**](https://mage2.pro/c/extensions/stripe)» payment extension
+
+## Need a custom payment extension?
+I provide a [custom payment gateway integration service](https://mage2.pro/t/917).
+
+## Want to get the full rights for my extension?
+It is possible: the price depends on a extension and starts from $5.000.  
+You will get 2 years of support, updates, and free installation service for all your clients.
+
 
