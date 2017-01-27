@@ -171,8 +171,16 @@ class Charge {
 		 * Allowed values are 'person' and 'organization' if B2B is enabled on the e-store ID.»
 		 * Required: no.
 		 * Type: list of string.
+		 *
+		 * У меня указание значения «person» приводит к сбою:
+		 * «Bad format: options.allowed_customer_types».
+		 * Есть подозрение, что это из-за отключенности у моей учётной записи опции «B2B».
+		 * Спросил у техподдержки:
+		 * «[Klarna] How to enable «B2B» for a Checkout v2 merchant account?»
+		 * https://mage2.pro/t/2537
+		 * https://mail.google.com/mail/u/0/#sent/159e1a394602442d
 		 */
-		,'allowed_customer_types' => 'person'
+		,'allowed_customer_types' => ''
 		/**
 		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»
