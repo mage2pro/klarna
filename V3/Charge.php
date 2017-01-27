@@ -4,40 +4,6 @@ namespace Dfe\Klarna\V3;
 final class Charge {
 	/**
 	 * 2017-01-23
-	 * @used-by kl_options()
-	 * @return array(string => string|bool)
-	 */
-	private function kl_additional_checkbox() {return [
-		/**
-		 * 2017-01-23
-		 * «Default state of the additional checkbox.
-		 * It will use this value when loaded for the first time.»
-		 * Required: yes.
-		 * boolean
-		 * https://developers.klarna.com/api/?json#checkout-api__orderoptionsadditional_checkbox__checked
-		 */
-		'checked' => ''
-		/**
-		 * 2017-01-23
-		 * «Whether it is required for the consumer
-		 * to check the additional checkbox box or not in order to complete the purchase.»
-		 * Required: yes.
-		 * boolean
-		 * https://developers.klarna.com/api/?json#checkout-api__orderoptionsadditional_checkbox__required
-		 */
-		,'required' => ''
-		/**
-		 * 2017-01-23
-		 * «Text that will be displayed to the consumer aside the checkbox. (max 255 characters)»
-		 * Required: yes.
-		 * string
-		 * https://developers.klarna.com/api/?json#checkout-api__orderoptionsadditional_checkbox__text
-		 */
-		,'text' => ''
-	];}
-
-	/**
-	 * 2017-01-23
 	 * «Additional purchase information required for some industries.»
 	 * https://developers.klarna.com/api/?json#checkout-api__order__attachment
 	 * @used-by kl_order()
@@ -293,7 +259,7 @@ final class Charge {
 		 * Required: yes.
 		 * Type: object.
 		 */
-		'additional_checkbox' => $this->kl_additional_checkbox()
+		'additional_checkbox' => []
 		/**
 		 * 2017-01-23
 		 * «If true, Checkout will allow the consumer to use any billing country supported,

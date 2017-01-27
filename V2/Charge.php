@@ -147,73 +147,88 @@ class Charge {
 	private function kl_options() {return [
 		/**
 		 * 2017-01-27
+		 * «Additional merchant defined checkbox. e.g. for Newsletter opt-in.»
+		 * Required: no.
+		 * Type: checkbox object.
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#checkbox-object-properties
+		 */
+		'additional_checkbox' => []
+		/**
+		 * 2017-01-27
 		 * «To allow separate shipping addresses.»
 		 * Required: no.
-		 * Type: string
+		 * Type: string.
 		 */
-		'allow_separate_shipping_address' => false
+		,'allow_separate_shipping_address' => false
 		/**
 		 * 2017-01-27
 		 * «List of the allowed customer types.
 		 * Allowed values are 'person' and 'organization' if B2B is enabled on the e-store ID.»
 		 * Required: no.
-		 * Type: list of string
+		 * Type: list of string.
 		 */
 		,'allowed_customer_types' => 'person'
 		/**
 		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»
 		 * Required: no.
-		 * Type: string
+		 * Type: string.
 		 */
 		,'color_button' => ''
 		/**
 		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»
 		 * Required: no.
-		 * Type: string
+		 * Type: string.
 		 */
 		,'color_button_text' => ''
 		/**
 		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»
 		 * Required: no.
-		 * Type: string
+		 * Type: string.
 		 */
 		,'color_checkbox' => ''
 		/**
 		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»
 		 * Required: no.
-		 * Type: string
+		 * Type: string.
 		 */
 		,'color_checkbox_checkmark' => ''
 		/**
 		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»
 		 * Required: no.
-		 * Type: string
+		 * Type: string.
 		 */
 		,'color_header' => ''
 		/**
 		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»
 		 * Required: no.
-		 * Type: string
+		 * Type: string.
 		 */
 		,'color_link' => ''
 		/**
 		 * 2017-01-27
+		 * «Making the date of birth mandatory.»
+		 * Required: no.
+		 * Type: boolean.
+		 */
+		,'date_of_birth_mandatory' => false
+		/**
+		 * 2017-01-27
 		 * «Enable packstation  (Only available in Germany).»
 		 * Required: no.
-		 * Type: boolean
+		 * Type: boolean.
 		 */
 		,'packstation_enabled' => false
 		/**
 		 * 2017-01-27
 		 * «Making the phone field mandatory (Only available in Germany and Austria).»
 		 * Required: no.
-		 * Type: boolean
+		 * Type: boolean.
 		 */
 		,'phone_mandatory' => false
 		/**
@@ -221,7 +236,7 @@ class Charge {
 		 * «Shipping information displayed on the confirmation page.
 		 * Maximum 70 characters.»
 		 * Required: no.
-		 * Type: string
+		 * Type: string.
 		 */
 		,'shipping_details' => ''
 	];}
