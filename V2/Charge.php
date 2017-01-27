@@ -206,8 +206,9 @@ class Charge {
 		 * «Only hexadecimal values are allowed.»
 		 * Required: no.
 		 * Type: string.
+		 * При указании пустой строки будет сбой: «Bad format: options.color_header».
 		 */
-		,'color_header' => ''
+		,'color_header' => '#FF9900'
 		/**
 		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»

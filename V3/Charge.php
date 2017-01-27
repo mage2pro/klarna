@@ -317,8 +317,12 @@ final class Charge {
 		 * Required: no.
 		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_header
+		 * 2017-01-27
+		 * В API версии 2 при указании пустой строки будет сбой: «Bad format: options.color_header».
+		 * Здесь, видимо, тоже будет такой сбой
+		 * (не проверял ещё, т.к. у меня нет пока доступов к API версии 3).
 		 */
-		,'color_header' => ''
+		,'color_header' => '#FF9900'
 		/**
 		 * 2017-01-23
 		 * «CSS hex color, e.g. "#FF9900"»
