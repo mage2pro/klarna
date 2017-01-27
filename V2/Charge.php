@@ -156,8 +156,34 @@ class Charge {
 		 * Required: no.
 		 * Type: checkbox object.
 		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#checkbox-object-properties
+		 * Пустой массив в качестве значения указывать нельзя, иначе будет сбой «Bad format».
 		 */
-		'additional_checkbox' => []
+		'additional_checkbox' => [
+			/**
+			 * 2017-01-27
+			 * «Default state of the additional checkbox.
+			 * It will use this value when loaded for the first time.»
+			 * Required: yes.
+			 * Type: boolean.
+			 */
+			'checked' => true
+			/**
+			 * 2017-01-27
+			 * «Whether it is required for the consumer to check the additional checkbox box
+			 * or not in order to complete the purchase.»
+			 * Required: yes.
+			 * Type: boolean.
+			 */
+			,'required' => true
+			/**
+			 * 2017-01-27
+			 * «Text that will be displayed to the consumer aside the checkbox. (max 255 characters).
+			 * This text can contain links using the format [Link text](url).»
+			 * Required: yes.
+			 * Type: string.
+			 */
+			,'text' => 'I have already bought the [«Klarna» payment extension](https://mage2.pro/c/extensions/klarna).'
+		]
 		/**
 		 * 2017-01-27
 		 * «To allow separate shipping addresses.»
@@ -172,15 +198,12 @@ class Charge {
 		 * Required: no.
 		 * Type: list of string.
 		 *
-		 * У меня указание значения «person» приводит к сбою:
-		 * «Bad format: options.allowed_customer_types».
-		 * Есть подозрение, что это из-за отключенности у моей учётной записи опции «B2B».
 		 * Спросил у техподдержки:
 		 * «[Klarna] How to enable «B2B» for a Checkout v2 merchant account?»
 		 * https://mage2.pro/t/2537
 		 * https://mail.google.com/mail/u/0/#sent/159e1a394602442d
 		 */
-		,'allowed_customer_types' => ''
+		,'allowed_customer_types' => ['person', 'organization']
 		/**
 		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»
