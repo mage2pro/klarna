@@ -154,6 +154,14 @@ class Charge {
 		'allow_separate_shipping_address' => false
 		/**
 		 * 2017-01-27
+		 * «List of the allowed customer types.
+		 * Allowed values are 'person' and 'organization' if B2B is enabled on the e-store ID.»
+		 * Required: no.
+		 * Type: list of string
+		 */
+		,'allowed_customer_types' => 'person'
+		/**
+		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»
 		 * Required: no.
 		 * Type: string
@@ -194,6 +202,13 @@ class Charge {
 		 * Type: string
 		 */
 		,'color_link' => ''
+		/**
+		 * 2017-01-27
+		 * «Enable packstation  (Only available in Germany).»
+		 * Required: no.
+		 * Type: boolean
+		 */
+		,'packstation_enabled' => false
 		/**
 		 * 2017-01-27
 		 * «Making the phone field mandatory (Only available in Germany and Austria).»
