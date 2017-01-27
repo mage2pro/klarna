@@ -177,6 +177,14 @@ class Charge {
 		,'customer' => $this->kl_customer()
 		/**
 		 * 2017-01-27
+		 * «External checkout providers.»
+		 * Required: no.
+		 * Type: array of external checkout objects.
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#external_checkout-object-properties
+		 */
+		,'external_checkouts' => []
+		/**
+		 * 2017-01-27
 		 * «External payment methods.»
 		 * Required: no.
 		 * Type: array of external payment method objects.
