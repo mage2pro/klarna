@@ -52,8 +52,13 @@ class Charge {
 		 * 'female' or 'male'»
 		 * Required: no.
 		 * Type: string.
+		 * 2017-01-27
+		 * @todo Почему-то присутствие этого поля приводит к сбою:
+		 * «"Bad format: 'gender' is not part of the schema"».
+		 * https://mage2.pro/t/2536
+		 * https://mail.google.com/mail/u/0/#sent/159e19540307b0cb
 		 */
-		,'gender' => 'male'
+		//,'gender' => 'male'
 		/**
 		 * 2017-01-26
 		 * «For B2B, this field is used for the organization's official registration id
