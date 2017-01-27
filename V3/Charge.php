@@ -303,7 +303,7 @@ final class Charge {
 		 * Type: boolean.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__allow_global_billing_countries
 		 */
-		,'allow_global_billing_countries' => ''
+		,'allow_global_billing_countries' => false
 		/**
 		 * 2017-01-23
 		 * «If true, the consumer can enter different billing and shipping addresses.
@@ -312,7 +312,7 @@ final class Charge {
 		 * Type: boolean.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__allow_separate_shipping_address
 		 */
-		,'allow_separate_shipping_address' => ''
+		,'allow_separate_shipping_address' => false
 		/**
 		 * 2017-01-23
 		 * «CSS hex color, e.g. "#FF9900"»
@@ -369,7 +369,7 @@ final class Charge {
 		 * Type: boolean.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__date_of_birth_mandatory
 		 */
-		,'date_of_birth_mandatory' => ''
+		,'date_of_birth_mandatory' => false
 		/**
 		 * 2017-01-23
 		 * «Border radius»
@@ -386,7 +386,7 @@ final class Charge {
 		 * Type: boolean.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__require_validate_callback_success
 		 */
-		,'require_validate_callback_success' => ''
+		,'require_validate_callback_success' => false
 		/**
 		 * 2017-01-23
 		 * «A message that will be presented on the confirmation page under the headline "Delivery".»
@@ -403,7 +403,7 @@ final class Charge {
 		 * Type: boolean.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__show_subtotal_detail
 		 */
-		,'show_subtotal_detail' => ''
+		,'show_subtotal_detail' => false
 		/**
 		 * 2017-01-23
 		 * «If specified to false, title becomes optional in countries that by default require title.»
@@ -411,7 +411,7 @@ final class Charge {
 		 * Type: boolean.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__title_mandatory
 		 */
-		,'title_mandatory' => ''
+		,'title_mandatory' => true
 	];}
 
 	/**

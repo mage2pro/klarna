@@ -145,6 +145,70 @@ class Charge {
 	 * @return array(string => string|boolean)
 	 */
 	private function kl_options() {return [
+		/**
+		 * 2017-01-27
+		 * «To allow separate shipping addresses.»
+		 * Required: no.
+		 * Type: string
+		 */
+		'allow_separate_shipping_address' => false
+		/**
+		 * 2017-01-27
+		 * «Only hexadecimal values are allowed.»
+		 * Required: no.
+		 * Type: string
+		 */
+		,'color_button' => ''
+		/**
+		 * 2017-01-27
+		 * «Only hexadecimal values are allowed.»
+		 * Required: no.
+		 * Type: string
+		 */
+		,'color_button_text' => ''
+		/**
+		 * 2017-01-27
+		 * «Only hexadecimal values are allowed.»
+		 * Required: no.
+		 * Type: string
+		 */
+		,'color_checkbox' => ''
+		/**
+		 * 2017-01-27
+		 * «Only hexadecimal values are allowed.»
+		 * Required: no.
+		 * Type: string
+		 */
+		,'color_checkbox_checkmark' => ''
+		/**
+		 * 2017-01-27
+		 * «Only hexadecimal values are allowed.»
+		 * Required: no.
+		 * Type: string
+		 */
+		,'color_header' => ''
+		/**
+		 * 2017-01-27
+		 * «Only hexadecimal values are allowed.»
+		 * Required: no.
+		 * Type: string
+		 */
+		,'color_link' => ''
+		/**
+		 * 2017-01-27
+		 * «Making the phone field mandatory (Only available in Germany and Austria).»
+		 * Required: no.
+		 * Type: boolean
+		 */
+		,'phone_mandatory' => false
+		/**
+		 * 2017-01-27
+		 * «Shipping information displayed on the confirmation page.
+		 * Maximum 70 characters.»
+		 * Required: no.
+		 * Type: string
+		 */
+		,'shipping_details' => ''
 	];}
 
 	/**
@@ -299,7 +363,7 @@ class Charge {
 		 * Required: no.
 		 * Type: boolean.
 		 */
-		,'recurring' => ''
+		,'recurring' => false
 		/**
 		 * 2017-01-26
 		 * «The shipping address»
