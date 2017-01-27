@@ -186,35 +186,39 @@ class Charge {
 		 * «Only hexadecimal values are allowed.»
 		 * Required: no.
 		 * Type: string.
+		 * При указании пустой строки будет сбой: «Bad format».
 		 */
-		,'color_button' => ''
+		,'color_button' => '#FF9900'
 		/**
 		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»
 		 * Required: no.
 		 * Type: string.
+		 * При указании пустой строки будет сбой: «Bad format».
 		 */
-		,'color_button_text' => ''
+		,'color_button_text' => '#FF9900'
 		/**
 		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»
 		 * Required: no.
 		 * Type: string.
+		 * При указании пустой строки будет сбой: «Bad format».
 		 */
-		,'color_checkbox' => ''
+		,'color_checkbox' => '#FF9900'
 		/**
 		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»
 		 * Required: no.
 		 * Type: string.
+		 * При указании пустой строки будет сбой: «Bad format».
 		 */
-		,'color_checkbox_checkmark' => ''
+		,'color_checkbox_checkmark' => '#FF9900'
 		/**
 		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»
 		 * Required: no.
 		 * Type: string.
-		 * При указании пустой строки будет сбой: «Bad format: options.color_header».
+		 * При указании пустой строки будет сбой: «Bad format».
 		 */
 		,'color_header' => '#FF9900'
 		/**
@@ -222,8 +226,9 @@ class Charge {
 		 * «Only hexadecimal values are allowed.»
 		 * Required: no.
 		 * Type: string.
+		 * При указании пустой строки будет сбой: «Bad format».
 		 */
-		,'color_link' => ''
+		,'color_link' => '#FF9900'
 		/**
 		 * 2017-01-27
 		 * «Making the date of birth mandatory.»

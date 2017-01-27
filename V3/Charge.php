@@ -285,32 +285,48 @@ final class Charge {
 		 * Required: no.
 		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_button
+		 * 2017-01-27
+		 * В API версии 2 при указании пустой строки будет сбой: «Bad format».
+		 * Здесь, видимо, тоже будет такой сбой
+		 * (не проверял ещё, т.к. у меня нет пока доступов к API версии 3).
 		 */
-		,'color_button' => ''
+		,'color_button' => '#FF9900'
 		/**
 		 * 2017-01-23
 		 * «CSS hex color, e.g. "#FF9900"»
 		 * Required: no.
 		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_button_text
+		 * 2017-01-27
+		 * В API версии 2 при указании пустой строки будет сбой: «Bad format».
+		 * Здесь, видимо, тоже будет такой сбой
+		 * (не проверял ещё, т.к. у меня нет пока доступов к API версии 3).
 		 */
-		,'color_button_text' => ''
+		,'color_button_text' => '#FF9900'
 		/**
 		 * 2017-01-23
 		 * «CSS hex color, e.g. "#FF9900"»
 		 * Required: no.
 		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_checkbox
+		 * 2017-01-27
+		 * В API версии 2 при указании пустой строки будет сбой: «Bad format».
+		 * Здесь, видимо, тоже будет такой сбой
+		 * (не проверял ещё, т.к. у меня нет пока доступов к API версии 3).
 		 */
-		,'color_checkbox' => ''
+		,'color_checkbox' => '#FF9900'
 		/**
 		 * 2017-01-23
 		 * «CSS hex color, e.g. "#FF9900"»
 		 * Required: no.
 		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_checkbox_checkmark
+		 * 2017-01-27
+		 * В API версии 2 при указании пустой строки будет сбой: «Bad format».
+		 * Здесь, видимо, тоже будет такой сбой
+		 * (не проверял ещё, т.к. у меня нет пока доступов к API версии 3).
 		 */
-		,'color_checkbox_checkmark' => ''
+		,'color_checkbox_checkmark' => '#FF9900'
 		/**
 		 * 2017-01-23
 		 * «CSS hex color, e.g. "#FF9900"»
@@ -318,7 +334,7 @@ final class Charge {
 		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_header
 		 * 2017-01-27
-		 * В API версии 2 при указании пустой строки будет сбой: «Bad format: options.color_header».
+		 * В API версии 2 при указании пустой строки будет сбой: «Bad format».
 		 * Здесь, видимо, тоже будет такой сбой
 		 * (не проверял ещё, т.к. у меня нет пока доступов к API версии 3).
 		 */
@@ -329,8 +345,12 @@ final class Charge {
 		 * Required: no.
 		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__color_link
+		 * 2017-01-27
+		 * В API версии 2 при указании пустой строки будет сбой: «Bad format».
+		 * Здесь, видимо, тоже будет такой сбой
+		 * (не проверял ещё, т.к. у меня нет пока доступов к API версии 3).
 		 */
-		,'color_link' => ''
+		,'color_link' => '#FF9900'
 		/**
 		 * 2017-01-23
 		 * «If true, the consumer cannot skip date of birth.
@@ -347,7 +367,7 @@ final class Charge {
 		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderoptions__radius_border
 		 */
-		,'radius_border' => ''
+		,'radius_border' => '5px'
 		/**
 		 * 2017-01-23
 		 * «If true, validate callback must get a positive response to not stop purchase.
