@@ -135,6 +135,19 @@ class Charge {
 	];}
 
 	/**
+	 * 2017-01-27
+	 * «Options for this purchase.»
+	 * Required: no.
+	 * Type: options object.
+	 * https://developers.klarna.com/en/se/kco-v2/checkout/extra-features
+	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#options-object-properties
+	 * @used-by kl_order()
+	 * @return array(string => string|boolean)
+	 */
+	private function kl_options() {return [
+	];}
+
+	/**
 	 * 2017-01-26
 	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#resource-properties
 	 * https://developers.klarna.com/en/se/kco-v2/checkout/2-embed-the-checkout#configure-checkout-order
@@ -255,6 +268,15 @@ class Charge {
 			 */
 			,'orderid2' => ''
 		]
+		/**
+		 * 2017-01-27
+		 * «Options for this purchase.»
+		 * Required: no.
+		 * Type: options object.
+		 * https://developers.klarna.com/en/se/kco-v2/checkout/extra-features
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#options-object-properties
+		 */
+		,'options' => $this->kl_options()
 		/**
 		 * 2017-01-26
 		 * «Country in which the purchase is done (ISO-3166-alpha2)»
