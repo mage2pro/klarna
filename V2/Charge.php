@@ -564,6 +564,15 @@ class Charge {
 		'care_of' => ''
 		/**
 		 * 2017-01-28
+		 * «City»
+		 * Required: no.
+		 * Type: string.
+		 * Спецификация помечает это поле как «read only»,
+		 * но на практике я установил, что веб-сервис его допускает.
+		 */
+		,'city' => ''
+		/**
+		 * 2017-01-28
 		 * «Last name»
 		 * Required: no.
 		 * Type: string.
