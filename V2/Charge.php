@@ -121,8 +121,12 @@ class Charge {
 		 * (may be used in the B2B flow).»
 		 * Required: no.
 		 * Type: string.
+		 *
+		 * 2017-01-28
+		 * Этому полю допустимо отсутствовать,
+		 * но если оно присутствует, то его значение должно быть непусто, иначе будет сбой «Bad format».
 		 */
-		,'organization_terms_uri' => ''
+		,'organization_terms_uri' => 'https://mage2.pro'
 		/**
 		 * 2017-01-26
 		 * «URI of your push-notification page»
@@ -135,8 +139,11 @@ class Charge {
 		 * «URI of your terms and conditions»
 		 * Required: yes.
 		 * Type: string.
+		 *
+		 * 2017-01-28
+		 * Пустое значение приводит к сбою «Bad format».
 		 */
-		,'terms_uri' => ''
+		,'terms_uri' => 'https://mage2.pro'
 		/**
 		 * 2017-01-26
 		 * «URI of your validation page, see validate a checkout order.»
