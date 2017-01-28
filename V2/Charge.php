@@ -547,8 +547,21 @@ class Charge {
 	 * @todo Надо всё-таки проверить, попытаться что-то передать (имя, фамилию...).
 	 * В то же время, Checkout API версии 3 позвляет нам передавать сервису «billing_address»:
 	 * https://developers.klarna.com/api/?json#checkout-api__order__billing_address
+	 *
+	 * 2017-01-28
+	 * Передача пустого массива приводит к сбою «Bad format».
 	 */
-	private function kl_shipping_address() {return [];}
+	private function kl_shipping_address() {return [
+		/**
+		 * 2017-01-28
+		 * «First name»
+		 * Required: no.
+		 * Type: string.
+		 * Спецификация помечает это поле как «read only»,
+		 * но на практике я установил, что веб-сервис его допускает.
+		 */
+		'given_name' => 'Dmitry'
+	];}
 
 	/**
 	 * 2017-01-26
