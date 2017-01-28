@@ -80,12 +80,20 @@ class Charge {
 	 */
 	private function kl_merchant() {return [
 		/**
+		 * 2017-01-28
+		 * «Unique identifier (EID)»
+		 * Required: yes.
+		 * Type: string.
+		 * Хотя значение является числом, его надо указывать как строку, иначе будет сбой «Bad format».
+		 */
+		'id' => '7765'
+		/**
 		 * 2017-01-26
 		 * «URI of your store page. Used on the settlement page.»
 		 * Required: no.
 		 * Type: string.
 		 */
-		'back_to_store_uri' => ''
+		,'back_to_store_uri' => ''
 		/**
 		 * 2017-01-26
 		 * «URI of the cancellation terms»
