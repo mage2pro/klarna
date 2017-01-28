@@ -692,6 +692,16 @@ class Charge {
 		 * но и для других (проверил для Швеции).
 		 */
 		,'street_number' => ''
+		/**
+		 * 2017-01-28
+		 * «Only in Germany and Austria:
+		 * The customer's title, possible values are "Herr" and "Frau".»
+		 * Required: no.
+		 * Type: string.
+		 * Спецификация помечает это поле как «read only»,
+		 * но на практике я установил, что веб-сервис его допускает.
+		 */
+		,'title' => ''
 	];}
 
 	/**
