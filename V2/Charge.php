@@ -582,6 +582,15 @@ class Charge {
 		,'given_name' => 'Dmitry'
 		/**
 		 * 2017-01-28
+		 * «Only for B2B orders. The name of the organization placing the order.»
+		 * Required: no.
+		 * Type: string.
+		 * Спецификация помечает это поле как «read only»,
+		 * но на практике я установил, что веб-сервис его допускает.
+		 */
+		,'organization_name' => ''
+		/**
+		 * 2017-01-28
 		 * «Only for B2B orders.
 		 * Reference information entered by the customer for this B2B order.»
 		 * Required: no.
