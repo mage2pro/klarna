@@ -580,6 +580,15 @@ class Charge {
 		 * но на практике я установил, что веб-сервис его допускает.
 		 */
 		,'given_name' => 'Dmitry'
+		/**
+		 * 2017-01-28
+		 * «Only for B2B orders.
+		 * Reference information entered by the customer for this B2B order.»
+		 * Required: no.
+		 * Type: string.
+		 * Использование поля «reference» приводит к сбою «Bad format»: https://mage2.pro/t/2541
+		 */
+		//,'reference' => ''
 	];}
 
 	/**
