@@ -19,15 +19,22 @@ final class Charge {
 		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderattachment__body
 		 */
-		'body' => ''
+		'body' => '{}'
 		/**
 		 * 2017-01-23
 		 * «The content type of the body property.»
 		 * Required: yes.
 		 * Type: string.
 		 * https://developers.klarna.com/api/?json#checkout-api__orderattachment__content_type
+		 *
+		 * 2017-01-28
+		 * В документации к версии 3 API не сказано, каким должно быть значение.
+		 * Требуемое значение я узнал из документации к версии 2 API:
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api/attachments#emd-object-properties
+		 * И это же значение используется в примере к документации версии 3 API
+		 * (колонка справа от документации).
 		 */
-		,'content_type' => ''
+		,'content_type' => 'application/vnd.klarna.internal.emd-v2+json'
 	];}
 
 	/**
