@@ -598,6 +598,22 @@ class Charge {
 		 * Использование поля «reference» приводит к сбою «Bad format»: https://mage2.pro/t/2541
 		 */
 		//,'reference' => ''
+		/**
+		 * 2017-01-28
+		 * «Only in Sweden, Norway and Finland:
+		 * Street address (street name, street number, street extension).»
+		 * Required: no.
+		 * Type: string.
+		 *
+		 * Замечание №1
+		 * Спецификация помечает это поле как «read only»,
+		 * но на практике я установил, что веб-сервис его допускает.
+		 *
+		 * Замечание №2
+		 * Поле допустимо не только для указанных выше стран (Sweden, Norway and Finland),
+		 * но и для других (проверил для Австрии).
+		 */
+		,'street_address' => ''
 	];}
 
 	/**
