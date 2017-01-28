@@ -371,8 +371,12 @@ class Charge {
 		 * Type: string.
 		 * «Which locales are supported by the version 2 of Klarna Checkout API?»
 		 * https://mage2.pro/t/2533
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#supported-locales
+		 *
+		 * 2017-01-28
+		 * Пустое значение приводит к сбою «Bad format».
 		 */
-		,'locale' => ''
+		,'locale' => 'sv-se'
 		/**
 		 * 2017-01-26
 		 * «Merchant related information.»
