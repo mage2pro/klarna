@@ -78,7 +78,7 @@ class Charge {
 	 * @used-by kl_order()
 	 * @return array(string => string)
 	 */
-	private function kl_merchant_urls() {return [
+	private function kl_merchant() {return [
 		/**
 		 * 2017-01-26
 		 * «URI of your store page. Used on the settlement page.»
@@ -384,7 +384,7 @@ class Charge {
 		 * Type: merchant object.
 		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#merchant-object-properties
 		 */
-		,'merchant' => $this->kl_merchant_urls()
+		,'merchant' => $this->kl_merchant()
 		/**
 		 * 2017-01-26
 		 * «Merchant references»
@@ -428,6 +428,7 @@ class Charge {
 		 * «Country in which the purchase is done (ISO-3166-alpha2)»
 		 * Required: yes.
 		 * Type: string.
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#supported-locales
 		 *
 		 * 2017-01-28
 		 * Пустое значение приводит к сбою «Bad format».
@@ -438,8 +439,12 @@ class Charge {
 		 * «Currency in which the purchase is done (ISO-4217)»
 		 * Required: yes.
 		 * Type: string.
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#supported-locales
+		 *
+		 * 2017-01-28
+		 * Пустое значение приводит к сбою «Bad format».
 		 */
-		,'purchase_currency' => ''
+		,'purchase_currency' => 'SEK'
 		/**
 		 * 2017-01-26
 		 * «Only in Sweden, Norway and Finland:
