@@ -155,6 +155,7 @@ final class Api {
 		 *
 		 * Checkout API версии 2: код HTML размещается во вложенном свойстве «gui.snippet»:
 		 * $snippet = $order['gui']['snippet'];
+		 * Пример кода HTML: https://mage2.pro/t/2544
 		 *
 		 * Checkout API версии 3: код HTML размещается во вложенном свойстве «html_snippet»:
 		 * $snippet = $order['html_snippet'];
@@ -163,6 +164,7 @@ final class Api {
 		 * С API версии 3 ещё не экспериментировал (всё ещё не имею доступов).
 		 * -----
 		 * Также мы можем получить:
+		 *
 		 * 1) Идентификатор транзакции: $order['id']
 		 * Он имеет вид типа «FZDFH925D9OXLTC9DB5Y2C22IVT»
 		 * Это именно то значение, которое мы получили ранее
@@ -171,6 +173,18 @@ final class Api {
 		 * «В случае успеха запроса сервер отвечает с кодом HTTP 201,
 		 * и возвращает заголовок «Location» со значением типа
 		 * https://checkout.testdrive.klarna.com/checkout/orders/FZDFH925D9OXLTC9DB5Y2C22IVT»
+		 *
+		 * 2) Состояние транзакции: $order['status']
+		 * В моём эксперименте оно равно «checkout_incomplete».
+		 * Скорее всего, таким оно и должно быть на этой стадии:
+		 * https://developers.klarna.com/en/se/kco-v2/checkout/2-embed-the-checkout#embed-checkout
+		 * «When you create an order in Klarna’s system it will have the status checkout_incomplete.»
+		 *
+		 * Как косвенно следует из документации к версии 3,
+		 * там тоже состояние равно «checkout_incomplete»:
+		 * https://developers.klarna.com/api/#checkout-api-update-an-order
+		 * Хотя в примерах (правая колонка) это состояние записано заглавными буквами:
+		 * "status": "CHECKOUT_INCOMPLETE"
 		 */
 		$order->fetch();
 	}
