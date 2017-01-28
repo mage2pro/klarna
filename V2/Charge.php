@@ -387,6 +387,12 @@ class Charge {
 		 * Required: no.
 		 * Type: object.
 		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#merchant_reference-object-properties
+		 *
+		 * 2017-01-28
+		 * Bug: if «orderid1» or «orderid2» optional field inside «merchant_reference» is empty,
+		 * then an «order» request fails with the message «Bad format»:
+		 * https://mage2.pro/t/2542
+		 * https://mail.google.com/mail/u/0/#sent/159e514b238a039c
 		 */
 		,'merchant_reference' => [
 			/**
@@ -395,14 +401,14 @@ class Charge {
 			 * Required: no.
 			 * Type: string.
 			 */
-			'orderid1' => ''
+			'orderid1' => '1'
 			/**
 			 * 2017-01-26
 			 * «Used for storing merchant's internal order number or other reference.»
 			 * Required: no.
 			 * Type: string.
 			 */
-			,'orderid2' => ''
+			,'orderid2' => '1'
 		]
 		/**
 		 * 2017-01-27
