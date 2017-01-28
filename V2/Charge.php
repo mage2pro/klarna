@@ -623,6 +623,15 @@ class Charge {
 		,'organization_name' => ''
 		/**
 		 * 2017-01-28
+		 * «Phone number»
+		 * Required: no.
+		 * Type: string.
+		 * Спецификация помечает это поле как «read only»,
+		 * но на практике я установил, что веб-сервис его допускает.
+		 */
+		,'phone' => ''
+		/**
+		 * 2017-01-28
 		 * «Postal code»
 		 * Required: no.
 		 * Type: string.
