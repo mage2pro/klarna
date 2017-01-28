@@ -428,8 +428,11 @@ class Charge {
 		 * «Country in which the purchase is done (ISO-3166-alpha2)»
 		 * Required: yes.
 		 * Type: string.
+		 *
+		 * 2017-01-28
+		 * Пустое значение приводит к сбою «Bad format».
 		 */
-		,'purchase_country' => ''
+		,'purchase_country' => 'SE'
 		/**
 		 * 2017-01-26
 		 * «Currency in which the purchase is done (ISO-4217)»
