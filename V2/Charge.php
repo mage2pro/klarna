@@ -554,13 +554,22 @@ class Charge {
 	private function kl_shipping_address() {return [
 		/**
 		 * 2017-01-28
+		 * «Last name»
+		 * Required: no.
+		 * Type: string.
+		 * Спецификация помечает это поле как «read only»,
+		 * но на практике я установил, что веб-сервис его допускает.
+		 */
+		'family_name' => 'Fedyuk'
+		/**
+		 * 2017-01-28
 		 * «First name»
 		 * Required: no.
 		 * Type: string.
 		 * Спецификация помечает это поле как «read only»,
 		 * но на практике я установил, что веб-сервис его допускает.
 		 */
-		'given_name' => 'Dmitry'
+		,'given_name' => 'Dmitry'
 	];}
 
 	/**
