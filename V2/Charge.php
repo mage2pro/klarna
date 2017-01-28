@@ -10,6 +10,10 @@ class Charge {
 	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#attachment-object-properties
 	 * @used-by kl_order()
 	 * @return array(string => string)
+	 *
+	 * 2017-01-28
+	 * A list of available attachment types:
+	 * https://developers.klarna.com/en/se/kco-v2/checkout-api/attachments
 	 */
 	private function kl_attachment() {return [
 		/**
@@ -17,15 +21,27 @@ class Charge {
 		 * «The attachment body.»
 		 * Required: yes.
 		 * Type: string.
+		 *
+		 * 2017-01-28
+		 * Замечание №1
+		 * Пустое значение приводит к сбою «Bad format».
+		 *
+		 * Замечание №2
+		 * «Body: A JSON string serialized from the resource described below.»
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api/attachments#emd-object-properties
 		 */
-		'body' => ''
+		'body' => '{}'
 		/**
 		 * 2017-01-26
 		 * «The content type of the body property.»
 		 * Required: yes.
 		 * Type: string.
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api/attachments#emd-object-properties
+		 *
+		 * 2017-01-28
+		 * Пустое значение приводит к сбою «Bad format».
 		 */
-		,'content_type' => ''
+		,'content_type' => 'application/vnd.klarna.internal.emd-v2+json'
 	];}
 
 	/**
@@ -333,6 +349,10 @@ class Charge {
 		 * Required: no.
 		 * Type: attachment object.
 		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#attachment-object-properties
+		 *
+		 * 2017-01-28
+		 * A list of available attachment types:
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api/attachments
 		 */
 		'attachment' => $this->kl_attachment()
 		/**
