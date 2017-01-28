@@ -75,6 +75,23 @@ final class Api {
 			: new klOrder3(klConnector3::create($s->merchantID(), $secret, $url, new UA))
 		;
 		try {
+			/**
+			 * 2017-01-28
+			 * Комментарий ниже написан на основании эксперимента с API версии 2.
+			 * С API версии 3 ещё не экспериментировал (всё ещё не имею доступов).
+			 * -----
+			 * В случае успеха запроса сервер отвечает с кодом HTTP 201,
+			 * и возвращает заголовок «Location» со значением типа
+			 * https://checkout.testdrive.klarna.com/checkout/orders/FZDFH925D9OXLTC9DB5Y2C22IVT
+			 *
+			 * Klarna SDK обрабатывает эту ситуацию в методе
+			 * @see \Klarna_Checkout_BasicConnector::handleResponse():
+					case 201:
+						// Update Location
+						$resource->setLocation($url);
+						break;
+			 * https://github.com/klarna/kco_php/blob/v4.0.0/src/Klarna/Checkout/BasicConnector.php#L287-L290
+			 */
 			$order->create($request);
 		}
 		/**
