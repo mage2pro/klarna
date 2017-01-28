@@ -591,6 +591,13 @@ class Charge {
 		,'organization_name' => ''
 		/**
 		 * 2017-01-28
+		 * «Postal code»
+		 * Required: no.
+		 * Type: string.
+		 */
+		,'postal_code' => ''
+		/**
+		 * 2017-01-28
 		 * «Only for B2B orders.
 		 * Reference information entered by the customer for this B2B order.»
 		 * Required: no.
