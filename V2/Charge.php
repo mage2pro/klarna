@@ -92,29 +92,43 @@ class Charge {
 		 * «URI of your store page. Used on the settlement page.»
 		 * Required: no.
 		 * Type: string.
+		 *
+		 * 2017-01-28
+		 * Этому полю допустимо отсутствовать,
+		 * но если оно присутствует, то его значение должно быть непусто, иначе будет сбой «Bad format».
 		 */
-		,'back_to_store_uri' => ''
+		,'back_to_store_uri' => 'https://mage2.pro'
 		/**
 		 * 2017-01-26
 		 * «URI of the cancellation terms»
 		 * Required: no.
 		 * Type: string.
+		 *
+		 * 2017-01-28
+		 * Этому полю допустимо отсутствовать,
+		 * но если оно присутствует, то его значение должно быть непусто, иначе будет сбой «Bad format».
 		 */
-		,'cancellation_terms_uri' => ''
+		,'cancellation_terms_uri' => 'https://mage2.pro'
 		/**
 		 * 2017-01-26
 		 * «URI of your checkout page»
 		 * Required: yes.
 		 * Type: string.
+		 *
+		 * 2017-01-28
+		 * Пустое значение приводит к сбою «Bad format».
 		 */
-		,'checkout_uri' => ''
+		,'checkout_uri' => 'https://mage2.pro'
 		/**
 		 * 2017-01-26
 		 * «URI of your confirmation page»
 		 * Required: yes.
 		 * Type: string.
+		 *
+		 * 2017-01-28
+		 * Пустое значение приводит к сбою «Bad format».
 		 */
-		,'confirmation_uri' => ''
+		,'confirmation_uri' => 'https://mage2.pro'
 		/**
 		 * 2017-01-26
 		 * «URI of your terms and conditions for B2B purchases/organizations
@@ -132,8 +146,11 @@ class Charge {
 		 * «URI of your push-notification page»
 		 * Required: yes.
 		 * Type: string.
+		 *
+		 * 2017-01-28
+		 * Пустое значение приводит к сбою «Bad format».
 		 */
-		,'push_uri' => ''
+		,'push_uri' => 'https://mage2.pro'
 		/**
 		 * 2017-01-26
 		 * «URI of your terms and conditions»
@@ -150,8 +167,12 @@ class Charge {
 		 * https://developers.klarna.com/en/se/kco-v2/checkout/use-cases#validate-checkout-order
 		 * Required: no.
 		 * Type: string.
+		 * 
+		 * 2017-01-28
+		 * Этому полю допустимо отсутствовать,
+		 * но если оно присутствует, то его значение должно быть непусто, иначе будет сбой «Bad format».
 		 */
-		,'validation_uri' => ''
+		,'validation_uri' => 'https://mage2.pro'
 	];}
 
 	/**
