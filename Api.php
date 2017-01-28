@@ -147,6 +147,10 @@ final class Api {
 			 * "status": "CHECKOUT_INCOMPLETE"
 			 */
 			$order->fetch();
+			/** @var string $orderId */
+			$orderId = $order['id'];
+			/** @var string $html */
+			$html = $isV2 ? $order['gui']['snippet'] : $order['html_snippet'];
 		}
 		/**
 		 * 2017-01-26
