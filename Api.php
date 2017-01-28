@@ -165,7 +165,9 @@ final class Api {
 		 * Также мы можем получить:
 		 * 1) Идентификатор транзакции: $order['id']
 		 * Он имеет вид типа «FZDFH925D9OXLTC9DB5Y2C22IVT»
-		 * Это именно то значение, которое мы получили в ответе от сервера на операцию order():
+		 * Это именно то значение, которое мы получили ранее
+		 * в ответе от сервера на операцию $order->create($request):
+		 * https://github.com/mage2pro/klarna/blob/0.0.6/Api.php?ts=4#L83-L95
 		 * «В случае успеха запроса сервер отвечает с кодом HTTP 201,
 		 * и возвращает заголовок «Location» со значением типа
 		 * https://checkout.testdrive.klarna.com/checkout/orders/FZDFH925D9OXLTC9DB5Y2C22IVT»
