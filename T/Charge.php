@@ -3,8 +3,6 @@
 namespace Dfe\Klarna\T;
 use Dfe\Klarna\Api;
 use Dfe\Klarna\Settings as S;
-use Dfe\Klarna\V2\Charge as Charge2;
-use Dfe\Klarna\V3\Charge as Charge3;
 class Charge extends \Df\Core\TestCase {
 	/**
 	 * @test
@@ -12,7 +10,7 @@ class Charge extends \Df\Core\TestCase {
 	 */
 	public function t01() {
 		try {
-			Api::order(S::s(), ...(true ? ['SE', Charge2::p()] : ['US', Charge3::p()]));
+			Api::order(S::s(), true ? 'SE' : 'US');
 		}
 		catch (\Exception $e) {
 			echo df_etsd($e);

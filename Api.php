@@ -3,6 +3,8 @@
 namespace Dfe\Klarna;
 use Dfe\Klarna\Settings as S;
 use Dfe\Klarna\UserAgent as UA;
+use Dfe\Klarna\V2\Charge as Charge2;
+use Dfe\Klarna\V3\Charge as Charge3;
 use Dfe\Klarna\V2\Exception as Exception2;
 use Dfe\Klarna\V3\Exception\Guzzle as Exception3_Guzzle;
 use Dfe\Klarna\V3\Exception\Guzzle as Exception3_Connector;
@@ -15,14 +17,15 @@ final class Api {
 	 * 2017-01-25
 	 * @param S $s
 	 * @param string $buyerCountry
-	 * @param array(string => mixed) $request
 	 * @throws Exception2 
 	 * @throws Exception3_Guzzle
 	 * @throws Exception3_Connector
 	 */
-	public static function order(S $s, $buyerCountry, array $request) {
+	public static function order(S $s, $buyerCountry) {
 		/** @var bool $isV2 */
 		$isV2 = !in_array($buyerCountry, ['GB', 'US']);
+		/** @var array(string => mixed) $request */
+		$request = $isV2 ? Charge2::p($buyerCountry) : Charge3::p();
 		/**
 		 * 2017-01-24
 		 * https://developers.klarna.com/api/?json#api-urls

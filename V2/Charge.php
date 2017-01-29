@@ -3,6 +3,13 @@
 namespace Dfe\Klarna\V2;
 class Charge {
 	/**
+	 * 2017-01-29
+	 * @used-by p()
+	 * @param string $buyerCountry
+	 */
+	private function __construct($buyerCountry) {$this->_buyerCountry = $buyerCountry;}
+
+	/**
 	 * 2017-01-26
 	 * «Additional purchase information required for some industries.»
 	 * Required: no.
@@ -263,7 +270,7 @@ class Charge {
 		 * Type: string.
 		 * При указании пустой строки будет сбой: «Bad format».
 		 */
-		,'color_button' => '#FF9900'
+		//,'color_button' => '#FF9900'
 		/**
 		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»
@@ -271,7 +278,7 @@ class Charge {
 		 * Type: string.
 		 * При указании пустой строки будет сбой: «Bad format».
 		 */
-		,'color_button_text' => '#FF9900'
+		//,'color_button_text' => '#FF9900'
 		/**
 		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»
@@ -279,7 +286,7 @@ class Charge {
 		 * Type: string.
 		 * При указании пустой строки будет сбой: «Bad format».
 		 */
-		,'color_checkbox' => '#FF9900'
+		//,'color_checkbox' => '#FF9900'
 		/**
 		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»
@@ -287,7 +294,7 @@ class Charge {
 		 * Type: string.
 		 * При указании пустой строки будет сбой: «Bad format».
 		 */
-		,'color_checkbox_checkmark' => '#FF9900'
+		//,'color_checkbox_checkmark' => '#FF9900'
 		/**
 		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»
@@ -295,7 +302,7 @@ class Charge {
 		 * Type: string.
 		 * При указании пустой строки будет сбой: «Bad format».
 		 */
-		,'color_header' => '#FF9900'
+		//,'color_header' => '#FF9900'
 		/**
 		 * 2017-01-27
 		 * «Only hexadecimal values are allowed.»
@@ -303,7 +310,7 @@ class Charge {
 		 * Type: string.
 		 * При указании пустой строки будет сбой: «Bad format».
 		 */
-		,'color_link' => '#FF9900'
+		//,'color_link' => '#FF9900'
 		/**
 		 * 2017-01-27
 		 * «Making the date of birth mandatory.»
@@ -488,8 +495,12 @@ class Charge {
 		 *
 		 * 2017-01-28
 		 * Пустое значение приводит к сбою «Bad format».
+		 *
+		 * 2017-01-29
+		 * Помимо этого поля, страна ещё указывается в поле «shipping_address.country»:
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#address-object-properties
 		 */
-		,'purchase_country' => 'SE'
+		,'purchase_country' => $this->_buyerCountry
 		/**
 		 * 2017-01-26
 		 * «Currency in which the purchase is done (ISO-4217)»
@@ -657,8 +668,12 @@ class Charge {
 		 *
 		 * Замечание №2
 		 * Передача пустого значения приводит к сбою «Bad format».
+		 *
+		 * 2017-01-29
+		 * Помимо этого поля, страна ещё указывается в поле «purchase_country»:
+		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#resource-properties
 		 */
-		,'country' => 'SE'
+		,'country' => $this->_buyerCountry
 		/**
 		 * 2017-01-28
 		 * «E-mail address»
@@ -711,8 +726,12 @@ class Charge {
 		 * «Postal code»
 		 * Required: no.
 		 * Type: string.
+		 *
+		 * 2017-01-29
+		 * Веб-сервис использует значение этого поля
+		 * для автоматического заполнения платёжной формы.
 		 */
-		,'postal_code' => ''
+		,'postal_code' => '111 22'
 		/**
 		 * 2017-01-28
 		 * «Only for B2B orders.
@@ -781,8 +800,18 @@ class Charge {
 	];}
 
 	/**
+	 * 2017-01-29
+	 * @used-by __construct()
+	 * @used-by kl_order()
+	 * @used-by kl_shipping_address()
+	 * @var string
+	 */
+	private $_buyerCountry;
+
+	/**
 	 * 2017-01-26
+	 * @param string $buyerCountry
 	 * @return array(string => mixed)
 	 */
-	public static function p() {return (new self)->kl_order();}
+	public static function p($buyerCountry) {return (new self($buyerCountry))->kl_order();}
 }
