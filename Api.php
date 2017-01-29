@@ -151,6 +151,7 @@ final class Api {
 			$orderId = $order['id'];
 			/** @var string $html */
 			$html = $isV2 ? $order['gui']['snippet'] : $order['html_snippet'];
+			echo $html;
 		}
 		/**
 		 * 2017-01-26
