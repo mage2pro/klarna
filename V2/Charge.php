@@ -498,6 +498,7 @@ class Charge {
 		 *
 		 * 2017-01-29
 		 * Помимо этого поля, страна ещё указывается в поле «shipping_address.country»:
+		 * https://github.com/mage2pro/klarna/blob/0.0.7/V2/Charge.php?ts=4#L676
 		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#address-object-properties
 		 */
 		,'purchase_country' => $this->_buyerCountry
@@ -671,6 +672,7 @@ class Charge {
 		 *
 		 * 2017-01-29
 		 * Помимо этого поля, страна ещё указывается в поле «purchase_country»:
+		 * https://github.com/mage2pro/klarna/blob/0.0.7/V2/Charge.php?ts=4#L503
 		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#resource-properties
 		 */
 		,'country' => $this->_buyerCountry
