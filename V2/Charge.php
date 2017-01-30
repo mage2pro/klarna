@@ -808,8 +808,15 @@ class Charge {
 	 * @return string
 	 */
 	private function test($key) {
-		/** @var array(string => array(string => string)) $test */
-		static $test = ['SE' => ['postal_code' => '111 22']];
+		/**
+		 * 2017-01-30
+		 * «[Klarna] Test addresses» https://mage2.pro/t/2555
+		 * @var array(string => array(string => string)) $test
+		 */
+		static $test = [
+			'FI' => ['postal_code' => '00100']
+			,'SE' => ['postal_code' => '111 22']
+		];
 		return $test[$this->_buyerCountry][$key];
 	}
 
