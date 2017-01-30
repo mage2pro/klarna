@@ -439,7 +439,7 @@ class Charge {
 		 * 2017-01-28
 		 * Пустое значение приводит к сбою «Bad format».
 		 */
-		,'locale' => 'sv-se'
+		,'locale' => self::formatLocaleCode(df_locale_by_country($this->_buyerCountry))
 		/**
 		 * 2017-01-26
 		 * «Merchant related information.»
@@ -816,4 +816,12 @@ class Charge {
 	 * @return array(string => mixed)
 	 */
 	public static function p($buyerCountry) {return (new self($buyerCountry))->kl_order();}
+
+	/**
+	 * 2017-01-30
+	 * «sv_SE» => «sv-se»
+	 * @param string $l
+	 * @return string
+	 */
+	private static function formatLocaleCode($l) {return str_replace('_', '-', strtolower($l));}
 }
