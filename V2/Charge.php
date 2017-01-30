@@ -815,6 +815,14 @@ class Charge {
 		 */
 		static $test = [
 			'AT' => ['postal_code' => '1010']
+			/**
+			 * 2017-01-30
+			 * It seems like Denmark is not supported yet:
+			 * «[Klarna][Checkout v2] Why does an order API request for Denmark
+			 * lead to the «not_accepted_purchase_country» response?»
+			 * https://mage2.pro/t/2559
+			 */
+			,'DK' => ['postal_code' => '00100']
 			,'FI' => ['postal_code' => '00100']
 			,'SE' => ['postal_code' => '111 22']
 		];

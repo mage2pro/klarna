@@ -22,6 +22,13 @@ class Charge extends \Df\Core\TestCase {
 				Api::order(S::s(), 'US');
 			}
 			else {
+				/**
+				 * 2017-01-30
+				 * It seems like Denmark is not supported yet:
+				 * «[Klarna][Checkout v2] Why does an order API request for Denmark
+				 * lead to the «not_accepted_purchase_country» response?»
+				 * https://mage2.pro/t/2559
+				 */
 				echo implode("\n\n", df_map(function($c) {return
 					df_cc_n(df_country_ctn($c), Api::order(S::s(), $c))
 				;}, ['AT', 'FI', 'SE']));
