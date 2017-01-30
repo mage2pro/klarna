@@ -362,6 +362,9 @@ class Charge {
 		 * https://developers.klarna.com/en/se/kco-v2/checkout-api/attachments
 		 */
 		'attachment' => $this->kl_attachment()
+		// 2017-01-30
+		// Указание здесь поля «billing_address» приведёт к сбою:
+		// «The field 'billing_address' is read-only».
 		/**
 		 * 2017-01-26
 		 * «The cart»
@@ -758,7 +761,7 @@ class Charge {
 		 * Поле допустимо не только для указанных выше стран (Sweden, Norway and Finland),
 		 * но и для других (проверил для Австрии).
 		 */
-		,'street_address' => ''
+		,'street_address' => $this->test('street_address')
 		/**
 		 * 2017-01-28
 		 * «Only in Germany and Austria: Street name.»
@@ -852,12 +855,14 @@ class Charge {
 		 */
 		static $test = [
 			'AT' => [
-				'postal_code' => '1010'
+				'city' => 'Vienna'
+				,'postal_code' => '1010'
 				,'street_name' => 'Herrengasse'
 				,'street_number' => 12
 			]
 			,'DE' => [
-				'postal_code' => '10178'
+				'city' => 'Berlin'
+				,'postal_code' => '10178'
 				,'street_name' => 'Karl-Liebknecht-Strasse'
 				,'street_number' => 3
 			]
@@ -869,9 +874,21 @@ class Charge {
 			 * https://mage2.pro/t/2559
 			 */
 			,'DK' => ['postal_code' => '00100']
-			,'FI' => ['postal_code' => '00100']
-			,'NO' => ['postal_code' => '0185']
-			,'SE' => ['postal_code' => '111 22']
+			,'FI' => [
+				'city' => 'Helsinki'
+				,'postal_code' => '00100'
+				,'street_address' => 'Runeberginkatu 2'
+			]
+			,'NO' => [
+				'city' => 'Oslo'
+				,'postal_code' => '0185'
+				,'street_address' => 'Sonja Henies plass 3'
+			]
+			,'SE' => [
+				'city' => 'Stockholm'
+				,'postal_code' => '111 22'
+				,'street_address' => 'Nils Ericsons Plan 4'
+			]
 		];
 		/**
 		 * 2017-01-30
