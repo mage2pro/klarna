@@ -815,6 +815,7 @@ class Charge {
 		 */
 		static $test = [
 			'AT' => ['postal_code' => '1010']
+			,'DE' => ['postal_code' => '10178']
 			/**
 			 * 2017-01-30
 			 * It seems like Denmark is not supported yet:
