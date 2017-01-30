@@ -733,7 +733,7 @@ class Charge {
 		 * Веб-сервис использует значение этого поля
 		 * для автоматического заполнения платёжной формы.
 		 */
-		,'postal_code' => '111 22'
+		,'postal_code' => $this->test('postal_code')
 		/**
 		 * 2017-01-28
 		 * «Only for B2B orders.
@@ -800,6 +800,18 @@ class Charge {
 		 */
 		,'title' => ''
 	];}
+
+	/**
+	 * 2017-01-30
+	 * @used-by kl_shipping_address()
+	 * @param string $key
+	 * @return string
+	 */
+	private function test($key) {
+		/** @var array(string => array(string => string)) $test */
+		static $test = ['SE' => ['postal_code' => '111 22']];
+		return $test[$this->_buyerCountry][$key];
+	}
 
 	/**
 	 * 2017-01-29

@@ -15,8 +15,10 @@ use Klarna\Rest\Transport\Connector as klConnector3;
 final class Api {
 	/**
 	 * 2017-01-25
+	 * Returns a Klarna's HTML snippet: https://mage2.pro/t/2544
 	 * @param S $s
 	 * @param string $buyerCountry
+	 * @return string
 	 * @throws Exception2 
 	 * @throws Exception3_Guzzle
 	 * @throws Exception3_Connector
@@ -151,10 +153,9 @@ final class Api {
 			 */
 			$order->fetch();
 			/** @var string $orderId */
-			$orderId = $order['id'];
+			//$orderId = $order['id'];
 			/** @var string $html */
-			$html = $isV2 ? $order['gui']['snippet'] : $order['html_snippet'];
-			echo $html;
+			return $isV2 ? $order['gui']['snippet'] : $order['html_snippet'];
 		}
 		/**
 		 * 2017-01-26
