@@ -819,7 +819,7 @@ class Charge {
 	 * 2017-01-30
 	 * @used-by kl_shipping_address()
 	 * @param string $key
-	 * @return string
+	 * @return string|null
 	 */
 	private function test($key) {
 		/**
@@ -842,7 +842,13 @@ class Charge {
 			,'NO' => ['postal_code' => '0185']
 			,'SE' => ['postal_code' => '111 22']
 		];
-		return $test[$this->_buyerCountry][$key];
+		/**
+		 * 2017-01-30
+		 * Стал использовать @uses dfa(),
+		 * потому что некоторые поля обязательны только для некоторых стран
+		 * (например, «street_number»).
+		 */
+		return dfa($test[$this->_buyerCountry], $key);
 	}
 
 	/**
