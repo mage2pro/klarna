@@ -512,7 +512,7 @@ class Charge {
 		 * 2017-01-28
 		 * Пустое значение приводит к сбою «Bad format».
 		 */
-		,'purchase_currency' => 'SEK'
+		,'purchase_currency' => df_currency_by_country_c($this->_buyerCountry)
 		/**
 		 * 2017-01-26
 		 * «Only in Sweden, Norway and Finland:
