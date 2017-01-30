@@ -154,6 +154,9 @@ final class Api {
 			$order->fetch();
 			/** @var string $orderId */
 			//$orderId = $order['id'];
+			if ($isV2) {
+				dfp_log_l(__CLASS__, $order->marshal(), strtolower($buyerCountry));
+			}
 			/** @var string $html */
 			return $isV2 ? $order['gui']['snippet'] : $order['html_snippet'];
 		}

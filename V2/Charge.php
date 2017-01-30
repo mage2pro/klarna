@@ -797,6 +797,15 @@ class Charge {
 		 * Type: string.
 		 * Спецификация помечает это поле как «read only»,
 		 * но на практике я установил, что веб-сервис его допускает.
+		 *
+		 * 2017-01-30
+		 * [Klarna][Checkout v2] How is the «shipping_address.title» field shown on the payment form?
+		 * https://mage2.pro/t/2560
+		 *
+		 * [Klarna][Checkout v2] The documentation states that the «shipping_address.title» field
+		 * is read only, but really the API allows to pass it in:
+		 * https://mage2.pro/t/2561
+		 * https://mail.google.com/mail/u/0/#sent/159ef3c974441d58
 		 */
 		,'title' => 'Herr'
 	];}
