@@ -560,7 +560,7 @@ class Charge {
 		 * Required: no.
 		 * Type: string.
 		 */
-		,'ean' => ''
+		,'ean' => 'vs-0034'
 		/**
 		 * 2017-01-26
 		 * «Item image URI.
@@ -575,7 +575,7 @@ class Charge {
 		 * Required: yes.
 		 * Type: string.
 		 */
-		,'name' => ''
+		,'name' => 'Victoria’s Secret Angel Gold Eau de Parfum'
 		/**
 		 * 2017-01-26
 		 * «Quantity»
@@ -611,7 +611,7 @@ class Charge {
 		 * Required: yes.
 		 * Type: integer.
 		 */
-		,'unit_price' => 1
+		,'unit_price' => 120
 		/**
 		 * 2017-01-26
 		 * «Item product page URI.
@@ -728,8 +728,12 @@ class Charge {
 		 * Type: string.
 		 * Спецификация помечает это поле как «read only»,
 		 * но на практике я установил, что веб-сервис его допускает.
+		 *
+		 * 2017-01-31
+		 * [Klarna][Checkout v2] How is the «shipping_address.phone» field shown on the payment form?
+		 * https://mage2.pro/t/2568
 		 */
-		,'phone' => ''
+		,'phone' => $this->test('phone')
 		/**
 		 * 2017-01-28
 		 * «Postal code»
@@ -860,12 +864,14 @@ class Charge {
 		static $test = [
 			'AT' => [
 				'city' => 'Vienna'
+				,'phone' => '+43 1 22 7800'
 				,'postal_code' => '1010'
 				,'street_name' => 'Herrengasse'
 				,'street_number' => 12
 			]
 			,'DE' => [
 				'city' => 'Berlin'
+				,'phone' => '+49 30 238 280'
 				,'postal_code' => '10178'
 				,'street_name' => 'Karl-Liebknecht-Strasse'
 				,'street_number' => 3
@@ -880,16 +886,19 @@ class Charge {
 			,'DK' => ['postal_code' => '00100']
 			,'FI' => [
 				'city' => 'Helsinki'
+				,'phone' => '+358 20 1234 701'
 				,'postal_code' => '00100'
 				,'street_address' => 'Runeberginkatu 2'
 			]
 			,'NO' => [
 				'city' => 'Oslo'
+				,'phone' => '+47 22 058000'
 				,'postal_code' => '0185'
 				,'street_address' => 'Sonja Henies plass 3'
 			]
 			,'SE' => [
 				'city' => 'Stockholm'
+				,'phone' => '+46 8 5050 6000'
 				,'postal_code' => '111 22'
 				,'street_address' => 'Nils Ericsons Plan 4'
 			]
