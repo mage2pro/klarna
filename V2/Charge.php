@@ -814,7 +814,8 @@ class Charge {
 		 * @var array(string => array(string => string)) $test
 		 */
 		static $test = [
-			'FI' => ['postal_code' => '00100']
+			'AT' => ['postal_code' => '1010']
+			,'FI' => ['postal_code' => '00100']
 			,'SE' => ['postal_code' => '111 22']
 		];
 		return $test[$this->_buyerCountry][$key];

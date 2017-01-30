@@ -24,7 +24,7 @@ class Charge extends \Df\Core\TestCase {
 			else {
 				echo implode("\n\n", df_map(function($c) {return
 					df_cc_n(df_country_ctn($c), Api::order(S::s(), $c))
-				;}, ['SE', 'FI']));
+				;}, ['AT', 'FI', 'SE']));
 			}
 		}
 		catch (\Exception $e) {
