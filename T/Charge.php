@@ -29,9 +29,11 @@ class Charge extends \Df\Core\TestCase {
 				 * lead to the «not_accepted_purchase_country» response?»
 				 * https://mage2.pro/t/2559
 				 */
-				echo implode("\n\n", df_map(function($c) {return
-					df_cc_n(df_country_ctn($c), Api::order(S::s(), $c))
-				;}, ['AT', 'DE', 'FI', 'SE']));
+				foreach (['at', 'de', 'fi', 'no', 'se'] as $c) {
+					/** @var string $c */
+					file_put_contents(BP . "/_my/Klarna/{$c}.html", Api::order(S::s(), strtoupper($c)));
+					echo df_country_ctn($c) . " OK\n";
+				}
 			}
 		}
 		catch (\Exception $e) {

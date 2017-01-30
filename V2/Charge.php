@@ -798,7 +798,7 @@ class Charge {
 		 * Спецификация помечает это поле как «read only»,
 		 * но на практике я установил, что веб-сервис его допускает.
 		 */
-		,'title' => ''
+		,'title' => 'Herr'
 	];}
 
 	/**
@@ -825,6 +825,7 @@ class Charge {
 			 */
 			,'DK' => ['postal_code' => '00100']
 			,'FI' => ['postal_code' => '00100']
+			,'NO' => ['postal_code' => '0185']
 			,'SE' => ['postal_code' => '111 22']
 		];
 		return $test[$this->_buyerCountry][$key];
