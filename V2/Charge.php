@@ -772,8 +772,18 @@ class Charge {
 		 * Замечание №2
 		 * Поле допустимо не только для указанных выше стран (Germany and Austria),
 		 * но и для других (проверил для Швеции).
+		 *
+		 * 2017-01-30
+		 * [Klarna][Checkout v2] How are the «shipping_address.street_name»
+		 * and «shipping_address.street_number» fields shown on the payment form?
+		 * https://mage2.pro/t/2562
+		 *
+		 * [Klarna][Checkout v2] The documentation states that
+		 * the «shipping_address.street_name» and «shipping_address.street_number» fields
+		 * are read only, but really the API allows to pass them.
+		 * https://mage2.pro/t/2563
 		 */
-		,'street_name' => ''
+		,'street_name' => $this->test('street_name')
 		/**
 		 * 2017-01-28
 		 * «Only in Germany and Austria: Street number.»
@@ -789,11 +799,24 @@ class Charge {
 		 * но и для других (проверил для Швеции).
 		 *
 		 * 2017-01-30
+		 * Замечание №1
 		 * Это поле означает «номер дома».
 		 * Платёжная форма для Германии и Австрии требует заполнения улицы и номера дома,
 		 * причём в отдельных (обязательных) полях.
+		 *
+		 * Замечание №2
+		 * Передача числа вместо строки приведёт к сбою «Bad format».
+		 *
+		 * [Klarna][Checkout v2] How are the «shipping_address.street_name»
+		 * and «shipping_address.street_number» fields shown on the payment form?
+		 * https://mage2.pro/t/2562
+		 *
+		 * [Klarna][Checkout v2] The documentation states that
+		 * the «shipping_address.street_name» and «shipping_address.street_number» fields
+		 * are read only, but really the API allows to pass them.
+		 * https://mage2.pro/t/2563
 		 */
-		,'street_number' => ''
+		,'street_number' => strval($this->test('street_number'))
 		/**
 		 * 2017-01-28
 		 * «Only in Germany and Austria:
@@ -819,7 +842,7 @@ class Charge {
 	 * 2017-01-30
 	 * @used-by kl_shipping_address()
 	 * @param string $key
-	 * @return string|null
+	 * @return string
 	 */
 	private function test($key) {
 		/**
@@ -828,8 +851,16 @@ class Charge {
 		 * @var array(string => array(string => string)) $test
 		 */
 		static $test = [
-			'AT' => ['postal_code' => '1010']
-			,'DE' => ['postal_code' => '10178']
+			'AT' => [
+				'postal_code' => '1010'
+				,'street_name' => 'Herrengasse'
+				,'street_number' => 12
+			]
+			,'DE' => [
+				'postal_code' => '10178'
+				,'street_name' => 'Karl-Liebknecht-Strasse'
+				,'street_number' => 3
+			]
 			/**
 			 * 2017-01-30
 			 * It seems like Denmark is not supported yet:
@@ -844,11 +875,17 @@ class Charge {
 		];
 		/**
 		 * 2017-01-30
+		 * Замечание №1
 		 * Стал использовать @uses dfa(),
 		 * потому что некоторые поля обязательны только для некоторых стран
-		 * (например, «street_number»).
+		 * (например, «street_number»). 
+		 *
+		 * Замечание №2
+		 * Стал использовать @uses df_nts(),
+		 * потому что передача null вместо пустой строки в запросе API
+		 * приведёт к ответу сервера «Bad format»
 		 */
-		return dfa($test[$this->_buyerCountry], $key);
+		return df_nts(dfa($test[$this->_buyerCountry], $key));
 	}
 
 	/**
