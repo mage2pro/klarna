@@ -658,8 +658,12 @@ class Charge {
 		 * Type: string.
 		 * Спецификация помечает это поле как «read only»,
 		 * но на практике я установил, что веб-сервис его допускает.
+		 *
+		 * 2017-01-30
+		 * [Klarna][Checkout v2] How is the «shipping_address.city» field shown on the payment form?
+		 * https://mage2.pro/t/2567
 		 */
-		,'city' => ''
+		,'city' => $this->test('city')
 		/**
 		 * 2017-01-28
 		 * «Country (ISO-3166 alpha)»
