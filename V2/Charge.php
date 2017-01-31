@@ -841,6 +841,10 @@ final class Charge {
 		 * Please note this property is currently not returned when fetching the full order resource.»
 		 * Required: no.
 		 * Type: string.
+		 *
+		 * 2017-02-01
+		 * Пока вроде бы Klarna нигде не отображает эту картинку
+		 * и не включает это поле в свой ответ с как-бы «полной» информацией о платеже.
 		 */
 		,'image_uri' => df_oi_image($i)
 		/**
