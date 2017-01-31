@@ -574,8 +574,13 @@ final class Charge {
 		 * Please note this property is currently not returned when fetching the full order resource.»
 		 * Required: no.
 		 * Type: string.
+		 *
+		 * 2017-01-31
+		 * По сути, это шрихкод:
+		 * https://en.wikipedia.org/wiki/International_Article_Number
+		 * https://ru.wikipedia.org/wiki/European_Article_Number
 		 */
-		,'ean' => 'vs-0034'
+		,'ean' => '2400000032632'
 		/**
 		 * 2017-01-26
 		 * «Item image URI.
@@ -596,15 +601,20 @@ final class Charge {
 		 * «Quantity»
 		 * Required: yes.
 		 * Type: integer.
+		 * 
+		 * 2017-01-31
+		 * Используем @used intval(), потому что
+		 * @uses \Magento\Sales\Model\Order\Item::getQtyOrdered() возвращает вещественное число,
+		 * а не целое, а передача в Klarna вещественного числа приводит к сбою «Bad format».
 		 */
-		,'quantity' => 1
+		,'quantity' => intval($i->getQtyOrdered())
 		/**
 		 * 2017-01-26
 		 * «Reference, usually the article number»
 		 * Required: yes.
 		 * Type: string.
 		 */
-		,'reference' => ''
+		,'reference' => $i->getSku()
 		/**
 		 * 2017-01-26
 		 * «Percentage of tax rate, multiplied by 100 and provided as an integer.
