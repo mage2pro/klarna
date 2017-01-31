@@ -2,7 +2,8 @@
 // 2017-01-26
 namespace Dfe\Klarna\V2;
 use Dfe\Klarna\T\Data as Test;
-class Charge {
+use Magento\Sales\Model\Order\Item as OI;
+final class Charge {
 	/**
 	 * 2017-01-29
 	 * @used-by p()
@@ -542,10 +543,23 @@ class Charge {
 	 * Required: yes.
 	 * Type: array of cart item objects.
 	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#cart-item-object-properties
+	 *
+	 * 2017-01-31
+	 * Примеры аналогичной функциональности в других моих платёжных модулях:
+	 *
+	 * *) @see \Dfe\AllPay\Charge::productUrls()
+	 * https://github.com/mage2pro/allpay/blob/1.1.25/Charge.php?ts=4#L648-L650
+	 *
+	 * *) @see \Dfe\CheckoutCom\Charge::setProducts()
+	 * https://github.com/checkout/checkout-magento2-plugin/blob/1.1.19/Charge.php?ts=4#L413-L423
+	 *
+	 * *) @see \Dfe\TwoCheckout\Charge::lineItems()
+	 * https://github.com/mage2pro/2checkout/blob/1.1.16/Charge.php?ts=4#L153-L183
+	 *
 	 * @used-by kl_order()
 	 * @return array(string => string|int)
 	 */
-	private function kl_order_lines() {return [[
+	private function kl_order_lines() {return df_oi_leafs(Test::order(), function(OI $i) {return [
 		/**
 		 * 2017-01-26
 		 * «Percentage of discount, multiplied by 100 and provided as an integer.
@@ -576,7 +590,7 @@ class Charge {
 		 * Required: yes.
 		 * Type: string.
 		 */
-		,'name' => 'Victoria’s Secret Angel Gold Eau de Parfum'
+		,'name' => $i->getName()
 		/**
 		 * 2017-01-26
 		 * «Quantity»
@@ -621,7 +635,7 @@ class Charge {
 		 * Type: string.
 		 */
 		,'uri' => ''
-	]];}
+	];});}
 
 	/**
 	 * 2017-01-26

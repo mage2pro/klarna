@@ -1,10 +1,18 @@
 <?php
 // 2017-01-31
 namespace Dfe\Klarna\T;
+use Magento\Sales\Model\Order as O;
 final class Data {
+	/**
+	 * 2017-01-31
+	 * @return O
+	 */
+	public static function order() {return dfcf(function() {return df_order_r()->get('372');});}
+
 	/**
 	 * 2017-01-30
 	 * «[Klarna] Test addresses» https://mage2.pro/t/2555
+	 * @used-by \Dfe\Klarna\V2\Charge::test()
 	 * @var array(string => array(string => string|int))
 	 */
 	public static $other = [
