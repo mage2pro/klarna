@@ -635,8 +635,12 @@ final class Charge {
 		 * «Unit price in cents, including tax»
 		 * Required: yes.
 		 * Type: integer.
+		 *
+		 * 2017-02-01
+		 * Нам тут, согласно спецификации Klarna,
+		 * нужна цена именно с налогом, поэтому передаём в df_oi_price() вторым параметром true.
 		 */
-		,'unit_price' => 120
+		,'unit_price' => (100 * df_oi_price($i, true))
 		/**
 		 * 2017-01-26
 		 * «Item product page URI.
