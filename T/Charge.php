@@ -3,7 +3,7 @@
 namespace Dfe\Klarna\T;
 use Dfe\Klarna\Api;
 use Dfe\Klarna\Settings as S;
-class Charge extends \Df\Core\TestCase {
+final class Charge extends \Df\Core\TestCase {
 	/**
 	 * @test
 	 * 2017-01-22
