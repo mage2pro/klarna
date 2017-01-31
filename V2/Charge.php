@@ -842,7 +842,7 @@ final class Charge {
 		 * Required: no.
 		 * Type: string.
 		 */
-		,'image_uri' => ''
+		,'image_uri' => df_oi_image($i)
 		/**
 		 * 2017-01-26
 		 * «Name, usually a short description»
