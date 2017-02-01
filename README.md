@@ -1,3 +1,14 @@
+The extension integrates your Magento 2 store with the **[Klarna](https://www.klarna.com/)** payment service.
+
+## Demo
+
+Examples of the Klarna's Checkout page: 
+- [**Austria**](https://mage2.pro/t/topic/2589)
+- [**Finland**](https://mage2.pro/t/topic/2585)
+- [**Germany**](https://mage2.pro/t/topic/2588)
+- [**Norway**](https://mage2.pro/t/topic/2587)
+- [**Sweden**](https://mage2.pro/t/topic/2586) 
+
 ## Licensing
 It is a paid extension, not free.  
 You can use it for free in a test environment only: 

@@ -266,7 +266,7 @@ final class Charge {
 			 * Required: yes.
 			 * Type: string.
 			 */
-			,'text' => 'I have already bought the [«Klarna» payment extension](https://mage2.pro/c/extensions/klarna).'
+			,'text' => 'An example of [terms and conditions](https://mage2.pro/c/extensions/klarna).'
 		]
 		/**
 		 * 2017-01-27
