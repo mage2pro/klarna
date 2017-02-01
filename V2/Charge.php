@@ -12,6 +12,27 @@ final class Charge {
 	private function __construct($buyerCountry) {$this->_buyerCountry = $buyerCountry;}
 
 	/**
+	 * 2017-02-01
+	 * @used-by olProducts()
+	 * @param float $v
+	 * @return int
+	 */
+	private function amount($v) {return round(100 * df_currency_convert(
+		$v, Test::order()->getOrderCurrencyCode(), $this->currency()
+	));}
+
+	/**
+	 * 2017-02-01
+	 * @used-by amount()
+	 * @used-by kl_order()
+	 * @used-by olProducts()
+	 * @return string
+	 */
+	private function currency() {return dfc($this, function() {return
+		df_currency_by_country_c($this->_buyerCountry)
+	;});}
+
+	/**
 	 * 2017-01-26
 	 * «Additional purchase information required for some industries.»
 	 * Required: no.
@@ -517,7 +538,7 @@ final class Charge {
 		 * 2017-01-28
 		 * Пустое значение приводит к сбою «Bad format».
 		 */
-		,'purchase_currency' => df_currency_by_country_c($this->_buyerCountry)
+		,'purchase_currency' => $this->currency()
 		/**
 		 * 2017-01-26
 		 * «Only in Sweden, Norway and Finland:
@@ -916,7 +937,7 @@ final class Charge {
          *   }
 		 * @uses df_oi_price() как раз и возвращает стоимость одной единицы товара.
 		 */
-		,'unit_price' => (100 * df_oi_price($i, true))
+		,'unit_price' => $this->amount(df_oi_price($i, true))
 		/**
 		 * 2017-01-26
 		 * «Item product page URI.
