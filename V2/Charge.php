@@ -976,6 +976,11 @@ final class Charge {
 		 * По сути, это шрихкод:
 		 * https://en.wikipedia.org/wiki/International_Article_Number
 		 * https://ru.wikipedia.org/wiki/European_Article_Number
+		 *
+		 * 2017-02-02
+		 * What is the purpose to pass the EANs (European Article Numbers)
+		 * of the ordered products to Klarna?  https://mage2.pro/t/2591
+		 * https://mail.google.com/mail/u/0/#sent/159fbd9e16cbdff5
 		 */
 		,'ean' => '2400000032632'
 		/**
