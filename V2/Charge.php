@@ -924,7 +924,7 @@ final class Charge {
 		 * Required: no.
 		 * Type: string.
 		 */
-		,'uri' => ''
+		,'uri' => df_oi_url($i)
 	];});}
 
 	/**
