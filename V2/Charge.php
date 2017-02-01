@@ -13,7 +13,9 @@ final class Charge {
 
 	/**
 	 * 2017-02-01
+	 * @used-by olDiscount()
 	 * @used-by olProducts()
+	 * @used-by olShipping()
 	 * @param float $v
 	 * @return int
 	 */
@@ -918,8 +920,12 @@ final class Charge {
 		 *		<...>
          *   }
 		 * @uses df_oi_price() как раз и возвращает стоимость одной единицы товара.
+		 *
+		 * Замечание №3
+		 * Тестовый заказ №373 у нас в шведских кронах.
+		 * 10 шведских крон стоят примерно 1 евро.
 		 */
-		,'unit_price' => -$this->amount(10)
+		,'unit_price' => -$this->amount(30)
 		/**
 		 * 2017-01-26
 		 * «Item product page URI.
@@ -1175,8 +1181,12 @@ final class Charge {
 		 *		<...>
          *   }
 		 * @uses df_oi_price() как раз и возвращает стоимость одной единицы товара.
+		 *
+		 * Замечание №3
+		 * Тестовый заказ №373 у нас в шведских кронах.
+		 * 10 шведских крон стоят примерно 1 евро.
 		 */
-		,'unit_price' => 0//$this->amount(5)
+		,'unit_price' => $this->amount(50)
 		/**
 		 * 2017-01-26
 		 * «Item product page URI.
