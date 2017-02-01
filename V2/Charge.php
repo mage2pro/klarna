@@ -1028,7 +1028,7 @@ final class Charge {
 		 * Required: yes.
 		 * Type: integer.
 		 */
-		,'tax_rate' => 0
+		,'tax_rate' => $this->taxRate($i)
 		/**
 		 * 2017-01-26
 		 * «Type. `physical` by default, alternatively `discount`, `shipping_fee`»
@@ -1205,6 +1205,18 @@ final class Charge {
 		 */
 		,'uri' => ''
 	];}
+
+	/**
+	 * 2017-02-02
+	 * @used-by olProducts()
+	 * @param OI $i
+	 * @return int
+	 */
+	private function taxRate(OI $i) {
+		/** @var float $withoutTax */
+		$withoutTax = df_oi_price($i);
+		return round(100 * (df_oi_price($i, true) - $withoutTax) / $withoutTax);
+	}
 
 	/**
 	 * 2017-01-30
