@@ -2,6 +2,7 @@
 // 2017-01-26
 namespace Dfe\Klarna\V2;
 use Dfe\Klarna\T\Data as Test;
+use Magento\Sales\Model\Order as O;
 use Magento\Sales\Model\Order\Item as OI;
 final class Charge {
 	/**
@@ -20,7 +21,7 @@ final class Charge {
 	 * @return int
 	 */
 	private function amount($v) {return round(100 * df_currency_convert(
-		$v, Test::order()->getOrderCurrencyCode(), $this->currency()
+		$v, $this->o()->getOrderCurrencyCode(), $this->currency()
 	));}
 
 	/**
@@ -832,6 +833,15 @@ final class Charge {
 	 */
 	private function localeFormatted() {return str_replace('_', '-', strtolower($this->locale()));}
 
+	/**   
+	 * 2017-02-02
+	 * @used-by amount()
+	 * @used-by olProducts() 
+	 * @used-by olShipping()
+	 * @return O
+	 */
+	private function o() {return dfc($this, function() {return df_order_r()->get('376');});}
+
 	/**
 	 * 2017-02-01
 	 * @used-by kl_order_lines()
@@ -975,7 +985,7 @@ final class Charge {
 	 * @used-by kl_order_lines()
 	 * @return array(string => string|int)
 	 */
-	private function olProducts() {return df_oi_leafs(Test::order(), function(OI $i) {return [
+	private function olProducts() {return df_oi_leafs($this->o(), function(OI $i) {return [
 		/**
 		 * 2017-01-26
 		 * «Percentage of discount, multiplied by 100 and provided as an integer.
@@ -999,6 +1009,11 @@ final class Charge {
 		 *
 		 * Вообще, похоже нет смысла тут передавать скидку в Klarna.
 		 * Пока, по крайней мере, мне смысл неочевиден.
+		 * Спросил у техподдержки:
+		 * What is the advantage to pass the «discount_rate» parameter with a cart item
+		 * instead of including this discount into the «unit_price» parameter?
+		 * https://mage2.pro/t/2593
+		 * https://mail.google.com/mail/u/0/#sent/159fc5b467f83428
 		 */
 		'discount_rate' => 0
 		/**
@@ -1160,7 +1175,7 @@ final class Charge {
 		 * Required: yes.
 		 * Type: string.
 		 */
-		,'name' => 'Carrier Name'
+		,'name' => $this->o()->getShippingDescription()
 		/**
 		 * 2017-01-26
 		 * «Quantity»
@@ -1227,7 +1242,7 @@ final class Charge {
 		 * Тестовый заказ №376 у нас в шведских кронах.
 		 * 10 шведских крон стоят примерно 1 евро.
 		 */
-		,'unit_price' => $this->amount(50)
+		,'unit_price' => $this->amount($this->o()->getShippingAmount())
 		/**
 		 * 2017-01-26
 		 * «Item product page URI.
