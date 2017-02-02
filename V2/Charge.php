@@ -405,6 +405,11 @@ final class Charge {
 			 * Required: yes.
 			 * Type: array of cart item objects.
 			 * https://developers.klarna.com/en/se/kco-v2/checkout-api#cart-item-object-properties
+			 *
+			 * 2017-02-02
+			 * Why does Klarna not show a cart contents to the Norway and Sweden based customers,
+			 * but shows it to the all other customers? https://mage2.pro/t/2594
+			 * https://mail.google.com/mail/u/0/#sent/159fc6464717d4ab
 			 */
 			'items' => $this->kl_order_lines()
 		]
