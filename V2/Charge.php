@@ -467,7 +467,7 @@ final class Charge {
 		 * 2017-01-28
 		 * Пустое значение приводит к сбою «Bad format».
 		 */
-		,'locale' => self::formatLocaleCode(df_locale_by_country($this->_buyerCountry))
+		,'locale' => $this->localeFormatted()
 		/**
 		 * 2017-01-26
 		 * «Merchant related information.»
@@ -814,6 +814,25 @@ final class Charge {
 	];}
 
 	/**
+	 * 2017-02-02
+	 * «sv_SE»
+	 * @used-by localeFormatted()
+	 * @return string
+	 */
+	private function locale() {return dfc($this, function() {return
+		df_locale_by_country($this->_buyerCountry)
+	;});}
+
+	/**
+	 * 2017-02-02
+	 * «sv_SE» => «sv-se»
+	 * @used-by kl_order()
+	 * @used-by olProducts()
+	 * @return string
+	 */
+	private function localeFormatted() {return str_replace('_', '-', strtolower($this->locale()));}
+
+	/**
 	 * 2017-02-01
 	 * @used-by kl_order_lines()
 	 * @return array(string => string|int)
@@ -922,7 +941,7 @@ final class Charge {
 		 * @uses df_oi_price() как раз и возвращает стоимость одной единицы товара.
 		 *
 		 * Замечание №3
-		 * Тестовый заказ №373 у нас в шведских кронах.
+		 * Тестовый заказ №375 у нас в шведских кронах.
 		 * 10 шведских крон стоят примерно 1 евро.
 		 */
 		,'unit_price' => -$this->amount(30)
@@ -1077,7 +1096,7 @@ final class Charge {
 		 * и не включает это поле в свой ответ с как-бы «полной» информацией о платеже.
 		 */
 		,'uri' => df_oi_url($i)
-	];});}
+	];}, $this->locale());}
 
 	/**
 	 * 2017-02-01
@@ -1188,7 +1207,7 @@ final class Charge {
 		 * @uses df_oi_price() как раз и возвращает стоимость одной единицы товара.
 		 *
 		 * Замечание №3
-		 * Тестовый заказ №373 у нас в шведских кронах.
+		 * Тестовый заказ №375 у нас в шведских кронах.
 		 * 10 шведских крон стоят примерно 1 евро.
 		 */
 		,'unit_price' => $this->amount(50)
@@ -1237,9 +1256,12 @@ final class Charge {
 
 	/**
 	 * 2017-01-29
-	 * @used-by __construct()
+	 * @used-by __construct()  
+	 * @used-by currency()
 	 * @used-by kl_order()
 	 * @used-by kl_shipping_address()
+	 * @used-by locale()
+	 * @used-by test()
 	 * @var string
 	 */
 	private $_buyerCountry;
@@ -1250,12 +1272,4 @@ final class Charge {
 	 * @return array(string => mixed)
 	 */
 	public static function p($buyerCountry) {return (new self($buyerCountry))->kl_order();}
-
-	/**
-	 * 2017-01-30
-	 * «sv_SE» => «sv-se»
-	 * @param string $l
-	 * @return string
-	 */
-	private static function formatLocaleCode($l) {return str_replace('_', '-', strtolower($l));}
 }
