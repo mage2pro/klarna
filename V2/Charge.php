@@ -959,7 +959,7 @@ final class Charge {
 		 * Тестовый заказ №376 у нас в шведских кронах.
 		 * 10 шведских крон стоят примерно 1 евро.
 		 */
-		,'unit_price' => -$this->amount(30)
+		,'unit_price' => $this->amount($this->o()->getDiscountAmount())
 		/**
 		 * 2017-01-26
 		 * «Item product page URI.
