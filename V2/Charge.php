@@ -979,6 +979,65 @@ final class Charge {
 		 * How is the «Apply Discount On Prices» («Excluding Tax» / «Including Tax») option handled?
 		 * https://mage2.pro/t/2602
 		 *
+		 * В Klarna же происходит так:
+		 *	"cart": {
+		 *		"items": [
+		 *			{
+		 *				"quantity": 1,
+		 *				"tax_rate": 2500,
+		 *				"total_price_excluding_tax": 60946,
+		 *				"total_price_including_tax": 76183,
+		 *				"total_tax_amount": 15237,
+		 *				"unit_price": 76183
+		 *			},
+		 *			{
+		 *				"quantity": 2,
+		 *				"tax_rate": 2500,
+		 *				"total_price_excluding_tax": 93634,
+		 *				"total_price_including_tax": 117042,
+		 *				"total_tax_amount": 23408,
+		 *				"unit_price": 58521
+		 *			},
+		 *			{
+		 *				"quantity": 1,
+		 *				"tax_rate": 2500,
+		 *				"total_price_excluding_tax": 46817,
+		 *				"total_price_including_tax": 58521,
+		 *				"total_tax_amount": 11704,
+		 *				"unit_price": 58521
+		 *			},
+		 *			{
+		 *				"quantity": 3,
+		 *				"tax_rate": 2500,
+		 *				"total_price_excluding_tax": 188378,
+		 *				"total_price_including_tax": 235473,
+		 *				"total_tax_amount": 47095,
+		 *				"unit_price": 78491
+		 *			},
+		 *			{
+		 *				"type": "discount",
+		 *				"quantity": 1,
+		 *				"tax_rate": 0,
+		 *				"total_price_excluding_tax": -27284,
+		 *				"total_price_including_tax": -27284,
+		 *				"total_tax_amount": 0,
+		 *				"unit_price": -27284
+		 *			},
+		 *			{
+		 * 				"type": "shipping_fee",
+		 *				"quantity": 1,
+		 *				"tax_rate": 0,
+		 *				"total_price_excluding_tax": 17545,
+		 *				"total_price_including_tax": 17545,
+		 *				"total_tax_amount": 0,
+		 *				"unit_price": 17545
+		 *			}
+		 *		],
+		 *		"total_price_excluding_tax": 380036,
+		 *		"total_tax_amount": 97444,
+		 *		"total_price_including_tax": 477480
+		 *	},
+		 *
 		 * Замечание №3
 		 * @todo Аналогичным образом некорректной, видимо, является и реализация «unit_price»
 		 * в @see olShipping(): $this->amount($this->o()->getShippingAmount())
