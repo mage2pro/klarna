@@ -964,6 +964,22 @@ final class Charge {
 		 * Метод @uses \Magento\Sales\Model\Order::getDiscountAmount()
 		 * возвращает неположительное значение (отрицательное или 0):
 		 * именно неположительным нам и нужно передавать его в Klarna.
+		 *
+		 * Замечание №2
+		 * @todo Реализация $this->amount($this->o()->getDiscountAmount()) некорректна
+		 * при ненулевом налогообложении!
+		 * В Magento администратор настраивает, учитывать ли скидки в налогооблагаемой базе:
+		 * «Sales» → «Tax» → «Calculation Settings»:
+		 * 1) «Apply Customer Tax»: «Before Discount» / «After Discount»
+		 * 2) «Apply Discount On Prices»: «Excluding Tax» / «Including Tax»
+		 *
+		 * Замечание №3
+		 * @todo Аналогичным образом некорректной, видимо, является и реализация «unit_price»
+		 * в @see olShipping(): $this->amount($this->o()->getShippingAmount())
+		 * В Magento администратор настраивает, учитывать ли стоимость доставки
+		 * в налогооблагаемой базе:
+		 * «Sales» → «Tax» → «Calculation Settings» → «Shipping Prices»:
+		 * «Excluding Tax» / «Including Tax»
 		 */
 		,'unit_price' => $this->amount($this->o()->getDiscountAmount())
 		/**
