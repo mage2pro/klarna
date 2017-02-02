@@ -970,8 +970,14 @@ final class Charge {
 		 * при ненулевом налогообложении!
 		 * В Magento администратор настраивает, учитывать ли скидки в налогооблагаемой базе:
 		 * «Sales» → «Tax» → «Calculation Settings»:
+		 *
 		 * 1) «Apply Customer Tax»: «Before Discount» / «After Discount»
+		 * How is the «Apply Customer Tax» («Before Discount» / «After Discount») option handled?
+		 * https://mage2.pro/t/2601
+		 *
 		 * 2) «Apply Discount On Prices»: «Excluding Tax» / «Including Tax»
+		 * How is the «Apply Discount On Prices» («Excluding Tax» / «Including Tax») option handled?
+		 * https://mage2.pro/t/2602
 		 *
 		 * Замечание №3
 		 * @todo Аналогичным образом некорректной, видимо, является и реализация «unit_price»
