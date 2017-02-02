@@ -941,7 +941,7 @@ final class Charge {
 		 * @uses df_oi_price() как раз и возвращает стоимость одной единицы товара.
 		 *
 		 * Замечание №3
-		 * Тестовый заказ №375 у нас в шведских кронах.
+		 * Тестовый заказ №376 у нас в шведских кронах.
 		 * 10 шведских крон стоят примерно 1 евро.
 		 */
 		,'unit_price' => -$this->amount(30)
@@ -981,9 +981,13 @@ final class Charge {
 		 * «Percentage of discount, multiplied by 100 and provided as an integer.
 		 * I.e. 9.57% should be sent as 957.»
 		 * Required: no.
-		 * Type: integer.
+		 * Type: integer.                                                  
+		 *
+		 * 2017-02-02
+		 * При заказе настраиваемого товара, Magento хранит скидку только у товара-родителя,
+		 * но не у прострого варианта настраиваемого товара.
 		 */
-		'discount_rate' => 0
+		'discount_rate' => round(100 * df_oi_top($i)->getDiscountPercent())
 		/**
 		 * 2017-01-26
 		 * «The item's International Article Number.
@@ -1207,7 +1211,7 @@ final class Charge {
 		 * @uses df_oi_price() как раз и возвращает стоимость одной единицы товара.
 		 *
 		 * Замечание №3
-		 * Тестовый заказ №375 у нас в шведских кронах.
+		 * Тестовый заказ №376 у нас в шведских кронах.
 		 * 10 шведских крон стоят примерно 1 евро.
 		 */
 		,'unit_price' => $this->amount(50)
