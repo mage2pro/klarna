@@ -984,10 +984,23 @@ final class Charge {
 		 * Type: integer.                                                  
 		 *
 		 * 2017-02-02
+		 * Замечание №1
 		 * При заказе настраиваемого товара, Magento хранит скидку только у товара-родителя,
 		 * но не у прострого варианта настраиваемого товара.
+		 *
+		 * Замечание №2
+		 * Указанная здесь скидка не входит в «unit_price»:
+		 * Klarna вычтет её из «unit_price»: https://mage2.pro/t/2592
+		 * По этой причине неверно использовать здесь
+		 * round(100 * df_oi_top($i)->getDiscountPercent()),
+		 * потому что в Magento @see \Magento\Sales\Model\Order\Item::getDiscountPercent()
+		 * возвращает скидку, уже включённую в
+		 * @see \Magento\Sales\Model\Order\Item::getPriceInclTax()
+		 *
+		 * Вообще, похоже нет смысла тут передавать скидку в Klarna.
+		 * Пока, по крайней мере, мне смысл неочевиден.
 		 */
-		'discount_rate' => round(100 * df_oi_top($i)->getDiscountPercent())
+		'discount_rate' => 0
 		/**
 		 * 2017-01-26
 		 * «The item's International Article Number.
@@ -1231,6 +1244,12 @@ final class Charge {
 
 	/**
 	 * 2017-02-02
+	 * Умножать надо именно 2 раза на 100, потому что:
+	 * 1) первое умножение на 100 переводит 0.25 в 25%.
+	 * 2) второе умножение на 100 переводит 25% в 2500 согласно документации Klarna:
+	 * «Percentage of tax rate, multiplied by 100 and provided as an integer.
+	 * I.e. 13.57% should be sent as 1357.»
+	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#cart-item-object-properties
 	 * @used-by olProducts()
 	 * @param OI $i
 	 * @return int
@@ -1238,7 +1257,7 @@ final class Charge {
 	private function taxRate(OI $i) {
 		/** @var float $withoutTax */
 		$withoutTax = df_oi_price($i);
-		return round(100 * (df_oi_price($i, true) - $withoutTax) / $withoutTax);
+		return round(100 * 100 * (df_oi_price($i, true) - $withoutTax) / $withoutTax);
 	}
 
 	/**
