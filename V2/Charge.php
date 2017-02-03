@@ -18,6 +18,18 @@ final class Charge {
 	));}
 
 	/**
+	 * 2017-02-04
+	 * @used-by __construct()
+	 * @used-by currency()
+	 * @used-by kl_order()
+	 * @used-by locale()
+	 * @used-by test()
+	 * @used-by \Dfe\Klarna\V2\Charge\ShippingAddress::p()
+	 * @return string
+	 */
+	final public function buyerCountry() {return $this->_buyerCountry;}
+
+	/**
 	 * 2017-02-02
 	 * @used-by amount()
 	 * @used-by olProducts()
@@ -26,6 +38,23 @@ final class Charge {
 	 * @return O
 	 */
 	final public function o() {return dfc($this, function() {return df_order_r()->get('376');});}
+
+	/**
+	 * 2017-01-30
+	 * Замечание №1
+	 * Стал использовать @uses dfa(),
+	 * потому что некоторые поля обязательны только для некоторых стран
+	 * (например, «street_number»).
+	 *
+	 * Замечание №2
+	 * Стал использовать @uses df_nts(),
+	 * потому что передача null вместо пустой строки в запросе API
+	 * приведёт к ответу сервера «Bad format»
+	 * @used-by \Dfe\Klarna\V2\Charge\ShippingAddress::p()
+	 * @param string $key
+	 * @return string
+	 */
+	final public function test($key) {return df_nts(dfa(Test::$other[$this->buyerCountry()], $key));}
 
 	/**
 	 * 2017-01-29
@@ -42,7 +71,7 @@ final class Charge {
 	 * @return string
 	 */
 	private function currency() {return dfc($this, function() {return
-		df_currency_by_country_c($this->_buyerCountry)
+		df_currency_by_country_c($this->buyerCountry())
 	;});}
 
 	/**
@@ -253,7 +282,7 @@ final class Charge {
 		 * https://github.com/mage2pro/klarna/blob/0.0.7/V2/Charge.php?ts=4#L676
 		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#address-object-properties
 		 */
-		,'purchase_country' => $this->_buyerCountry
+		,'purchase_country' => $this->buyerCountry()
 		/**
 		 * 2017-01-26
 		 * «Currency in which the purchase is done (ISO-4217)»
@@ -281,7 +310,7 @@ final class Charge {
 		 * Type: address object.
 		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#address-object-properties
 		 */
-		,'shipping_address' => $this->kl_shipping_address()
+		,'shipping_address' => (new Charge\ShippingAddress($this))->p()
 	];}
 
 	/**
@@ -311,240 +340,13 @@ final class Charge {
 	));}
 
 	/**
-	 * 2017-01-26
-	 * «The shipping address»
-	 * Type: address object.
-	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#address-object-properties
-	 * @used-by kl_order()
-	 * @return array(string => mixed)
-	 * Похоже, что при использовании Checkout API версии 2
-	 * мы не можем передать адрес покупателя сервису,
-	 * потому что «billing_address» полностью read-only,
-	 * а у «shipping_address» все важные для нас поля read-only.
-	 * @todo Надо всё-таки проверить, попытаться что-то передать (имя, фамилию...).
-	 * В то же время, Checkout API версии 3 позвляет нам передавать сервису «billing_address»:
-	 * https://developers.klarna.com/api/?json#checkout-api__order__billing_address
-	 *
-	 * 2017-01-28
-	 * Передача пустого массива приводит к сбою «Bad format».
-	 */
-	private function kl_shipping_address() {return [
-		/**
-		 * 2017-01-28
-		 * «c/o»
-		 * Required: no.
-		 * Type: string.
-		 * Спецификация помечает это поле как «read only»,
-		 * но на практике я установил, что веб-сервис его допускает.
-		 * https://www.reference.com/education/send-letter-care-someone-else-7fcf5853954e000c
-		 */
-		'care_of' => ''
-		/**
-		 * 2017-01-28
-		 * «City»
-		 * Required: no.
-		 * Type: string.
-		 * Спецификация помечает это поле как «read only»,
-		 * но на практике я установил, что веб-сервис его допускает.
-		 *
-		 * 2017-01-30
-		 * [Klarna][Checkout v2] How is the «shipping_address.city» field shown on the payment form?
-		 * https://mage2.pro/t/2567
-		 */
-		,'city' => $this->test('city')
-		/**
-		 * 2017-01-28
-		 * «Country (ISO-3166 alpha)»
-		 * Required: yes.
-		 * Type: string.
-		 *
-		 * Замечание №1
-		 * Спецификация помечает это поле как «read only»,
-		 * но на практике я установил, что веб-сервис его допускает.
-		 *
-		 * Замечание №2
-		 * Передача пустого значения приводит к сбою «Bad format».
-		 *
-		 * 2017-01-29
-		 * Помимо этого поля, страна ещё указывается в поле «purchase_country»:
-		 * https://github.com/mage2pro/klarna/blob/0.0.7/V2/Charge.php?ts=4#L503
-		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#resource-properties
-		 */
-		,'country' => $this->_buyerCountry
-		/**
-		 * 2017-01-28
-		 * «E-mail address»
-		 * Required: no.
-		 * Type: string.
-		 *
-		 * 2017-01-29
-		 * Веб-сервис использует значение этого поля
-		 * для автоматического заполнения платёжной формы.
-		 */
-		,'email' => 'admin@mage2.pro'
-		/**
-		 * 2017-01-28
-		 * «Last name»
-		 * Required: no.
-		 * Type: string.
-		 * Спецификация помечает это поле как «read only»,
-		 * но на практике я установил, что веб-сервис его допускает.
-		 */
-		,'family_name' => 'Fedyuk'
-		/**
-		 * 2017-01-28
-		 * «First name»
-		 * Required: no.
-		 * Type: string.
-		 * Спецификация помечает это поле как «read only»,
-		 * но на практике я установил, что веб-сервис его допускает.
-		 */
-		,'given_name' => 'Dmitry'
-		/**
-		 * 2017-01-28
-		 * «Only for B2B orders. The name of the organization placing the order.»
-		 * Required: no.
-		 * Type: string.
-		 * Спецификация помечает это поле как «read only»,
-		 * но на практике я установил, что веб-сервис его допускает.
-		 */
-		,'organization_name' => ''
-		/**
-		 * 2017-01-28
-		 * «Phone number»
-		 * Required: no.
-		 * Type: string.
-		 * Спецификация помечает это поле как «read only»,
-		 * но на практике я установил, что веб-сервис его допускает.
-		 *
-		 * 2017-01-31
-		 * [Klarna][Checkout v2] How is the «shipping_address.phone» field shown on the payment form?
-		 * https://mage2.pro/t/2568
-		 */
-		,'phone' => $this->test('phone')
-		/**
-		 * 2017-01-28
-		 * «Postal code»
-		 * Required: no.
-		 * Type: string.
-		 *
-		 * 2017-01-29
-		 * Веб-сервис использует значение этого поля
-		 * для автоматического заполнения платёжной формы.
-		 */
-		,'postal_code' => $this->test('postal_code')
-		/**
-		 * 2017-01-28
-		 * «Only for B2B orders.
-		 * Reference information entered by the customer for this B2B order.»
-		 * Required: no.
-		 * Type: string.
-		 * Использование поля «reference» приводит к сбою «Bad format»: https://mage2.pro/t/2541
-		 */
-		//,'reference' => ''
-		/**
-		 * 2017-01-28
-		 * «Only in Sweden, Norway and Finland:
-		 * Street address (street name, street number, street extension).»
-		 * Required: no.
-		 * Type: string.
-		 *
-		 * Замечание №1
-		 * Спецификация помечает это поле как «read only»,
-		 * но на практике я установил, что веб-сервис его допускает.
-		 *
-		 * Замечание №2
-		 * Поле допустимо не только для указанных выше стран (Sweden, Norway and Finland),
-		 * но и для других (проверил для Австрии).
-		 */
-		,'street_address' => $this->test('street_address')
-		/**
-		 * 2017-01-28
-		 * «Only in Germany and Austria: Street name.»
-		 * Required: no.
-		 * Type: string.
-		 *
-		 * Замечание №1
-		 * Спецификация помечает это поле как «read only»,
-		 * но на практике я установил, что веб-сервис его допускает.
-		 *
-		 * Замечание №2
-		 * Поле допустимо не только для указанных выше стран (Germany and Austria),
-		 * но и для других (проверил для Швеции).
-		 *
-		 * 2017-01-30
-		 * [Klarna][Checkout v2] How are the «shipping_address.street_name»
-		 * and «shipping_address.street_number» fields shown on the payment form?
-		 * https://mage2.pro/t/2562
-		 *
-		 * [Klarna][Checkout v2] The documentation states that
-		 * the «shipping_address.street_name» and «shipping_address.street_number» fields
-		 * are read only, but really the API allows to pass them.
-		 * https://mage2.pro/t/2563
-		 */
-		,'street_name' => $this->test('street_name')
-		/**
-		 * 2017-01-28
-		 * «Only in Germany and Austria: Street number.»
-		 * Required: no.
-		 * Type: string.
-		 *
-		 * Замечание №1
-		 * Спецификация помечает это поле как «read only»,
-		 * но на практике я установил, что веб-сервис его допускает.
-		 *
-		 * Замечание №2
-		 * Поле допустимо не только для указанных выше стран (Germany and Austria),
-		 * но и для других (проверил для Швеции).
-		 *
-		 * 2017-01-30
-		 * Замечание №1
-		 * Это поле означает «номер дома».
-		 * Платёжная форма для Германии и Австрии требует заполнения улицы и номера дома,
-		 * причём в отдельных (обязательных) полях.
-		 *
-		 * Замечание №2
-		 * Передача числа вместо строки приведёт к сбою «Bad format».
-		 *
-		 * [Klarna][Checkout v2] How are the «shipping_address.street_name»
-		 * and «shipping_address.street_number» fields shown on the payment form?
-		 * https://mage2.pro/t/2562
-		 *
-		 * [Klarna][Checkout v2] The documentation states that
-		 * the «shipping_address.street_name» and «shipping_address.street_number» fields
-		 * are read only, but really the API allows to pass them.
-		 * https://mage2.pro/t/2563
-		 */
-		,'street_number' => strval($this->test('street_number'))
-		/**
-		 * 2017-01-28
-		 * «Only in Germany and Austria:
-		 * The customer's title, possible values are "Herr" and "Frau".»
-		 * Required: no.
-		 * Type: string.
-		 * Спецификация помечает это поле как «read only»,
-		 * но на практике я установил, что веб-сервис его допускает.
-		 *
-		 * 2017-01-30
-		 * [Klarna][Checkout v2] How is the «shipping_address.title» field shown on the payment form?
-		 * https://mage2.pro/t/2560
-		 *
-		 * [Klarna][Checkout v2] The documentation states that the «shipping_address.title» field
-		 * is read only, but really the API allows to pass it in:
-		 * https://mage2.pro/t/2561
-		 * https://mail.google.com/mail/u/0/#sent/159ef3c974441d58
-		 */
-		,'title' => 'Herr'
-	];}
-
-	/**
 	 * 2017-02-02
 	 * «sv_SE»
 	 * @used-by localeFormatted()
 	 * @return string
 	 */
 	private function locale() {return dfc($this, function() {return
-		df_locale_by_country($this->_buyerCountry)
+		df_locale_by_country($this->buyerCountry())
 	;});}
 
 	/**
@@ -863,30 +665,9 @@ final class Charge {
 	}
 
 	/**
-	 * 2017-01-30
-	 * Замечание №1
-	 * Стал использовать @uses dfa(),
-	 * потому что некоторые поля обязательны только для некоторых стран
-	 * (например, «street_number»).
-	 *
-	 * Замечание №2
-	 * Стал использовать @uses df_nts(),
-	 * потому что передача null вместо пустой строки в запросе API
-	 * приведёт к ответу сервера «Bad format»
-	 * @used-by kl_shipping_address()
-	 * @param string $key
-	 * @return string
-	 */
-	private function test($key) {return df_nts(dfa(Test::$other[$this->_buyerCountry], $key));}
-
-	/**
 	 * 2017-01-29
-	 * @used-by __construct()  
-	 * @used-by currency()
-	 * @used-by kl_order()
-	 * @used-by kl_shipping_address()
-	 * @used-by locale()
-	 * @used-by test()
+	 * @used-by __construct()
+	 * @used-by buyerCountry()
 	 * @var string
 	 */
 	private $_buyerCountry;
