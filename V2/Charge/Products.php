@@ -139,14 +139,14 @@ final class Products extends Part {
 		 * Замечание №2
 		 * «unit_price» — это стоимость именно единицы товара, а не стоимость позиции заказа.
 		 * Проверил это опытным путём, например:
-         *   {
-         *       <...>
-         *       "quantity": 2,
-         *       "total_price_excluding_tax": 121892,
-         *       "total_price_including_tax": 121892,
-         *       "unit_price": 60946
+		 *   {
+		 *       <...>
+		 *       "quantity": 2,
+		 *       "total_price_excluding_tax": 121892,
+		 *       "total_price_including_tax": 121892,
+		 *       "unit_price": 60946
 		 *		<...>
-         *   }
+		 *   }
 		 * @uses df_oi_price() как раз и возвращает стоимость одной единицы товара.
 		 */
 		,'unit_price' => $this->amount(df_oi_price($i, true))
