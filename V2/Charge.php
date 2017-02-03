@@ -5,18 +5,6 @@ use Dfe\Klarna\T\Data as Test;
 use Magento\Sales\Model\Order as O;
 final class Charge {
 	/**
-	 * 2017-02-01
-	 * @used-by \Dfe\Klarna\V2\Charge\AddDiscount::p()
-	 * @used-by \Dfe\Klarna\V2\Charge\Products::p()
-	 * @used-by \Dfe\Klarna\V2\Charge\Shipping::p()
-	 * @param float $v
-	 * @return int
-	 */
-	final public function amount($v) {return round(100 * df_currency_convert(
-		$v, $this->o()->getOrderCurrencyCode(), $this->currency()
-	));}
-
-	/**
 	 * 2017-02-04
 	 * @used-by __construct()
 	 * @used-by currency()
@@ -32,6 +20,16 @@ final class Charge {
 	;}
 
 	/**
+	 * 2017-02-01
+	 * @used-by \Dfe\Klarna\V2\Charge\Part::amount()
+	 * @used-by kl_order()
+	 * @return string
+	 */
+	final public function currency() {return dfc($this, function() {return
+		df_currency_by_country_c($this->buyerCountry())
+	;});}
+
+	/**
 	 * 2017-02-02
 	 * «sv_SE»
 	 * @used-by localeFormatted()
@@ -44,8 +42,8 @@ final class Charge {
 
 	/**
 	 * 2017-02-02
-	 * @used-by amount()
 	 * @used-by \Dfe\Klarna\V2\Charge\AddDiscount::p()
+	 * @used-by \Dfe\Klarna\V2\Charge\Part::amount()
 	 * @used-by \Dfe\Klarna\V2\Charge\Products::p()
 	 * @used-by \Dfe\Klarna\V2\Charge\Shipping::p()
 	 * @return O
@@ -75,16 +73,6 @@ final class Charge {
 	 * @param string $buyerCountry
 	 */
 	private function __construct($buyerCountry) {$this->_buyerCountry = $buyerCountry;}
-
-	/**
-	 * 2017-02-01
-	 * @used-by amount()
-	 * @used-by kl_order()
-	 * @return string
-	 */
-	private function currency() {return dfc($this, function() {return
-		df_currency_by_country_c($this->buyerCountry())
-	;});}
 
 	/**
 	 * 2017-01-26

@@ -149,7 +149,7 @@ final class Products extends Part {
          *   }
 		 * @uses df_oi_price() как раз и возвращает стоимость одной единицы товара.
 		 */
-		,'unit_price' => $this->owner()->amount(df_oi_price($i, true))
+		,'unit_price' => $this->amount(df_oi_price($i, true))
 		/**
 		 * 2017-01-26
 		 * «Item product page URI.

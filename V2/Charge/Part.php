@@ -18,6 +18,18 @@ abstract class Part {
 	final public function __construct(Charge $owner) {$this->_owner = $owner;}
 
 	/**
+	 * 2017-02-01
+	 * @used-by \Dfe\Klarna\V2\Charge\AddDiscount::p()
+	 * @used-by \Dfe\Klarna\V2\Charge\Products::p()
+	 * @used-by \Dfe\Klarna\V2\Charge\Shipping::p()
+	 * @param float $v
+	 * @return int
+	 */
+	final protected function amount($v) {return round(100 * df_currency_convert(
+		$v, $this->owner()->o()->getOrderCurrencyCode(), $this->owner()->currency()
+	));}
+
+	/**
 	 * 2017-02-04
 	 * @return Charge
 	 */
