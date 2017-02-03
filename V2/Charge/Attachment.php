@@ -8,7 +8,7 @@ final class Attachment {
 	 * Required: no.
 	 * Type: attachment object.
 	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#attachment-object-properties
-	 * @used-by kl_order()
+	 * @used-by \Dfe\Klarna\V2\Charge::kl_order()
 	 * @return array(string => string)
 	 *
 	 * 2017-01-28
