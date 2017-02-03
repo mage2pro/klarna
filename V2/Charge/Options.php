@@ -1,4 +1,5 @@
 <?php
+// 2017-02-04
 namespace Dfe\Klarna\V2\Charge;
 final class Options {
 	/**
@@ -11,7 +12,7 @@ final class Options {
 	 * @used-by \Dfe\Klarna\V2\Charge::kl_order()
 	 * @return array(string => string|boolean)
 	 */
-	public function kl_options() {return [
+	public function p() {return [
 		/**
 		 * 2017-01-27
 		 * «Additional merchant defined checkbox. e.g. for Newsletter opt-in.»

@@ -620,7 +620,7 @@ final class Charge {
 		 * https://developers.klarna.com/en/se/kco-v2/checkout/extra-features
 		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#options-object-properties
 		 */
-		,'options' => (new Charge\Options)->kl_options()
+		,'options' => (new Charge\Options)->p()
 		/**
 		 * 2017-01-26
 		 * «Country in which the purchase is done (ISO-3166-alpha2)»
