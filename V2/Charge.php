@@ -24,9 +24,12 @@ final class Charge {
 	 * @used-by locale()
 	 * @used-by test()
 	 * @used-by \Dfe\Klarna\V2\Charge\ShippingAddress::p()
-	 * @return string
+	 * @param string $code [optional]
+	 * @return string|bool
 	 */
-	final public function buyerCountry() {return $this->_buyerCountry;}
+	final public function buyerCountry($code = null) {return
+		!$code ? $this->_buyerCountry : $code === $this->_buyerCountry
+	;}
 
 	/**
 	 * 2017-02-02
@@ -85,47 +88,6 @@ final class Charge {
 
 	/**
 	 * 2017-01-26
-	 * «Information about the liable customer of the order.»
-	 * Required: no.
-	 * Type: customer object.
-	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#customer-object-properties
-	 * @used-by kl_order()
-	 * @return array(string => string)
-	 */
-	private function kl_customer() {return [
-		/**
-		 * 2017-01-26
-		 * «If provided by customer, or retrieved from national ID.
-		 * The customer's birthdate (YYYY-MM-DD)»
-		 * Required: no.
-		 * Type: string.
-		 */
-		'date_of_birth' => '1982-07-08'
-		/**
-		 * 2017-01-26
-		 * «Retrieved from national ID or billing_address.title in Germany.
-		 * 'female' or 'male'»
-		 * Required: no.
-		 * Type: string.
-		 * 2017-01-27
-		 * @todo Почему-то присутствие этого поля приводит к сбою:
-		 * «"Bad format: 'gender' is not part of the schema"».
-		 * https://mage2.pro/t/2536
-		 * https://mail.google.com/mail/u/0/#sent/159e19540307b0cb
-		 */
-		//,'gender' => 'male'
-		/**
-		 * 2017-01-26
-		 * «For B2B, this field is used for the organization's official registration id
-		 * (Organization number).»
-		 * Required: no.
-		 * Type: string.
-		 */
-		,'organization_registration_id' => ''
-	];}
-
-	/**
-	 * 2017-01-26
 	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#resource-properties
 	 * https://developers.klarna.com/en/se/kco-v2/checkout/2-embed-the-checkout#configure-checkout-order
 	 * @used-by p()
@@ -176,7 +138,7 @@ final class Charge {
 		 * Type: customer object.
 		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#customer-object-properties
 		 */
-		,'customer' => $this->kl_customer()
+		,'customer' => (new Charge\Customer($this))->p()
 		/**
 		 * 2017-01-27
 		 * «External checkout providers.»
