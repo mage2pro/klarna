@@ -1,7 +1,6 @@
 <?php
 // 2017-01-26
 namespace Dfe\Klarna\V2;
-use Dfe\Klarna\T\Data as Test;
 final class Charge {
 	/**
 	 * 2017-02-04
@@ -9,8 +8,8 @@ final class Charge {
 	 * @used-by currency()
 	 * @used-by kl_order()
 	 * @used-by locale()
-	 * @used-by test()
 	 * @used-by \Dfe\Klarna\V2\Charge\ShippingAddress::p()
+	 * @used-by \Dfe\Klarna\V2\Charge\ShippingAddress::test()
 	 * @param string $code [optional]
 	 * @return string|bool
 	 */
@@ -38,23 +37,6 @@ final class Charge {
 	final public function locale() {return dfc($this, function() {return
 		df_locale_by_country($this->buyerCountry())
 	;});}
-
-	/**
-	 * 2017-01-30
-	 * Замечание №1
-	 * Стал использовать @uses dfa(),
-	 * потому что некоторые поля обязательны только для некоторых стран
-	 * (например, «street_number»).
-	 *
-	 * Замечание №2
-	 * Стал использовать @uses df_nts(),
-	 * потому что передача null вместо пустой строки в запросе API
-	 * приведёт к ответу сервера «Bad format»
-	 * @used-by \Dfe\Klarna\V2\Charge\ShippingAddress::p()
-	 * @param string $key
-	 * @return string
-	 */
-	final public function test($key) {return df_nts(dfa(Test::$other[$this->buyerCountry()], $key));}
 
 	/**
 	 * 2017-01-29
