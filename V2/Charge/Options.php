@@ -10,7 +10,7 @@ final class Options {
 	 * https://developers.klarna.com/en/se/kco-v2/checkout/extra-features
 	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#options-object-properties
 	 * @used-by \Dfe\Klarna\V2\Charge::kl_order()
-	 * @return array(string => string|boolean)
+	 * @return array(string => mixed)
 	 */
 	public function p() {return [
 		/**

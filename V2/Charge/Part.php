@@ -1,7 +1,12 @@
 <?php
-// 2017-02-04
+//
 namespace Dfe\Klarna\V2\Charge;
 use Dfe\Klarna\V2\Charge;
+/**
+ * 2017-02-04
+ * @see \Dfe\Klarna\V2\Charge\AddDiscount
+ * @see \Dfe\Klarna\V2\Charge\ShippingAddress
+ */
 abstract class Part {
 	/**
 	 * 2017-02-04
