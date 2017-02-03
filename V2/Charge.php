@@ -2,7 +2,6 @@
 // 2017-01-26
 namespace Dfe\Klarna\V2;
 use Dfe\Klarna\T\Data as Test;
-use Magento\Sales\Model\Order as O;
 final class Charge {
 	/**
 	 * 2017-02-04
@@ -39,16 +38,6 @@ final class Charge {
 	final public function locale() {return dfc($this, function() {return
 		df_locale_by_country($this->buyerCountry())
 	;});}
-
-	/**
-	 * 2017-02-02
-	 * @used-by \Dfe\Klarna\V2\Charge\AddDiscount::p()
-	 * @used-by \Dfe\Klarna\V2\Charge\Part::amount()
-	 * @used-by \Dfe\Klarna\V2\Charge\Products::p()
-	 * @used-by \Dfe\Klarna\V2\Charge\Shipping::p()
-	 * @return O
-	 */
-	final public function o() {return dfc($this, function() {return df_order_r()->get('376');});}
 
 	/**
 	 * 2017-01-30

@@ -1,7 +1,7 @@
 <?php
-//
 namespace Dfe\Klarna\V2\Charge;
 use Dfe\Klarna\V2\Charge;
+use Magento\Sales\Model\Order as O;
 /**
  * 2017-02-04
  * @see \Dfe\Klarna\V2\Charge\AddDiscount
@@ -26,8 +26,18 @@ abstract class Part {
 	 * @return int
 	 */
 	final protected function amount($v) {return round(100 * df_currency_convert(
-		$v, $this->owner()->o()->getOrderCurrencyCode(), $this->owner()->currency()
+		$v, $this->o()->getOrderCurrencyCode(), $this->owner()->currency()
 	));}
+
+	/**
+	 * 2017-02-02
+	 * @used-by \Dfe\Klarna\V2\Charge\AddDiscount::p()
+	 * @used-by \Dfe\Klarna\V2\Charge\Part::amount()
+	 * @used-by \Dfe\Klarna\V2\Charge\Products::p()
+	 * @used-by \Dfe\Klarna\V2\Charge\Shipping::p()
+	 * @return O
+	 */
+	final public function o() {return dfc($this, function() {return df_order_r()->get('376');});}
 
 	/**
 	 * 2017-02-04

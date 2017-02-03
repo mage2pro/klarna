@@ -19,7 +19,7 @@ final class Products extends Part {
 	 * @used-by \Dfe\Klarna\V2\Charge::kl_order_lines()
 	 * @return array(string => string|int)
 	 */
-	public function p() {return df_oi_leafs($this->owner()->o(), function(OI $i) {return [
+	public function p() {return df_oi_leafs($this->o(), function(OI $i) {return [
 		/**
 		 * 2017-01-26
 		 * «Percentage of discount, multiplied by 100 and provided as an integer.

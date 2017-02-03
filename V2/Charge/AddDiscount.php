@@ -22,7 +22,7 @@ final class AddDiscount extends Part {
 			$i['quantity'] * $i['unit_price'];
 		}, $items));
 		/** @var int $totalM */
-		$totalM = $this->amount($this->owner()->o()->getGrandTotal());
+		$totalM = $this->amount($this->o()->getGrandTotal());
 		/**
 		 * 2017-02-03
 		 * При этом мы сознательно идём на то, что скидка может оказаться положительным числом,

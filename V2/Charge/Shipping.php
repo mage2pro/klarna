@@ -47,7 +47,7 @@ final class Shipping extends Part {
 		 * Required: yes.
 		 * Type: string.
 		 */
-		,'name' => $this->owner()->o()->getShippingDescription()
+		,'name' => $this->o()->getShippingDescription()
 		/**
 		 * 2017-01-26
 		 * «Quantity»
@@ -114,7 +114,7 @@ final class Shipping extends Part {
 		 * Тестовый заказ №376 у нас в шведских кронах.
 		 * 10 шведских крон стоят примерно 1 евро.
 		 */
-		,'unit_price' => $this->amount($this->owner()->o()->getShippingAmount())
+		,'unit_price' => $this->amount($this->o()->getShippingAmount())
 		/**
 		 * 2017-01-26
 		 * «Item product page URI.
