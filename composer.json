@@ -13,4 +13,22 @@
 	}]
 	,"require": {"klarna/checkout": "*", "klarna/kco_rest": "*", "mage2pro/core": "^1.12.6"}
 	,"autoload": {"files": ["registration.php"], "psr-4": {"Dfe\\Klarna\\": ""}}
+	,"keywords": [
+		"api"
+		,"austria"
+		,"bank card"
+		,"denmark"
+		,"ecommerce"
+		,"finland"
+		,"germany"
+		,"klarna"
+		,"magento"
+		,"magento 2"
+		,"magento extension"
+		,"norway"
+		,"payment"
+		,"sweden"
+		,"united kingdom"
+		,"usa"
+	]
 }
