@@ -731,5 +731,5 @@ final class Charge {
 	 * 2017-01-26
 	 * @return array(string => mixed)
 	 */
-	public static function p() {return (new self)->kl_order();}
+	static function p() {return (new self)->kl_order();}
 }

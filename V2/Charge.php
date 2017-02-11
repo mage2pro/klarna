@@ -290,5 +290,5 @@ final class Charge {
 	 * @param string $buyerCountry
 	 * @return array(string => mixed)
 	 */
-	public static function p($buyerCountry) {return (new self($buyerCountry))->kl_order();}
+	static function p($buyerCountry) {return (new self($buyerCountry))->kl_order();}
 }

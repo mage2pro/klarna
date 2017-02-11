@@ -23,7 +23,7 @@ final class Api {
 	 * @throws Exception3_Guzzle
 	 * @throws Exception3_Connector
 	 */
-	public static function order(S $s, $buyerCountry) {
+	static function order(S $s, $buyerCountry) {
 		/** @var bool $isV2 */
 		$isV2 = !in_array($buyerCountry, ['GB', 'US']);
 		/** @var array(string => mixed) $request */
