@@ -20,7 +20,7 @@ final class ShippingAddress extends Part {
 	 * 2017-01-28
 	 * Передача пустого массива приводит к сбою «Bad format».
 	 */
-	public function p() {return [
+	function p() {return [
 		/**
 		 * 2017-01-28
 		 * «c/o»

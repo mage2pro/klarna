@@ -13,7 +13,7 @@ class UserAgent extends \Klarna\Rest\Transport\UserAgent {
 	 * @override
 	 * @see \Klarna\Rest\Transport\UserAgent::__construct()
 	 */
-	public function __construct() {
+	function __construct() {
 		parent::__construct();
 		/**
 		 * 2017-01-25

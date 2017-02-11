@@ -11,7 +11,7 @@ final class Merchant {
 	 * @used-by \Dfe\Klarna\V2\Charge::kl_order()
 	 * @return array(string => string)
 	 */
-	public function p() {return [
+	function p() {return [
 		/**
 		 * 2017-01-28
 		 * «Unique identifier (EID)»

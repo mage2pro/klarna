@@ -15,7 +15,7 @@ abstract class Part {
 	 * 2017-02-04
 	 * @param Charge $owner
 	 */
-	final public function __construct(Charge $owner) {$this->_owner = $owner;}
+	final function __construct(Charge $owner) {$this->_owner = $owner;}
 
 	/**
 	 * 2017-02-01
@@ -37,7 +37,7 @@ abstract class Part {
 	 * @used-by \Dfe\Klarna\V2\Charge\Shipping::p()
 	 * @return O
 	 */
-	final public function o() {return dfc($this, function() {return df_order_r()->get('376');});}
+	final function o() {return dfc($this, function() {return df_order_r()->get('376');});}
 
 	/**
 	 * 2017-02-04

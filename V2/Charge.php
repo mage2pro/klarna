@@ -13,7 +13,7 @@ final class Charge {
 	 * @param string $code [optional]
 	 * @return string|bool
 	 */
-	final public function buyerCountry($code = null) {return
+	final function buyerCountry($code = null) {return
 		!$code ? $this->_buyerCountry : $code === $this->_buyerCountry
 	;}
 
@@ -23,7 +23,7 @@ final class Charge {
 	 * @used-by kl_order()
 	 * @return string
 	 */
-	final public function currency() {return dfc($this, function() {return
+	final function currency() {return dfc($this, function() {return
 		df_currency_by_country_c($this->buyerCountry())
 	;});}
 
@@ -34,7 +34,7 @@ final class Charge {
 	 * @used-by \Dfe\Klarna\V2\Charge\Products::p()
 	 * @return string
 	 */
-	final public function locale() {return dfc($this, function() {return
+	final function locale() {return dfc($this, function() {return
 		df_locale_by_country($this->buyerCountry())
 	;});}
 

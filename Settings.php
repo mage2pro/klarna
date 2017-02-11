@@ -9,7 +9,7 @@ final class Settings extends \Df\Payment\Settings {
 	 * 2017-01-24
 	 * @return string
 	 */
-	public function country() {return $this->testable();}
+	function country() {return $this->testable();}
 
 	/**
 	 * 2017-01-24
@@ -19,19 +19,19 @@ final class Settings extends \Df\Payment\Settings {
 	 * @param null|string|int|IScope|Store $s [optional]
 	 * @return string
 	 */
-	public function currency($s = null) {return $this->testable(null, $s);}
+	function currency($s = null) {return $this->testable(null, $s);}
 
 	/**
 	 * 2017-01-24
 	 * @used-by \Dfe\Klarna\Api::order()
 	 * @return int
 	 */
-	public function merchantID() {return $this->testable();}
+	function merchantID() {return $this->testable();}
 
 	/**
 	 * 2017-01-24
 	 * @used-by \Dfe\Klarna\Api::order()
 	 * @return string
 	 */
-	public function sharedSecret() {return $this->testableP();}
+	function sharedSecret() {return $this->testableP();}
 }

@@ -12,7 +12,7 @@ final class Options {
 	 * @used-by \Dfe\Klarna\V2\Charge::kl_order()
 	 * @return array(string => mixed)
 	 */
-	public function p() {return [
+	function p() {return [
 		/**
 		 * 2017-01-27
 		 * «Additional merchant defined checkbox. e.g. for Newsletter opt-in.»
