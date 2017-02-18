@@ -16,7 +16,7 @@ Please read the [testing policy](https://mage2.pro/t/topic/2590) before installa
 
 ## How to buy
 The extension is not released yet, so there is no way to buy it just now.  
-The extension will be released before 2017-02-20.   
+The extension will be released before 2017-03-04.   
 
 ## Installation
 ### Free installation service
