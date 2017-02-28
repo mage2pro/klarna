@@ -3,7 +3,7 @@ namespace Dfe\Klarna\T;
 use Dfe\Klarna\Api;
 // 2017-01-22
 /** @method \Dfe\Klarna\Settings s() */
-final class Charge extends \Df\Core\TestCase {
+final class Charge extends \Df\Payment\TestCase {
 	/** @test 2017-01-22 */
 	function t01() {
 		try {
