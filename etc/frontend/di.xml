@@ -10,4 +10,7 @@
 			</argument>
 		</arguments>
 	</type>
+	<virtualType name='Dfe\Klarna\ConfigProvider' type='Df\Payment\ConfigProvider'>
+		<arguments><argument name='module' xsi:type='string'>Dfe_Klarna</argument></arguments>
+	</virtualType>
 </config>
