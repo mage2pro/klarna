@@ -10,7 +10,8 @@ define([
 		df: {
 			test: {showBackendTitle: false},
 			// 2016-12-17
-			// @used-by mage2pro/core/Payment/view/frontend/web/template/item.html
+			// @used-by Df_Payment/main
+			// https://github.com/mage2pro/core/blob/2.0.36/Payment/view/frontend/web/template/main.html?ts=4#L36-L38
 			formTemplate: 'Dfe_Klarna/form'
 		}
 	},
