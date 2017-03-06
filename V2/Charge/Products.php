@@ -111,7 +111,7 @@ final class Products extends Part {
 		 * Required: yes.
 		 * Type: integer.
 		 */
-		,'tax_rate' => $this->taxRate($i)
+		,'tax_rate' => df_oi_tax_rate($i, true)
 		/**
 		 * 2017-01-26
 		 * «Type. `physical` by default, alternatively `discount`, `shipping_fee`»
@@ -161,22 +161,4 @@ final class Products extends Part {
 		 */
 		,'uri' => df_oi_url($i)
 	];}, $this->owner()->locale());}
-
-	/**
-	 * 2017-02-02
-	 * Умножать надо именно 2 раза на 100, потому что:
-	 * 1) первое умножение на 100 переводит 0.25 в 25%.
-	 * 2) второе умножение на 100 переводит 25% в 2500 согласно документации Klarna:
-	 * «Percentage of tax rate, multiplied by 100 and provided as an integer.
-	 * I.e. 13.57% should be sent as 1357.»
-	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#cart-item-object-properties
-	 * @used-by \Dfe\Klarna\V2\Charge\Products::p()
-	 * @param OI $i
-	 * @return int
-	 */
-	private function taxRate(OI $i) {
-		/** @var float $withoutTax */
-		$withoutTax = df_oi_price($i);
-		return round(100 * 100 * (df_oi_price($i, true) - $withoutTax) / $withoutTax);
-	}
 }
