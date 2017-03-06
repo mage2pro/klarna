@@ -94,11 +94,9 @@ final class Products extends Part {
 		 * Type: integer.
 		 *
 		 * 2017-01-31
-		 * Используем @used intval(), потому что
-		 * @uses \Magento\Sales\Model\Order\Item::getQtyOrdered() возвращает вещественное число,
-		 * а не целое, а передача в Klarna вещественного числа приводит к сбою «Bad format».
+		 * Передача в Klarna вещественного числа приводит к сбою «Bad format».
 		 */
-		,'quantity' => intval($i->getQtyOrdered())
+		,'quantity' => df_oi_qty($i)
 		/**
 		 * 2017-01-26
 		 * «Reference, usually the article number»
