@@ -1,10 +1,6 @@
 // 2016-12-17
 define([
-	'df'
-	,'df-lodash'
-	,'Df_Core/my/redirectWithPost'
- 	,'Df_Payment/custom'
-  	,'jquery'
+	'df', 'df-lodash', 'Df_Core/my/redirectWithPost', 'Df_Payment/custom', 'jquery'
 ], function(df, _, redirectWithPost, parent, $) {'use strict'; return parent.extend({
 	defaults: {
 		df: {
