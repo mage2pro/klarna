@@ -14,19 +14,6 @@ define([
 	/**
 	 * 2016-12-17
 	 * @override
-	 * @see mage2pro/core/Payment/view/frontend/web/mixin.js
-	 * @used-by placeOrderInternal()
-	 */
-	onSuccess: function(json) {
-		/** @type {Object} */
-		var data = $.parseJSON(json);
-		// 2016-07-10
-		// @see \Dfe\AllPay\Method::getConfigPaymentAction()
-		redirectWithPost(data.uri, data.params);
-	},
-	/**
-	 * 2016-12-17
-	 * @override
 	 * @see https://github.com/magento/magento2/blob/2.1.0/app/code/Magento/Checkout/view/frontend/web/js/view/payment/default.js#L127-L159
 	 * @used-by https://github.com/magento/magento2/blob/2.1.0/lib/web/knockoutjs/knockout.js#L3863
 	*/
