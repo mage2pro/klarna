@@ -16,14 +16,15 @@ final class Api {
 	/**
 	 * 2017-01-25
 	 * Returns a Klarna's HTML snippet: https://mage2.pro/t/2544
-	 * @param S $s
 	 * @param string $buyerCountry
 	 * @return string
 	 * @throws Exception2 
 	 * @throws Exception3_Guzzle
 	 * @throws Exception3_Connector
 	 */
-	static function order(S $s, $buyerCountry) {
+	static function order($buyerCountry) {
+		/** @var S $s */
+		$s = dfps(__CLASS__);
 		/** @var bool $isV2 */
 		$isV2 = !in_array($buyerCountry, ['GB', 'US']);
 		/** @var array(string => mixed) $request */

@@ -16,7 +16,7 @@ final class Charge extends \Df\Payment\TestCase {
 			 * then please provide me a test account»: https://mage2.pro/t/2554
 			 */
 			if (false) {
-				Api::order($this->s(), 'US');
+				Api::order('US');
 			}
 			else {
 				/**
@@ -28,7 +28,7 @@ final class Charge extends \Df\Payment\TestCase {
 				 */
 				foreach (['at', 'de', 'fi', 'no', 'se'] as $c) {
 					/** @var string $c */
-					file_put_contents(BP . "/_my/Klarna/{$c}.html", Api::order($this->s(), strtoupper($c)));
+					file_put_contents(BP . "/_my/Klarna/{$c}.html", Api::order(strtoupper($c)));
 					echo df_country_ctn($c) . " OK\n";
 				}
 			}
