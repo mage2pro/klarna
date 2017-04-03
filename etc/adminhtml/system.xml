@@ -158,26 +158,10 @@ Checkout API версии 3 работает только в США и Вели�
 а также делать настройку модуля более понятной администратору.
 -->
 				<field
-					id='testCurrency'
-					translate='label'
-					type='Df\Directory\FormElement\Currency'
-					dfValues='DKK,EUR,NOK,SEK'
-					sortOrder='6'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
-				>
-					<label>Test Payment Currency</label>
-					<depends>
-						<field id='enable'>1</field>
-						<field id='test'>1</field>
-					</depends>
-				</field>
-				<field
 					id='testCountry'
 					translate='label'
 					type='Df\Directory\FormElement\Country'
-					dfValues='AT,DE,DK,FI,NL,NO,SE,GB,US'
+					dfValues='AT,DE,FI,NO,SE'
 					sortOrder='7'
 					showInDefault='1'
 					showInWebsite='1'
@@ -227,26 +211,10 @@ Checkout API версии 3 работает только в США и Вели�
 					<validate>required-entry</validate>
 				</field>
 				<field
-					id='liveCurrency'
-					translate='label'
-					type='Df\Directory\FormElement\Currency'
-					dfValues='DKK,EUR,NOK,SEK'
-					sortOrder='10'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
-				>
-					<label>Payment Currency</label>
-					<depends>
-						<field id='enable'>1</field>
-						<field id='test'>0</field>
-					</depends>
-				</field>
-				<field
 					id='liveCountry'
 					translate='label'
 					type='Df\Directory\FormElement\Country'
-					dfValues='AT,DE,DK,FI,NL,NO,SE,GB,US'
+					dfValues='AT,DE,FI,NO,SE'
 					sortOrder='11'
 					showInDefault='1'
 					showInWebsite='1'

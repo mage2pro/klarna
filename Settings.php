@@ -13,16 +13,6 @@ final class Settings extends \Df\Payment\Settings {
 
 	/**
 	 * 2017-01-24
-	 * @override
-	 * @see \Df\Payment\Settings::currency()
-	 * @used-by \Df\Payment\Settings::_cur()
-	 * @param null|string|int|IScope|Store $s [optional]
-	 * @return string
-	 */
-	function currency($s = null) {return $this->testable(null, $s);}
-
-	/**
-	 * 2017-01-24
 	 * @used-by \Dfe\Klarna\Api::order()
 	 * @return int
 	 */

@@ -10,7 +10,7 @@
 Это не совсем правильно и должно быть переделано:
 https://github.com/mage2pro/klarna/blob/6ef6ebb/etc/adminhtml/system.xml#L160-L183
 -->
-			<argument name='iso3' xsi:type='string'>DKK,EUR,NOK,SEK</argument>
+			<argument name='iso3' xsi:type='string'>EUR,NOK,SEK</argument>
 		</arguments>
 	</virtualType>
 </config>
