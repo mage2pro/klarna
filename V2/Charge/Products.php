@@ -1,7 +1,7 @@
 <?php
-// 2017-02-04
 namespace Dfe\Klarna\V2\Charge;
 use Magento\Sales\Model\Order\Item as OI;
+// 2017-02-04
 final class Products extends Part {
 	/**
 	 * 2017-01-31

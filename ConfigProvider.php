@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\Klarna;
+use Dfe\Klarna\Api;
 // 2017-04-03
 final class ConfigProvider extends \Df\Payment\ConfigProvider {
 	/**
@@ -9,5 +10,5 @@ final class ConfigProvider extends \Df\Payment\ConfigProvider {
 	 * @used-by \Df\Payment\ConfigProvider::getConfig()
 	 * @return array(string => mixed)
 	 */
-	protected function config() {return ['html' => 'ПРЕВЕД, МЕДВЕД!'] + parent::config();}
+	protected function config() {return ['html' => Api::order('SE')] + parent::config();}
 }
