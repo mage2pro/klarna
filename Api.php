@@ -92,10 +92,10 @@ final class Api {
 			 *
 			 * Klarna SDK обрабатывает эту ситуацию в методе
 			 * @see \Klarna_Checkout_BasicConnector::handleResponse():
-					case 201:
-						// Update Location
-						$resource->setLocation($url);
-						break;
+			 *		case 201:
+			 *			// Update Location
+			 *			$resource->setLocation($url);
+			 *			break;
 			 * https://github.com/klarna/kco_php/blob/v4.0.0/src/Klarna/Checkout/BasicConnector.php#L287-L290
 			 */
 			$order->create($request);
@@ -167,16 +167,16 @@ final class Api {
 		 * Для получения диагностической информации можно использовать метод
 		 * @see \Klarna_Checkout_ApiErrorException::getPayload()
 		 * Он возвращает массив следующей структуры:
-				{
-					"http_status_code": 400,
-					"http_status_message": "Bad Request",
-					"internal_message": "Bad format: 'shipping_countries' is not part of the schema"
-				}
+		 *		{
+		 *			"http_status_code": 400,
+		 *			"http_status_message": "Bad Request",
+		 *			"internal_message": "Bad format: 'shipping_countries' is not part of the schema"
+		 *		}
 		 * В то же время простое $e->getMessage() вернёт просто «API Error».
 		 * @see \Klarna_Checkout_BasicConnector::verifyResponse():
-				throw new Klarna_Checkout_ApiErrorException(
-					"API Error", $result->getStatus(), $payload
-				);
+		 *		throw new Klarna_Checkout_ApiErrorException(
+		 *			"API Error", $result->getStatus(), $payload
+		 *		);
 		 * https://github.com/klarna/kco_php/blob/v4.0.0/src/Klarna/Checkout/BasicConnector.php#L237-L239
 		 */
 		catch (\Klarna_Checkout_ApiErrorException $e) {
