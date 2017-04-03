@@ -11,4 +11,5 @@ define([
 			formTemplate: 'Dfe_Klarna/form'
 		}
 	}
+	,klHtml: function() {return 'ПРЕВЕД, МЕДВЕД!';}
 });});
