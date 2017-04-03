@@ -62,7 +62,7 @@ final class ShippingAddress extends Part {
 		 * https://github.com/mage2pro/klarna/blob/0.0.7/V2/Charge.php?ts=4#L503
 		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#resource-properties
 		 */
-		,'country' => $this->owner()->buyerCountry()
+		,'country' => $this->owner()->bCountry()
 		/**
 		 * 2017-01-28
 		 * «E-mail address»
@@ -244,7 +244,7 @@ final class ShippingAddress extends Part {
 	 * @param string $key
 	 * @return string
 	 */
-	private function test($key) {return df_nts(dfa(self::$test[$this->owner()->buyerCountry()], $key));}
+	private function test($key) {return df_nts(dfa(self::$test[$this->owner()->bCountry()], $key));}
 
 	/**
 	 * 2017-01-30

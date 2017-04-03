@@ -16,19 +16,19 @@ final class Api {
 	/**
 	 * 2017-01-25
 	 * Returns a Klarna's HTML snippet: https://mage2.pro/t/2544
-	 * @param string $buyerCountry
+	 * @param string $bCountry
 	 * @return string
 	 * @throws Exception2 
 	 * @throws Exception3_Guzzle
 	 * @throws Exception3_Connector
 	 */
-	static function order($buyerCountry) {
+	static function order($bCountry) {
 		/** @var S $s */
 		$s = dfps(__CLASS__);
 		/** @var bool $isV2 */
-		$isV2 = !in_array($buyerCountry, ['GB', 'US']);
+		$isV2 = !in_array($bCountry, ['GB', 'US']);
 		/** @var array(string => mixed) $request */
-		$request = $isV2 ? Charge2::p($buyerCountry) : Charge3::p();
+		$request = $isV2 ? Charge2::p($bCountry) : Charge3::p();
 		/**
 		 * 2017-01-24
 		 * https://developers.klarna.com/api/?json#api-urls
@@ -70,7 +70,7 @@ final class Api {
 		 * @var string $url
 		 */
 		$url = sprintf('https://%s%s.klarna.com',
-			$isV2 ? 'checkout' : ('api' . ('US' === $buyerCountry ? '-na' : ''))
+			$isV2 ? 'checkout' : ('api' . ('US' === $bCountry ? '-na' : ''))
 			,!$s->test() ? '' : ('.' . ($isV2 ? 'testdrive' : 'playground'))
 		);
 		/** @var string $secret */
@@ -156,7 +156,7 @@ final class Api {
 			/** @var string $orderId */
 			//$orderId = $order['id'];
 			if ($isV2) {
-				dfp_log_l(__CLASS__, $order->marshal(), strtolower($buyerCountry));
+				dfp_log_l(__CLASS__, $order->marshal(), strtolower($bCountry));
 			}
 			/** @var string $html */
 			return $isV2 ? $order['gui']['snippet'] : $order['html_snippet'];

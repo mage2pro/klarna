@@ -4,6 +4,12 @@ namespace Dfe\Klarna\V2;
 final class Charge {
 	/**
 	 * 2017-02-04
+	 * 2017-04-03
+	 * Страна покупателя.
+	 * Именно от неё зависит поведение API, а не от страны продавца:
+	 * «Are the Klarna's API URLs based on a merchant's country or on a buyer's country?»
+	 * https://mage2.pro/t/2517
+	 * «Why are Klarna's API URLs for USA buyers different from others?» https://mage2.pro/t/2516
 	 * @used-by __construct()
 	 * @used-by currency()
 	 * @used-by kl_order()
@@ -13,9 +19,7 @@ final class Charge {
 	 * @param string $code [optional]
 	 * @return string|bool
 	 */
-	function buyerCountry($code = null) {return
-		!$code ? $this->_buyerCountry : $code === $this->_buyerCountry
-	;}
+	function bCountry($code = null) {return !$code ? $this->_bCountry : $code === $this->_bCountry;}
 
 	/**
 	 * 2017-02-01
@@ -24,7 +28,7 @@ final class Charge {
 	 * @return string
 	 */
 	function currency() {return dfc($this, function() {return df_currency_by_country_c(
-		$this->buyerCountry()
+		$this->bCountry()
 	);});}
 
 	/**
@@ -34,14 +38,14 @@ final class Charge {
 	 * @used-by \Dfe\Klarna\V2\Charge\Products::p()
 	 * @return string
 	 */
-	function locale() {return dfc($this, function() {return df_locale_by_country($this->buyerCountry());});}
+	function locale() {return dfc($this, function() {return df_locale_by_country($this->bCountry());});}
 
 	/**
 	 * 2017-01-29
 	 * @used-by p()
-	 * @param string $buyerCountry
+	 * @param string $bCountry
 	 */
-	private function __construct($buyerCountry) {$this->_buyerCountry = $buyerCountry;}
+	private function __construct($bCountry) {$this->_bCountry = $bCountry;}
 
 	/**
 	 * 2017-01-26
@@ -184,7 +188,7 @@ final class Charge {
 		 * https://github.com/mage2pro/klarna/blob/0.0.7/V2/Charge.php?ts=4#L676
 		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#address-object-properties
 		 */
-		,'purchase_country' => $this->buyerCountry()
+		,'purchase_country' => $this->bCountry()
 		/**
 		 * 2017-01-26
 		 * «Currency in which the purchase is done (ISO-4217)»
@@ -196,22 +200,18 @@ final class Charge {
 		 * Пустое значение приводит к сбою «Bad format».
 		 */
 		,'purchase_currency' => $this->currency()
-		/**
-		 * 2017-01-26
-		 * «Only in Sweden, Norway and Finland:
-		 * Indicates whether this purchase is a recurring order»
-		 * https://developers.klarna.com/en/se/kco-v2/checkout/use-cases#Recurring-Orders
-		 * Required: no.
-		 * Type: boolean.
-		 */
+		// 2017-01-26
+		// «Only in Sweden, Norway and Finland:
+		// Indicates whether this purchase is a recurring order»
+		// https://developers.klarna.com/en/se/kco-v2/checkout/use-cases#Recurring-Orders
+		// Required: no.
+		// Type: boolean.
 		,'recurring' => false
-		/**
-		 * 2017-01-26
-		 * «The shipping address»
-		 * Required: no.
-		 * Type: address object.
-		 * https://developers.klarna.com/en/se/kco-v2/checkout-api#address-object-properties
-		 */
+		// 2017-01-26
+		// «The shipping address»
+		// Required: no.
+		// Type: address object.
+		// https://developers.klarna.com/en/se/kco-v2/checkout-api#address-object-properties
 		,'shipping_address' => (new Charge\ShippingAddress($this))->p()
 	];}
 
@@ -251,16 +251,22 @@ final class Charge {
 
 	/**
 	 * 2017-01-29
+	 * 2017-04-03
+	 * Страна покупателя.
+	 * Именно от неё зависит поведение API, а не от страны продавца:
+	 * «Are the Klarna's API URLs based on a merchant's country or on a buyer's country?»
+	 * https://mage2.pro/t/2517
+	 * «Why are Klarna's API URLs for USA buyers different from others?» https://mage2.pro/t/2516
 	 * @used-by __construct()
-	 * @used-by buyerCountry()
+	 * @used-by bCountry()
 	 * @var string
 	 */
-	private $_buyerCountry;
+	private $_bCountry;
 
 	/**
 	 * 2017-01-26
-	 * @param string $buyerCountry
+	 * @param string $bCountry
 	 * @return array(string => mixed)
 	 */
-	static function p($buyerCountry) {return (new self($buyerCountry))->kl_order();}
+	static function p($bCountry) {return (new self($bCountry))->kl_order();}
 }
