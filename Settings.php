@@ -1,8 +1,6 @@
 <?php
 // 2017-01-24
 namespace Dfe\Klarna;
-use Magento\Framework\App\ScopeInterface as IScope;
-use Magento\Store\Model\Store;
 /** @method static Settings s() */
 final class Settings extends \Df\Payment\Settings {
 	/**
