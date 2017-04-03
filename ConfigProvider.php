@@ -1,6 +1,5 @@
 <?php
 namespace Dfe\Klarna;
-use Dfe\Klarna\Api;
 // 2017-04-03
 final class ConfigProvider extends \Df\Payment\ConfigProvider {
 	/**
