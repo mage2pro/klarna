@@ -8,6 +8,8 @@
 			<klarna>
 				<actionForNew>review</actionForNew>
 				<actionForReturned>authorize_capture</actionForReturned>
+				<countries>AT,FI,DE,NO,SE</countries>
+				<country_restriction>whitelist</country_restriction>
 				<requireBillingAddress>1</requireBillingAddress>
 <!--
 	2016-11-16
