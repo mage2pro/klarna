@@ -10,6 +10,11 @@ define([
 			// https://github.com/mage2pro/core/blob/2.4.21/Payment/view/frontend/web/template/main.html#L36-L38
 			formTemplate: 'Dfe_Klarna/form'
 		}
-	}
-	,klHtml: function() {return 'ПРЕВЕД, МЕДВЕД!';}
+	},
+    /**
+	 * 2017-04-03
+	 * Этот метод будет возвращать полученную от Klarna разметку HTML.
+ 	 * @returns {string}
+	 */
+	klHtml: function() {return 'ПРЕВЕД, МЕДВЕД!';}
 });});
