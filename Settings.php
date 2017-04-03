@@ -7,12 +7,6 @@ use Magento\Store\Model\Store;
 final class Settings extends \Df\Payment\Settings {
 	/**
 	 * 2017-01-24
-	 * @return string
-	 */
-	function country() {return $this->testable();}
-
-	/**
-	 * 2017-01-24
 	 * @used-by \Dfe\Klarna\Api::order()
 	 * @return int
 	 */

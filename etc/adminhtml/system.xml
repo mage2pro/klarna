@@ -158,22 +158,6 @@ Checkout API версии 3 работает только в США и Вели�
 а также делать настройку модуля более понятной администратору.
 -->
 				<field
-					id='testCountry'
-					translate='label'
-					type='Df\Directory\FormElement\Country'
-					dfValues='AT,DE,FI,NO,SE'
-					sortOrder='7'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
-				>
-					<label>Test Store Country</label>
-					<depends>
-						<field id='enable'>1</field>
-						<field id='test'>1</field>
-					</depends>
-				</field>
-				<field
 					id='liveMerchantID'
 					translate='label'
 					type='text'
@@ -209,22 +193,6 @@ Checkout API версии 3 работает только в США и Вели�
 						<field id='test'>0</field>
 					</depends>
 					<validate>required-entry</validate>
-				</field>
-				<field
-					id='liveCountry'
-					translate='label'
-					type='Df\Directory\FormElement\Country'
-					dfValues='AT,DE,FI,NO,SE'
-					sortOrder='11'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
-				>
-					<label>Store Country</label>
-					<depends>
-						<field id='enable'>1</field>
-						<field id='test'>0</field>
-					</depends>
 				</field>
 				<field
 					id='toc'

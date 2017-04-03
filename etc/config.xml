@@ -6,17 +6,9 @@
     <default>
 		<df_payment>
 			<klarna>
-				<actionForNew>review</actionForNew>
-				<actionForReturned>authorize_capture</actionForReturned>
 				<countries>AT,FI,DE,NO,SE</countries>
 				<country_restriction>whitelist</country_restriction>
 				<requireBillingAddress>1</requireBillingAddress>
-<!--
-	2016-11-16
-	«A custom description for the charge. This value can be searched for in your dashboard.»
-	https://www.omise.co/charges-api#charges-create
--->
-				<description>{order.id}</description>
 				<payment_action>authorize_capture</payment_action>
 				<title>Klarna</title>
 				<title_backend>Klarna</title_backend>
