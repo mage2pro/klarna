@@ -1,11 +1,11 @@
 // 2016-12-17
 define([
-	'df', 'Df_Checkout/post', 'Df_Payment/billingAddressChange', 'Df_Payment/custom', 'ko'
+	'df', 'Df_Checkout/api', 'Df_Payment/billingAddressChange', 'Df_Payment/custom', 'ko'
 	,'Magento_Checkout/js/model/quote'
 	,'Magento_Customer/js/model/customer'
 	,'Magento_Checkout/js/model/url-builder'
 ], function(
-	df, post, billingAddressChange, parent,ko
+	df, api, billingAddressChange, parent,ko
 	,q, customer, ub
 ) {'use strict'; return parent.extend({
 	defaults: {
@@ -37,7 +37,7 @@ define([
 				_this.klHtml(newAddress.countryId);
 				/** @type {Boolean} */
 				var l = customer.isLoggedIn();
-				post(_this,
+				api(_this,
 					ub.createUrl(
 						df.s.t('/dfe-klarna/%s/html', l?'mine':':quoteId'), l?{}:{quoteId: q.getQuoteId()}
 					)

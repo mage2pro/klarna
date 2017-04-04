@@ -3,11 +3,11 @@
 	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
 	xsi:noNamespaceSchemaLocation='urn:magento:module:Magento_Webapi:etc/webapi.xsd'
 >
-	<route url='/V1/dfe-klarna/:cartId/html' method='GET'>
+	<route url='/V1/dfe-klarna/:cartId/html' method='POST'>
 		<service class='Dfe\Klarna\Html' method='guest'/>
 		<resources><resource ref='anonymous'/></resources>
 	</route>
-	<route url='/V1/dfe-klarna/mine/html' method='GET'>
+	<route url='/V1/dfe-klarna/mine/html' method='POST'>
 		<service class='Dfe\Klarna\Html' method='registered'/>
 		<resources><resource ref='self'/></resources>
 		<data><parameter name='cartId' force='true'>%cart_id%</parameter></data>
