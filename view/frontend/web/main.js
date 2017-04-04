@@ -1,12 +1,13 @@
 // 2016-12-17
 define([
-	'Df_Payment/billingAddressChange'
+	'df'
+	,'Df_Payment/billingAddressChange'
 	,'Df_Payment/custom'
 	,'ko'
 	,'Magento_Checkout/js/model/quote'
 	,'Magento_Checkout/js/model/url-builder'
 	,'Magento_Customer/js/model/customer'
-], function(billingAddressChange, parent, ko, quote, urlBuilder, customer) {'use strict'; return parent.extend({
+], function(df, billingAddressChange, parent, ko, q, ub, customer) {'use strict'; return parent.extend({
 	defaults: {
 		df: {
 			test: {showBackendTitle: false},
@@ -34,21 +35,15 @@ define([
 				// So we need to pass the chosen country ID to the server part.
 				//console.log(newAddress.countryId);
 				_this.klHtml(newAddress.countryId);
-				var payload = {
-					cartId: quote.getQuoteId()
-					,billingAddress: quote.billingAddress()
-					,paymentMethod: null
-				};
-				var serviceUrl;
-				if (customer.isLoggedIn ()) {
-					serviceUrl = urlBuilder.createUrl('/dfe-klarna/mine/html', {});
-				}
-				else {
-					serviceUrl = urlBuilder.createUrl('/dfe-klarna/:quoteId/html', {
-						quoteId: quote.getQuoteId ()
-					});
-					payload.email = quote.guestEmail;
-				}
+				/** @type {Boolean} */
+				var l = customer.isLoggedIn();
+				/** @type {String} */
+				var url = ub.createUrl(
+					df.s.t('/dfe-klarna/%s/html', l?'mine':':quoteId'), l?{}:{quoteId: q.getQuoteId()}
+				);
+				df.o.merge({cartId: q.getQuoteId(), billingAddress: q.billingAddress(), paymentMethod: null},
+					l?{}:{email: q.guestEmail}
+				);
 			}
 		});
 		return this;
