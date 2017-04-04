@@ -41,10 +41,10 @@ define([
 				};
 				var serviceUrl;
 				if (customer.isLoggedIn ()) {
-					serviceUrl = urlBuilder.createUrl('/' + route + '/mine/html', {});
+					serviceUrl = urlBuilder.createUrl('/dfe-klarna/mine/html', {});
 				}
 				else {
-					serviceUrl = urlBuilder.createUrl('/' + route + '/:quoteId/html', {
+					serviceUrl = urlBuilder.createUrl('/dfe-klarna/:quoteId/html', {
 						quoteId: quote.getQuoteId ()
 					});
 					payload.email = quote.guestEmail;
