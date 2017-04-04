@@ -34,7 +34,11 @@ define([
 				// So we need to pass the chosen country ID to the server part.
 				//console.log(newAddress.countryId);
 				_this.klHtml(newAddress.countryId);
-				var payload = {cartId: quote.getQuoteId(), billingAddress: address, paymentMethod: paymentData};
+				var payload = {
+					cartId: quote.getQuoteId()
+					,billingAddress: quote.billingAddress()
+					,paymentMethod: null
+				};
 				var serviceUrl;
 				if (customer.isLoggedIn ()) {
 					serviceUrl = urlBuilder.createUrl('/' + route + '/mine/html', {});
