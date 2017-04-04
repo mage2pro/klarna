@@ -1,13 +1,13 @@
 // 2016-12-17
 define([
-	'df'
-	,'Df_Payment/billingAddressChange'
-	,'Df_Payment/custom'
-	,'ko'
+	'df', 'Df_Checkout/post', 'Df_Payment/billingAddressChange', 'Df_Payment/custom', 'ko'
 	,'Magento_Checkout/js/model/quote'
-	,'Magento_Checkout/js/model/url-builder'
 	,'Magento_Customer/js/model/customer'
-], function(df, billingAddressChange, parent, ko, q, ub, customer) {'use strict'; return parent.extend({
+	,'Magento_Checkout/js/model/url-builder'
+], function(
+	df, post, billingAddressChange, parent,ko
+	,q, customer, ub
+) {'use strict'; return parent.extend({
 	defaults: {
 		df: {
 			test: {showBackendTitle: false},
@@ -37,12 +37,14 @@ define([
 				_this.klHtml(newAddress.countryId);
 				/** @type {Boolean} */
 				var l = customer.isLoggedIn();
-				/** @type {String} */
-				var url = ub.createUrl(
-					df.s.t('/dfe-klarna/%s/html', l?'mine':':quoteId'), l?{}:{quoteId: q.getQuoteId()}
-				);
-				df.o.merge({cartId: q.getQuoteId(), billingAddress: q.billingAddress(), paymentMethod: null},
-					l?{}:{email: q.guestEmail}
+				post(_this,
+					ub.createUrl(
+						df.s.t('/dfe-klarna/%s/html', l?'mine':':quoteId'), l?{}:{quoteId: q.getQuoteId()}
+					)
+					,df.o.merge(
+						{cartId: q.getQuoteId(), billingAddress: q.billingAddress(), paymentMethod: null}
+						,l?{}:{email: q.guestEmail}
+					)
 				);
 			}
 		});
