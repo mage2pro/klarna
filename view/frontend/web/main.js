@@ -1,7 +1,12 @@
 // 2016-12-17
 define([
-	'Df_Payment/billingAddressChange', 'Df_Payment/custom', 'ko', 'Magento_Checkout/js/model/quote'
-], function(billingAddressChange, parent, ko, quote) {'use strict'; return parent.extend({
+	'Df_Payment/billingAddressChange'
+	,'Df_Payment/custom'
+	,'ko'
+	,'Magento_Checkout/js/model/quote'
+	,'Magento_Checkout/js/model/url-builder'
+	,'Magento_Customer/js/model/customer'
+], function(billingAddressChange, parent, ko, quote, urlBuilder, customer) {'use strict'; return parent.extend({
 	defaults: {
 		df: {
 			test: {showBackendTitle: false},
@@ -29,6 +34,17 @@ define([
 				// So we need to pass the chosen country ID to the server part.
 				//console.log(newAddress.countryId);
 				_this.klHtml(newAddress.countryId);
+				var payload = {cartId: quote.getQuoteId(), billingAddress: address, paymentMethod: paymentData};
+				var serviceUrl;
+				if (customer.isLoggedIn ()) {
+					serviceUrl = urlBuilder.createUrl('/' + route + '/mine/html', {});
+				}
+				else {
+					serviceUrl = urlBuilder.createUrl('/' + route + '/:quoteId/html', {
+						quoteId: quote.getQuoteId ()
+					});
+					payload.email = quote.guestEmail;
+				}
 			}
 		});
 		return this;
