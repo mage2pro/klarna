@@ -38,9 +38,7 @@ define([
 				/** @type {Boolean} */
 				var l = customer.isLoggedIn();
 				api(_this,
-					ub.createUrl(
-						df.s.t('/dfe-klarna/%s/html', l?'mine':':quoteId'), l?{}:{quoteId: q.getQuoteId()}
-					)
+					ub.createUrl(df.s.t('/dfe-klarna/%s/html', l ? 'mine' : q.getQuoteId(), {}))
 					,df.o.merge(
 						{cartId: q.getQuoteId(), billingAddress: q.billingAddress(), paymentMethod: null}
 						,l?{}:{email: q.guestEmail}
