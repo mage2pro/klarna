@@ -33,16 +33,16 @@ define([
 			// The M2 client part does not notify the server part about the billing address change.
 			// So we need to pass the chosen country ID to the server part.
 			//console.log(newAddress.countryId);
-			_this.klHtml(newAddress.countryId);
+			//_this.klHtml(newAddress.countryId);
 			/** @type {Boolean} */
-			var l = customer.isLoggedIn();
+			/*var l = customer.isLoggedIn();
 			api(_this,
 				// 2017-04-05
 				// Для анонимных покупателей q.getQuoteId() — это строка вида
 				// «63b25f081bfb8e4594725d8a58b012f7».
 				ub.createUrl(df.s.t('/dfe-klarna/%s/html', l ? 'mine' : q.getQuoteId()), {})
 				,df.o.merge({ba: q.billingAddress(), qp: _this.getData()}, l ? {} : {email: q.guestEmail})
-			);
+			);*/
 		}});
 		return this;
 	},
