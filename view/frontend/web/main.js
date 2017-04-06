@@ -41,9 +41,7 @@ define([
 				// Для анонимных покупателей q.getQuoteId() — это строка вида
 				// «63b25f081bfb8e4594725d8a58b012f7».
 				ub.createUrl(df.s.t('/dfe-klarna/%s/html', l ? 'mine' : q.getQuoteId()), {})
-				,df.o.merge(
-					{cartId: q.getQuoteId(), ba: q.billingAddress(), qp: null}, l?{}:{email: q.guestEmail}
-				)
+				,df.o.merge({ba: q.billingAddress(), qp:_this.getData()}, l ? {} : {email: q.guestEmail})
 			);
 		}});
 		return this;
