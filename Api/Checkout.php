@@ -1,5 +1,4 @@
 <?php
-// 2017-01-25
 namespace Dfe\Klarna\Api;
 use Dfe\Klarna\Settings as S;
 use Dfe\Klarna\Api\Checkout\V3\UserAgent as UA;
@@ -12,17 +11,31 @@ use Klarna_Checkout_Connector as klConnector2;
 use Klarna_Checkout_Order as klOrder2;
 use Klarna\Rest\Checkout\Order as klOrder3;
 use Klarna\Rest\Transport\Connector as klConnector3;
+use Magento\Quote\Api\Data\CartInterface as IQ;
+use Magento\Quote\Model\Quote as Q;
+// 2017-01-25
 final class Checkout {
+	/**
+	 * 2017-04-07
+	 * @used-by html()
+	 * @param IQ|Q|int|null $q [optional]
+	 * @param string|null $bCountry [optional]
+	 */
+	private function __construct($q = null, $bCountry = null) {
+		$this->_q = df_quote($q); $this->_bCountry = $bCountry;
+	}
+
 	/**
 	 * 2017-01-25
 	 * Returns a Klarna's HTML snippet: https://mage2.pro/t/2544
-	 * @param string $bCountry
+	 * @used-by html()
 	 * @return string
-	 * @throws Exception2 
+	 * @throws Exception2
 	 * @throws Exception3_Guzzle
 	 * @throws Exception3_Connector
 	 */
-	static function html($bCountry) {
+	private function _html() {
+		$bCountry = $this->_bCountry;
 		/** @var S $s */
 		$s = dfps(__CLASS__);
 		/** @var bool $isV2 */
@@ -201,4 +214,34 @@ final class Checkout {
 			throw new Exception3_Connector($e, $request);
 		}
 	}
+
+	/**
+	 * 2017-04-07
+	 * @used-by __construct()
+	 * @var string|null
+	 */
+	private $_bCountry;
+
+	/**
+	 * 2017-04-07
+	 * @used-by __construct()
+	 * @var IQ|Q
+	 */
+	private $_q;
+
+	/**
+	 * 2017-04-07
+	 * Аргумерт $bCountry используется только при тестировании:
+	 * он позволяет сформировать платёжную страницу для конкретно указанной страны
+	 * вместо страны привязанного к корзине ($q) платёжного адреса.
+	 * Нам это удобно: нет необходимости задействовать для тестирования
+	 * разные корзины для каждой тестируемой страны, а можно вместо этого использовать единую корзину,
+	 * передавая тестируемую стану параметром $bCountry.
+	 * @used-by \Dfe\Klarna\ConfigProvider::config()
+	 * @used-by \Dfe\Klarna\T\Charge::t01()
+	 * @param IQ|Q|int|null $q [optional]
+	 * @param string|null $bCountry [optional]
+	 * @return string
+	 */
+	static function html($q = null, $bCountry = null) {return (new self($q, $bCountry))->_html();}
 }

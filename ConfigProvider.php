@@ -10,5 +10,5 @@ final class ConfigProvider extends \Df\Payment\ConfigProvider {
 	 * @used-by \Df\Payment\ConfigProvider::getConfig()
 	 * @return array(string => mixed)
 	 */
-	protected function config() {return ['html' => C::html('SE')] + parent::config();}
+	protected function config() {return ['html' => C::html(null, 'SE')] + parent::config();}
 }
