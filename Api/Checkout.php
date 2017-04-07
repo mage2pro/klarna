@@ -1,6 +1,6 @@
 <?php
 // 2017-01-25
-namespace Dfe\Klarna;
+namespace Dfe\Klarna\Api;
 use Dfe\Klarna\Settings as S;
 use Dfe\Klarna\UserAgent as UA;
 use Dfe\Klarna\V2\Charge as Charge2;
@@ -12,7 +12,7 @@ use Klarna_Checkout_Connector as klConnector2;
 use Klarna_Checkout_Order as klOrder2;
 use Klarna\Rest\Checkout\Order as klOrder3;
 use Klarna\Rest\Transport\Connector as klConnector3;
-final class Api {
+final class Checkout {
 	/**
 	 * 2017-01-25
 	 * Returns a Klarna's HTML snippet: https://mage2.pro/t/2544
@@ -22,7 +22,7 @@ final class Api {
 	 * @throws Exception3_Guzzle
 	 * @throws Exception3_Connector
 	 */
-	static function order($bCountry) {
+	static function html($bCountry) {
 		/** @var S $s */
 		$s = dfps(__CLASS__);
 		/** @var bool $isV2 */

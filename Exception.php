@@ -21,7 +21,7 @@ abstract class Exception extends \Df\Payment\Exception {
 	 * 2017-01-26
 	 * @override
 	 * @see \Df\Core\Exception::__construct()
-	 * @used-by \Dfe\Klarna\Api::order()
+	 * @used-by \Dfe\Klarna\Api\Checkout::html()
 	 * @param \Exception $e
 	 * @param array(string => mixed) $req
 	 */

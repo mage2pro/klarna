@@ -5,7 +5,7 @@ namespace Dfe\Klarna\V3\Exception;
  * @see \Klarna\Rest\Transport\Connector::send():
  * 		throw new ConnectorException($data, $e);
  * https://github.com/klarna/kco_rest_php/blob/v2.2.0/src/Klarna/Rest/Transport/Connector.php#L142
- * @used-by \Dfe\Klarna\Api::order()
+ * @used-by \Dfe\Klarna\Api\Checkout::html()
  */
 class Connector extends \Dfe\Klarna\V3\Exception {
 	/**

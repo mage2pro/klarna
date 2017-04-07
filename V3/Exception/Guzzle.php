@@ -25,7 +25,7 @@ use GuzzleHttp\Message\ResponseInterface as IResponse;
 		}
  * https://github.com/klarna/kco_rest_php/blob/v2.2.0/src/Klarna/Rest/Transport/Connector.php#L136-L140
  *
- * @used-by \Dfe\Klarna\Api::order()
+ * @used-by \Dfe\Klarna\Api\Checkout::html()
  */
 class Guzzle extends \Dfe\Klarna\V3\Exception {
 	/**

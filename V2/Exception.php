@@ -2,7 +2,7 @@
 namespace Dfe\Klarna\V2;
 /**
  * 2017-01-26
- * @used-by \Dfe\Klarna\Api::order()
+ * @used-by \Dfe\Klarna\Api\Checkout::html()
  */
 final class Exception extends \Dfe\Klarna\Exception {
 	/**
