@@ -1,6 +1,6 @@
 <?php
 // 2017-01-25
-namespace Dfe\Klarna;
+namespace Dfe\Klarna\Api\Checkout\V3;
 /**
  * 2017-01-25
  * @see \Klarna\Rest\Transport\Connector::createRequest()
@@ -12,6 +12,7 @@ class UserAgent extends \Klarna\Rest\Transport\UserAgent {
 	 * 2017-01-25
 	 * @override
 	 * @see \Klarna\Rest\Transport\UserAgent::__construct()
+	 * @used-by \Dfe\Klarna\Api\Checkout::html()
 	 */
 	function __construct() {
 		parent::__construct();
@@ -71,12 +72,12 @@ class UserAgent extends \Klarna\Rest\Transport\UserAgent {
 
 	/**
 	 * 2017-01-25
-	 * @param string $key
+	 * @param string $k
 	 * @param string $name
 	 * @param string $version [optional]
 	 * @param string[] $options [optional]
 	 */
-	private function f($key, $name, $version = '', array $options = []) {
-		$this->setField($key, $name, $version, $options);
-	}
+	private function f($k, $name, $version = '', array $options = []) {$this->setField(
+		$k, $name, $version, $options
+	);}
 }

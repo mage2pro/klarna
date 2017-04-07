@@ -2,12 +2,12 @@
 // 2017-01-25
 namespace Dfe\Klarna\Api;
 use Dfe\Klarna\Settings as S;
-use Dfe\Klarna\UserAgent as UA;
-use Dfe\Klarna\V2\Charge as Charge2;
-use Dfe\Klarna\V3\Charge as Charge3;
-use Dfe\Klarna\V2\Exception as Exception2;
-use Dfe\Klarna\V3\Exception\Guzzle as Exception3_Guzzle;
-use Dfe\Klarna\V3\Exception\Guzzle as Exception3_Connector;
+use Dfe\Klarna\Api\Checkout\V3\UserAgent as UA;
+use Dfe\Klarna\Api\Checkout\V2\Charge as Charge2;
+use Dfe\Klarna\Api\Checkout\V3\Charge as Charge3;
+use Dfe\Klarna\Api\Checkout\V2\Exception as Exception2;
+use Dfe\Klarna\Api\Checkout\V3\Exception\Guzzle as Exception3_Guzzle;
+use Dfe\Klarna\Api\Checkout\V3\Exception\Guzzle as Exception3_Connector;
 use Klarna_Checkout_Connector as klConnector2;
 use Klarna_Checkout_Order as klOrder2;
 use Klarna\Rest\Checkout\Order as klOrder3;

@@ -1,6 +1,6 @@
 <?php
 // 2017-01-26
-namespace Dfe\Klarna\V2;
+namespace Dfe\Klarna\Api\Checkout\V2;
 final class Charge {
 	/**
 	 * 2017-02-04
@@ -14,8 +14,8 @@ final class Charge {
 	 * @used-by currency()
 	 * @used-by kl_order()
 	 * @used-by locale()
-	 * @used-by \Dfe\Klarna\V2\Charge\ShippingAddress::p()
-	 * @used-by \Dfe\Klarna\V2\Charge\ShippingAddress::test()
+	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\ShippingAddress::p()
+	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\ShippingAddress::test()
 	 * @param string $code [optional]
 	 * @return string|bool
 	 */
@@ -23,7 +23,7 @@ final class Charge {
 
 	/**
 	 * 2017-02-01
-	 * @used-by \Dfe\Klarna\V2\Charge\Part::amount()
+	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\Part::amount()
 	 * @used-by kl_order()
 	 * @return string
 	 */
@@ -35,7 +35,7 @@ final class Charge {
 	 * 2017-02-02
 	 * «sv_SE»
 	 * @used-by localeFormatted()
-	 * @used-by \Dfe\Klarna\V2\Charge\Products::p()
+	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\Products::p()
 	 * @return string
 	 */
 	function locale() {return dfc($this, function() {return df_locale_by_country($this->bCountry());});}

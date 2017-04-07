@@ -2,16 +2,16 @@
 namespace Dfe\Klarna;
 /**
  * 2017-01-26
- * @see \Dfe\Klarna\V2\Exception
- * @see \Dfe\Klarna\V3\Exception
+ * @see \Dfe\Klarna\Api\Checkout\V2\Exception
+ * @see \Dfe\Klarna\Api\Checkout\V3\Exception
  */
 abstract class Exception extends \Df\Payment\Exception {
 	/**
 	 * 2017-01-26
 	 * @used-by message()
-	 * @see \Dfe\Klarna\V2\Exception::responseA()
-	 * @see \Dfe\Klarna\V3\Exception\Guzzle::responseA()
-	 * @see \Dfe\Klarna\V3\Exception\Connector::responseA()
+	 * @see \Dfe\Klarna\Api\Checkout\V2\Exception::responseA()
+	 * @see \Dfe\Klarna\Api\Checkout\V3\Exception\Guzzle::responseA()
+	 * @see \Dfe\Klarna\Api\Checkout\V3\Exception\Connector::responseA()
 	 * @param \Exception $e
 	 * @return array(string => mixed)
 	 */
@@ -52,7 +52,7 @@ abstract class Exception extends \Df\Payment\Exception {
 
 	/**
 	 * 2017-01-26
-	 * @used-by \Dfe\Klarna\V2\Exception::message()
+	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Exception::message()
 	 * @return array(string => mixed)
 	 */
 	final protected function req() {return $this->_req;}

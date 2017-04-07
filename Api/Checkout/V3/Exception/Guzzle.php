@@ -1,5 +1,5 @@
 <?php
-namespace Dfe\Klarna\V3\Exception;
+namespace Dfe\Klarna\Api\Checkout\V3\Exception;
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Message\ResponseInterface as IResponse;
 /**
@@ -27,7 +27,7 @@ use GuzzleHttp\Message\ResponseInterface as IResponse;
  *
  * @used-by \Dfe\Klarna\Api\Checkout::html()
  */
-class Guzzle extends \Dfe\Klarna\V3\Exception {
+class Guzzle extends \Dfe\Klarna\Api\Checkout\V3\Exception {
 	/**
 	 * 2017-01-26
 	 * @override

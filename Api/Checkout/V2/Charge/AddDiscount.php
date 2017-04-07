@@ -1,10 +1,10 @@
 <?php
 // 2017-02-04
-namespace Dfe\Klarna\V2\Charge;
+namespace Dfe\Klarna\Api\Checkout\V2\Charge;
 final class AddDiscount extends Part {
 	/**
 	 * 2017-02-03
-	 * @used-by \Dfe\Klarna\V2\Charge::kl_order_lines()
+	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge::kl_order_lines()
 	 * @param array(array(string => string|int)) $items
 	 * @return array(array(string => string|int))
 	 */

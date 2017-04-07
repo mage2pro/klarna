@@ -1,5 +1,5 @@
 <?php
-namespace Dfe\Klarna\V3\Exception;
+namespace Dfe\Klarna\Api\Checkout\V3\Exception;
 /**
  * 2017-01-26
  * @see \Klarna\Rest\Transport\Connector::send():
@@ -7,7 +7,7 @@ namespace Dfe\Klarna\V3\Exception;
  * https://github.com/klarna/kco_rest_php/blob/v2.2.0/src/Klarna/Rest/Transport/Connector.php#L142
  * @used-by \Dfe\Klarna\Api\Checkout::html()
  */
-class Connector extends \Dfe\Klarna\V3\Exception {
+class Connector extends \Dfe\Klarna\Api\Checkout\V3\Exception {
 	/**
 	 * 2017-01-26
 	 * @override

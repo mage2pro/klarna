@@ -1,13 +1,13 @@
 <?php
 // 2017-02-04
-namespace Dfe\Klarna\V2\Charge;
+namespace Dfe\Klarna\Api\Checkout\V2\Charge;
 final class ShippingAddress extends Part {
 	/**
 	 * 2017-01-26
 	 * «The shipping address»
 	 * Type: address object.
 	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#address-object-properties
-	 * @used-by \Dfe\Klarna\V2\Charge::kl_order()
+	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge::kl_order()
 	 * @return array(string => string)
 	 * Похоже, что при использовании Checkout API версии 2
 	 * мы не можем передать адрес покупателя сервису,
@@ -240,7 +240,7 @@ final class ShippingAddress extends Part {
 	 * Стал использовать @uses df_nts(),
 	 * потому что передача null вместо пустой строки в запросе API
 	 * приведёт к ответу сервера «Bad format»
-	 * @used-by \Dfe\Klarna\V2\Charge\ShippingAddress::p()
+	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\ShippingAddress::p()
 	 * @param string $key
 	 * @return string
 	 */

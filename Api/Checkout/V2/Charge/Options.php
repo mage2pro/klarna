@@ -1,6 +1,6 @@
 <?php
 // 2017-02-04
-namespace Dfe\Klarna\V2\Charge;
+namespace Dfe\Klarna\Api\Checkout\V2\Charge;
 final class Options {
 	/**
 	 * 2017-01-27
@@ -9,7 +9,7 @@ final class Options {
 	 * Type: options object.
 	 * https://developers.klarna.com/en/se/kco-v2/checkout/extra-features
 	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#options-object-properties
-	 * @used-by \Dfe\Klarna\V2\Charge::kl_order()
+	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge::kl_order()
 	 * @return array(string => mixed)
 	 */
 	function p() {return [

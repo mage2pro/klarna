@@ -1,6 +1,6 @@
 <?php
 // 2017-01-26
-namespace Dfe\Klarna\V3;
+namespace Dfe\Klarna\Api\Checkout\V3;
 final class Charge {
 	/**
 	 * 2017-01-23

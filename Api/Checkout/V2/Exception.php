@@ -1,5 +1,5 @@
 <?php
-namespace Dfe\Klarna\V2;
+namespace Dfe\Klarna\Api\Checkout\V2;
 /**
  * 2017-01-26
  * @used-by \Dfe\Klarna\Api\Checkout::html()

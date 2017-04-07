@@ -1,6 +1,6 @@
 <?php
 // 2017-02-04
-namespace Dfe\Klarna\V2\Charge;
+namespace Dfe\Klarna\Api\Checkout\V2\Charge;
 final class Customer extends Part {
 	/**
 	 * 2017-01-26
@@ -8,7 +8,7 @@ final class Customer extends Part {
 	 * Required: no.
 	 * Type: customer object.
 	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#customer-object-properties
-	 * @used-by \Dfe\Klarna\V2\Charge::kl_order()
+	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge::kl_order()
 	 * @return array(string => string)
 	 */
 	function p() {return [
