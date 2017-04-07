@@ -75,8 +75,8 @@ final class Api {
 		);
 		/** @var string $secret */
 		$secret = $s->sharedSecret();
-		/** @var klOrder2|klOrder3 $order */
-		$order = $isV2
+		/** @var klOrder2|klOrder3 $klOrder */
+		$klOrder = $isV2
 			? new klOrder2(klConnector2::create($secret, $url))
 			: new klOrder3(klConnector3::create($s->merchantID(), $secret, $url, new UA))
 		;
@@ -98,7 +98,7 @@ final class Api {
 			 *			break;
 			 * https://github.com/klarna/kco_php/blob/v4.0.0/src/Klarna/Checkout/BasicConnector.php#L287-L290
 			 */
-			$order->create($request);
+			$klOrder->create($request);
 			/**
 			 * 2017-01-28
 			 * Checkout API версии 2.
@@ -152,14 +152,14 @@ final class Api {
 			 * Хотя в примерах (правая колонка) это состояние записано заглавными буквами:
 			 * "status": "CHECKOUT_INCOMPLETE"
 			 */
-			$order->fetch();
+			$klOrder->fetch();
 			/** @var string $orderId */
 			//$orderId = $order['id'];
 			if ($isV2) {
-				dfp_log_l(__CLASS__, $order->marshal(), strtolower($bCountry));
+				dfp_log_l(__CLASS__, $klOrder->marshal(), strtolower($bCountry));
 			}
 			/** @var string $html */
-			return $isV2 ? $order['gui']['snippet'] : $order['html_snippet'];
+			return $isV2 ? $klOrder['gui']['snippet'] : $klOrder['html_snippet'];
 		}
 		/**
 		 * 2017-01-26
