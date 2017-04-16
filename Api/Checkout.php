@@ -169,7 +169,7 @@ final class Checkout {
 			/** @var string $orderId */
 			//$orderId = $order['id'];
 			if ($isV2) {
-				dfp_log_l(__CLASS__, $klOrder->marshal(), strtolower($bCountry));
+				df_log_l(__CLASS__, $klOrder->marshal(), strtolower($bCountry));
 			}
 			/** @var string $html */
 			return $isV2 ? $klOrder['gui']['snippet'] : $klOrder['html_snippet'];
