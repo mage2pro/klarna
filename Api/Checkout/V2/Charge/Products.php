@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\Klarna\Api\Checkout\V2\Charge;
+use Magento\Quote\Model\Quote\Item as QI;
 use Magento\Sales\Model\Order\Item as OI;
 // 2017-02-04
 final class Products extends Part {
@@ -19,7 +20,7 @@ final class Products extends Part {
 	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge::kl_order_lines()
 	 * @return array(string => string|int)
 	 */
-	function p() {return df_oi_leafs($this->o(), function(OI $i) {return [
+	function p() {return df_oqi_leafs($this->oq(), function($i) {/** @var OI|QI $i */ return [
 		/**
 		 * 2017-01-26
 		 * «Percentage of discount, multiplied by 100 and provided as an integer.
@@ -36,7 +37,7 @@ final class Products extends Part {
 		 * Указанная здесь скидка не входит в «unit_price»:
 		 * Klarna вычтет её из «unit_price»: https://mage2.pro/t/2592
 		 * По этой причине неверно использовать здесь
-		 * round(100 * df_oi_top($i)->getDiscountPercent()),
+		 * round(100 * df_oqi_top($i)->getDiscountPercent()),
 		 * потому что в Magento @see \Magento\Sales\Model\Order\Item::getDiscountPercent()
 		 * возвращает скидку, уже включённую в
 		 * @see \Magento\Sales\Model\Order\Item::getPriceInclTax()
@@ -79,7 +80,7 @@ final class Products extends Part {
 		 * Пока вроде бы Klarna нигде не отображает эту картинку
 		 * и не включает это поле в свой ответ с как-бы «полной» информацией о платеже.
 		 */
-		,'image_uri' => df_oi_image($i)
+		,'image_uri' => df_oqi_image($i)
 		/**
 		 * 2017-01-26
 		 * «Name, usually a short description»
@@ -96,7 +97,7 @@ final class Products extends Part {
 		 * 2017-01-31
 		 * Передача в Klarna вещественного числа приводит к сбою «Bad format».
 		 */
-		,'quantity' => df_oi_qty($i)
+		,'quantity' => df_oqi_qty($i)
 		/**
 		 * 2017-01-26
 		 * «Reference, usually the article number»
@@ -111,7 +112,7 @@ final class Products extends Part {
 		 * Required: yes.
 		 * Type: integer.
 		 */
-		,'tax_rate' => df_oi_tax_rate($i, true)
+		,'tax_rate' => df_oqi_tax_rate($i, true)
 		/**
 		 * 2017-01-26
 		 * «Type. `physical` by default, alternatively `discount`, `shipping_fee`»
@@ -132,7 +133,7 @@ final class Products extends Part {
 		 * 2017-02-01
 		 * Замечание №1
 		 * Нам тут, согласно спецификации Klarna,
-		 * нужна цена именно с налогом, поэтому передаём в df_oi_price() вторым параметром true.
+		 * нужна цена именно с налогом, поэтому передаём в df_oqi_price() вторым параметром true.
 		 *
 		 * Замечание №2
 		 * «unit_price» — это стоимость именно единицы товара, а не стоимость позиции заказа.
@@ -145,9 +146,9 @@ final class Products extends Part {
 		 *       "unit_price": 60946
 		 *		<...>
 		 *   }
-		 * @uses df_oi_price() как раз и возвращает стоимость одной единицы товара.
+		 * @uses df_oqi_price() как раз и возвращает стоимость одной единицы товара.
 		 */
-		,'unit_price' => $this->amount(df_oi_price($i, true))
+		,'unit_price' => $this->amount(df_oqi_price($i, true))
 		/**
 		 * 2017-01-26
 		 * «Item product page URI.
@@ -159,6 +160,6 @@ final class Products extends Part {
 		 * Пока вроде бы Klarna нигде не отображает этот адрес
 		 * и не включает это поле в свой ответ с как-бы «полной» информацией о платеже.
 		 */
-		,'uri' => df_oi_url($i)
+		,'uri' => df_oqi_url($i)
 	];}, $this->owner()->locale());}
 }

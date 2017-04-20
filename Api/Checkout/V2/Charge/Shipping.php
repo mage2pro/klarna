@@ -47,7 +47,7 @@ final class Shipping extends Part {
 		 * Required: yes.
 		 * Type: string.
 		 */
-		,'name' => $this->o()->getShippingDescription()
+		,'name' => df_oq_shipping_desc($this->oq())
 		/**
 		 * 2017-01-26
 		 * «Quantity»
@@ -95,7 +95,7 @@ final class Shipping extends Part {
 		 * 2017-02-01
 		 * Замечание №1
 		 * Нам тут, согласно спецификации Klarna,
-		 * нужна цена именно с налогом, поэтому передаём в df_oi_price() вторым параметром true.
+		 * нужна цена именно с налогом, поэтому передаём в df_oqi_price() вторым параметром true.
 		 *
 		 * Замечание №2
 		 * «unit_price» — это стоимость именно единицы товара, а не стоимость позиции заказа.
@@ -108,13 +108,13 @@ final class Shipping extends Part {
          *       "unit_price": 60946
 		 *		<...>
          *   }
-		 * @uses df_oi_price() как раз и возвращает стоимость одной единицы товара.
+		 * @uses df_oqi_price() как раз и возвращает стоимость одной единицы товара.
 		 *
 		 * Замечание №3
 		 * Тестовый заказ №376 у нас в шведских кронах.
 		 * 10 шведских крон стоят примерно 1 евро.
 		 */
-		,'unit_price' => $this->amount($this->o()->getShippingAmount())
+		,'unit_price' => $this->amount(df_oq_shipping_amount($this->oq()))
 		/**
 		 * 2017-01-26
 		 * «Item product page URI.

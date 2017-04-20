@@ -22,7 +22,7 @@ final class AddDiscount extends Part {
 			$i['quantity'] * $i['unit_price'];
 		}, $items));
 		/** @var int $totalM */
-		$totalM = $this->amount($this->o()->getGrandTotal());
+		$totalM = $this->amount($this->oq()->getGrandTotal());
 		/**
 		 * 2017-02-03
 		 * При этом мы сознательно идём на то, что скидка может оказаться положительным числом,
@@ -85,7 +85,7 @@ final class AddDiscount extends Part {
 			 * 2017-02-01
 			 * Замечание №1
 			 * Нам тут, согласно спецификации Klarna,
-			 * нужна цена именно с налогом, поэтому передаём в df_oi_price() вторым параметром true.
+			 * нужна цена именно с налогом, поэтому передаём в df_oqi_price() вторым параметром true.
 			 *
 			 * Замечание №2
 			 * «unit_price» — это стоимость именно единицы товара, а не стоимость позиции заказа.
@@ -98,7 +98,7 @@ final class AddDiscount extends Part {
 			 *       "unit_price": 60946
 			 *		<...>
 			 *   }
-			 * @uses df_oi_price() как раз и возвращает стоимость одной единицы товара.
+			 * @uses df_oqi_price() как раз и возвращает стоимость одной единицы товара.
 			 *
 			 * Замечание №3
 			 * Тестовый заказ №376 у нас в шведских кронах.
