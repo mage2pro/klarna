@@ -7,9 +7,12 @@ use Magento\Quote\Model\Quote\Payment as QP;
 // 2017-04-04
 final class Html {
 	/**
-	 * 2017-04-04
+	 * 2017-04-04 Для анонимных покупателей $cartId — это строка вида «63b25f081bfb8e4594725d8a58b012f7».
+	 * 2017-04-20
+	 * $qp в поле @see \Magento\Framework\DataObject::_data содержит код способа оплаты,
+	 * а также ту дополнительную информацию, которую передала клиентская часть модуля оплаты.
+	 * Например: [additional_data => [], method => "dfe_klarna"].
 	 * @param string $cartId
-	 * Для анонимных покупателей $cartId — это строка вида «63b25f081bfb8e4594725d8a58b012f7»
 	 * @param string $email
 	 * @param IQP|QP $qp
 	 * @param IQA|QA|null $ba
@@ -23,6 +26,10 @@ final class Html {
 
 	/**
 	 * 2017-04-04
+	 * 2017-04-20
+	 * $qp в поле @see \Magento\Framework\DataObject::_data содержит код способа оплаты,
+	 * а также ту дополнительную информацию, которую передала клиентская часть модуля оплаты.
+	 * Например: [additional_data => [], method => "dfe_klarna"].
 	 * @param int $cartId
 	 * @param IQP|QP $qp
 	 * @param IQA|QA|null $ba
