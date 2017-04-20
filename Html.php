@@ -18,7 +18,7 @@ final class Html {
 	 */
 	function guest($cartId, $email, IQP $qp, IQA $ba = null) {
 		df_break();
-		return dfw_encode([]);
+		return dfw_encode(['html' => 'PREVED, MEDVED!']);
 	}
 
 	/**
@@ -31,6 +31,6 @@ final class Html {
 	 */
 	function registered($cartId, IQP $qp, IQA $ba = null) {
 		df_break();
-		return dfw_encode([]);
+		return dfw_encode(['html' => 'PREVED, MEDVED!']);
 	}
 }

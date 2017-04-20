@@ -1,11 +1,11 @@
 // 2016-12-17
 define([
-	'df', 'Df_Checkout/api', 'Df_Payment/billingAddressChange', 'Df_Payment/custom', 'ko'
+	'df', 'Df_Checkout/api', 'Df_Payment/billingAddressChange', 'Df_Payment/custom', 'jquery', 'ko'
 	,'Magento_Checkout/js/model/quote'
 	,'Magento_Customer/js/model/customer'
 	,'Magento_Checkout/js/model/url-builder'
 ], function(
-	df, api, billingAddressChange, parent,ko
+	df, api, billingAddressChange, parent, $, ko
 	,q, customer, ub
 ) {'use strict'; return parent.extend({
 	defaults: {
@@ -35,14 +35,23 @@ define([
 			//console.log(newAddress.countryId);
 			//_this.klHtml(newAddress.countryId);
 			/** @type {Boolean} */
-			/*var l = customer.isLoggedIn();
-			api(_this,
+			var l = customer.isLoggedIn();
+			$.when(api(_this,
 				// 2017-04-05
 				// Для анонимных покупателей q.getQuoteId() — это строка вида
 				// «63b25f081bfb8e4594725d8a58b012f7».
 				ub.createUrl(df.s.t('/dfe-klarna/%s/html', l ? 'mine' : q.getQuoteId()), {})
 				,df.o.merge({ba: q.billingAddress(), qp: _this.getData()}, l ? {} : {email: q.guestEmail})
-			);*/
+			))
+				.fail(function() {debugger;})
+				.done(function(json) {
+					// 2017-04-05
+					// Отныне json у нас всегда строка: @see dfw_encode().
+					/** @type {Object} */
+					var d = !json ? {} : $.parseJSON(json);
+					_this.klHtml(d['html']);
+				})
+			;
 		}});
 		return this;
 	},
