@@ -35,7 +35,7 @@ class Button extends _P implements IShortcut {
 	 * @override
 	 * @see _P::_toHtml()
 	 * @used-by \Magento\Framework\View\Element\AbstractBlock::toHtml()
-	 * @return string
+	 * @return string                                
 	 */
 	final protected function _toHtml() {return df_tag('a',
 		['class' => 'dfe-klarna-button'] + df_widget($this, 'button', [])
