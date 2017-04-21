@@ -1,0 +1,17 @@
+<?xml version='1.0'?>
+<config
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd"
+>
+<!-- 2017-04-21
+Our goal is add the «Check out with Klarna» button to the customer's cart,
+similarly to the «Check out with PayPal» button.
+«How is the «Check out with PayPal» button implemented?» https://mage2.pro/t/3785
+-->
+	<event name='shortcut_buttons_container'>
+		<observer
+			name='Dfe\Klarna\Observer\ShortcutButtonsContainer'
+			instance='Dfe\Klarna\Observer\ShortcutButtonsContainer'
+		/>
+	</event>
+</config>
