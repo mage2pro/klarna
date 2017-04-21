@@ -14,5 +14,5 @@ class Button extends _P {
 	 * @used-by \Magento\Framework\View\Element\AbstractBlock::toHtml()
 	 * @return string
 	 */
-	final protected function _toHtml() {return 'TEST BUTTON';}
+	final protected function _toHtml() {return df_js($this, 'button');}
 }
