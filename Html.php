@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\Klarna;
+use Dfe\Klarna\Api\Checkout as API;
 use Magento\Quote\Api\Data\AddressInterface as IQA;
 use Magento\Quote\Api\Data\PaymentInterface as IQP;
 use Magento\Quote\Model\Quote\Address as QA;
@@ -21,7 +22,7 @@ final class Html {
 	 */
 	function guest($cartId, $email, IQP $qp, IQA $ba = null) {
 		df_break();
-		return dfw_encode(['html' => 'PREVED, MEDVED!']);
+		return dfw_encode(['html' => API::html(null, 'SE')]);
 	}
 
 	/**
@@ -38,6 +39,6 @@ final class Html {
 	 */
 	function registered($cartId, IQP $qp, IQA $ba = null) {
 		df_break();
-		return dfw_encode(['html' => 'PREVED, MEDVED!']);
+		return dfw_encode(['html' => API::html(null, 'SE')]);
 	}
 }
