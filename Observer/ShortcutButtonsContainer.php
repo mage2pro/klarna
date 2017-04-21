@@ -1,5 +1,8 @@
 <?php
 namespace Dfe\Klarna\Observer;
+use Dfe\Klarna\Button;
+use Magento\Catalog\Block\ShortcutButtons as Container;
+use Magento\Checkout\Block\QuoteShortcutButtons as MiniContainer;
 use Magento\Framework\Event\Invoker\InvokerDefault as Invoker;
 use Magento\Framework\Event\Observer as O;
 use Magento\Framework\Event\ObserverInterface as IO;
@@ -35,11 +38,20 @@ use Magento\Framework\Event\ObserverInterface as IO;
 final class ShortcutButtonsContainer implements IO {
 	/**
 	 * 2017-04-21
+	 * @see \Magento\Checkout\Block\QuoteShortcutButtons (MiniContainer)
+	 * inherits from @see \Magento\Catalog\Block\ShortcutButtons (Container),
+	 * so they both have the @uses \Magento\Catalog\Block\ShortcutButtons::addShortcut() method.
 	 * @override
 	 * @see IO::execute()
 	 * @used-by Invoker::_callObserverMethod()
 	 * @param O $o
 	 */
-	function execute(O $o) {}
+	function execute(O $o) {
+		if (dfps($this)->enable()) {
+			/** @var Container|MiniContainer $c */
+			$c = $o['container'];
+			$c->addShortcut(df_block(Button::class));
+		}
+	}
 }
 
