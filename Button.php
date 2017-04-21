@@ -37,8 +37,21 @@ class Button extends _P implements IShortcut {
 	 * @used-by \Magento\Framework\View\Element\AbstractBlock::toHtml()
 	 * @return string                                
 	 */
-	final protected function _toHtml() {return df_tag('a',
-		['class' => 'dfe-klarna-button'] + df_widget($this, 'button', [])
-		,'Check out with Klarna'
-	) . df_link_inline(df_asset_name('button', $this, 'css'));}
+	final protected function _toHtml() {return df_cc_n(
+		/*df_tag('a',
+			['class' => 'dfe-klarna-button'] + df_widget($this, 'button', [])
+			,'Check out with Klarna'
+		) */
+		df_div([
+			'class' => 'klarna-widget klarna-part-payment'
+			,'data-eid' => dfps($this)->merchantID()
+			,'data-locale' => 'sv_se'
+			,'data-price' => '1201.34'
+			,'data-layout' => 'pale-v2'
+			,'data-invoice-fee' => '0.95'
+			,'style' => 'width:210px; height:80px'
+		])
+		,df_link_inline(df_asset_name('button', $this, 'css'))
+		,df_js_inline_r('https://cdn.klarna.com/1.0/code/client/all.js')
+	);}
 }
