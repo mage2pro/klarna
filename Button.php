@@ -37,7 +37,8 @@ class Button extends _P implements IShortcut {
 	 * @used-by \Magento\Framework\View\Element\AbstractBlock::toHtml()
 	 * @return string
 	 */
-	final protected function _toHtml() {return df_tag('a', df_widget(
-		$this, 'button', []
-	), 'Check out with Klarna');}
+	final protected function _toHtml() {return df_tag('a',
+		['class' => 'dfe-klarna-button'] + df_widget($this, 'button', [])
+		,'Check out with Klarna'
+	) . df_link_inline(df_asset_name('button', $this, 'css'));}
 }
