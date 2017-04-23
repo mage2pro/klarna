@@ -3,16 +3,16 @@ The extension integrates your Magento 2 store with the **[Klarna](https://www.kl
 ## Demo
 
 Examples of the Klarna's Checkout page: 
-- [**Austria**](https://mage2.pro/t/topic/2589)
-- [**Finland**](https://mage2.pro/t/topic/2585)
-- [**Germany**](https://mage2.pro/t/topic/2588)
-- [**Norway**](https://mage2.pro/t/topic/2587)
-- [**Sweden**](https://mage2.pro/t/topic/2586) 
+- [**Austria**](https://mage2.pro/t/2589)
+- [**Finland**](https://mage2.pro/t/2585)
+- [**Germany**](https://mage2.pro/t/2588)
+- [**Norway**](https://mage2.pro/t/2587)
+- [**Sweden**](https://mage2.pro/t/2586) 
 
 ## Licensing
 It is a paid extension, not free.  
 You can use it for free for the testing puproses only.  
-Please read the [testing policy](https://mage2.pro/t/topic/2590) before installation.
+Please read the [testing policy](https://mage2.pro/t/2590) before installation.
 
 ## How to buy
 The extension is not released yet, so there is no way to buy it just now.  
@@ -28,7 +28,7 @@ Follow the generic [installation instruction](https://mage2.pro/t/263).
 ## Support
 - [The extension's **forum** branch](https://mage2.pro/c/extensions/klarna).
 - [Where and how to report a Mage2.PRO extension's issue?](https://mage2.pro/t/2034)
-- I also provide a **[generic Magento 2 support](https://mage2.pro/t/topic/755)** and [Magento 2 installation service](https://mage2.pro/t/748).
+- I also provide a **[generic Magento 2 support](https://mage2.pro/t/755)** and [Magento 2 installation service](https://mage2.pro/t/748).
 
 ## Want to be notified about the extension's updates?
 - [Subscribe](https://mage2.pro/t/2540) to the extension's [forum branch](https://mage2.pro/c/extensions/klarna).
