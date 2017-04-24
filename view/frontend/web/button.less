@@ -1,2 +1,20 @@
 // 2017-04-21
-.dfe-klarna-button {background: yellow;}
+.dfe-klarna-button {
+	// 2017-04-24 Как для стандартной кнопки «Proceed to Checkout».
+	background: #1979c3;
+	// 2017-04-24 Как для стандартной кнопки «Proceed to Checkout».
+	border-radius: 3px;//0.8rem;
+	color: white;
+	cursor: pointer;
+	display: block;
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+	line-height: 2.2rem;
+	margin: 2rem auto;
+	padding: 14px 17px;
+	text-align: center;
+	&:hover {background: #006bb4; color: #ffffff; text-decoration: none;}
+	// 2017-04-24 Отступ между текстом «Check out with» и логотипом Klarna.
+	span {&.dfAfter {padding-left: 0.4rem;} &.dfBefore {padding-right: 0.4rem;}}
+}

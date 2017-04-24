@@ -31,27 +31,37 @@ class Button extends _P implements IShortcut {
 	function getAlias() {return __CLASS__;}
 
 	/**
-	 * 2017-04-21
+	 * 2017-04-21 https://developers.klarna.com/en/se/kco-v2/logos
 	 * @override
 	 * @see _P::_toHtml()
 	 * @used-by \Magento\Framework\View\Element\AbstractBlock::toHtml()
 	 * @return string                                
 	 */
-	final protected function _toHtml() {return df_cc_n(
-		/*df_tag('a',
-			['class' => 'dfe-klarna-button'] + df_widget($this, 'button', [])
-			,'Check out with Klarna'
-		) */
-		df_div([
-			'class' => 'klarna-widget klarna-part-payment'
-			,'data-eid' => dfps($this)->merchantID()
-			,'data-locale' => 'sv_se'
-			,'data-price' => '1201.34'
-			,'data-layout' => 'pale-v2'
-			,'data-invoice-fee' => '0.95'
-			,'style' => 'width:210px; height:80px'
-		])
-		,df_link_inline(df_asset_name('button', $this, 'css'))
-		,df_js_inline_r('https://cdn.klarna.com/1.0/code/client/all.js')
-	);}
+	final protected function _toHtml() {
+		$base = 'https://cdn.klarna.com/1.0/';
+		// 2017-04-24
+		// Другое значение: «blue-black».
+		/** @var string $style */
+		$style = 'white';
+		/** @var bool $textIsBefore */ $textIsBefore = true;
+		/** @var string $title */ $title = __('Check out with Klarna');
+		/** @var int $width */ $width = 70;
+		$contentA = [
+			df_tag('span', $textIsBefore ? 'dfBefore' : 'dfAfter', __('Check out with'))
+			,df_tag('img', [
+				'alt' => $title
+				,'src' => "{$base}shared/image/generic/logo/sv_se/basic/$style.png?width=$width"
+				,'title' => $title
+				,'width' => $width
+			])
+		];
+		return df_cc_n(
+			df_tag('a',
+				['class' => 'dfe-klarna-button', 'title' => $title] + df_widget($this, 'button', [])
+				,implode($textIsBefore ? $contentA : array_reverse($contentA))
+			)
+			,df_link_inline(df_asset_name('button', $this, 'css'))
+			//,df_js_inline_r("{$base}code/client/all.js")
+		);
+	}
 }
