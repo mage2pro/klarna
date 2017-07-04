@@ -14,23 +14,19 @@
 -->
 			<group
 				id='klarna'
-				translate='label'
+				showInDefault='1' showInStore='1' showInWebsite='1'
 				sortOrder='1112'
-				showInDefault='1'
-				showInWebsite='1'
-				showInStore='1'
+				translate='label'
 			>
 				<label>Klarna</label>
 				<dfExtension>Dfe_Klarna</dfExtension>
 				<frontend_model>Df\Config\Fieldset</frontend_model>
 				<field
 					id='enable'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='1'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='1'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Enable?</label>
 					<backend_model>Df\Config\Backend\Checkbox</backend_model>
@@ -39,12 +35,10 @@
 				</field>
 				<field
 					id='title'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='2'
 					translate='label'
 					type='text'
-					sortOrder='2'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Title</label>
 					<comment><![CDATA[It is shown on the checkout screen.]]></comment>
@@ -59,12 +53,10 @@ https://mage2.pro/t/2506
 -->
 				<field
 					id='test'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='3'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='3'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Test Mode?</label>
 					<backend_model>Df\Config\Backend\Checkbox</backend_model>
@@ -73,12 +65,10 @@ https://mage2.pro/t/2506
 				</field>
 				<field
 					id='testMerchantID'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='4'
 					translate='label'
 					type='text'
-					sortOrder='4'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Test Store ID (EID)</label>
 					<comment><![CDATA[An unique number that identifies your e-store. <a href='https://mage2.pro/t/2532' target='_blank'>How to get it?</a>
@@ -91,12 +81,10 @@ https://mage2.pro/t/2506
 				</field>
 				<field
 					id='testSharedSecret'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='5'
 					translate='label'
 					type='obscure'
-					sortOrder='5'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Test Shared Secret</label>
 					<comment><![CDATA[<a href='https://mage2.pro/t/2532' target='_blank'>How to get it?</a>]]></comment>
@@ -158,12 +146,10 @@ Checkout API версии 3 работает только в США и Вели�
 -->
 				<field
 					id='liveMerchantID'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='8'
 					translate='label'
 					type='text'
-					sortOrder='8'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Store ID (EID)</label>
 					<comment><![CDATA[An unique number that identifies your e-store. <a href='https://mage2.pro/t/2398' target='_blank'>How to get it?</a>
@@ -177,12 +163,10 @@ Checkout API версии 3 работает только в США и Вели�
 				</field>
 				<field
 					id='liveSharedSecret'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='9'
 					translate='label'
 					type='obscure'
-					sortOrder='9'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Live Shared Secret</label>
 					<comment><![CDATA[<a href='https://www.klarna.com/us/business' target='_blank'>How to get it?</a>]]></comment>
@@ -195,12 +179,10 @@ Checkout API версии 3 работает только в США и Вели�
 				</field>
 				<field
 					id='toc'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='12'
 					translate='label'
 					type='select'
-					sortOrder='12'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Terms and Conditions page</label>
 					<comment><![CDATA[Klarna <a target="_blank" href="https://developers.klarna.com/en/us/kco-v3/checkout/2-render-the-checkout#configure-checkout-order">requires</a> it.]]></comment>
@@ -209,12 +191,10 @@ Checkout API версии 3 работает только в США и Вели�
 				</field>
 				<field
 					id='requireBillingAddress'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='13'
 					translate='label'
 					type='Df\Framework\Form\Element\Checkbox'
-					sortOrder='13'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Require the billing address?</label>
 					<backend_model>Df\Config\Backend\Checkbox</backend_model>
@@ -223,12 +203,10 @@ Checkout API версии 3 работает только в США и Вели�
 				</field>
 				<field
 					id='min_order_total'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='14'
 					translate='label'
 					type='text'
-					sortOrder='14'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Minimum Order Total</label>
 					<comment><![CDATA[]]></comment>
@@ -237,12 +215,10 @@ Checkout API версии 3 работает только в США и Вели�
 				</field>
 				<field
 					id='max_order_total'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='15'
 					translate='label'
 					type='text'
-					sortOrder='15'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Maximum Order Total</label>
 					<comment><![CDATA[]]></comment>
@@ -251,12 +227,10 @@ Checkout API версии 3 работает только в США и Вели�
 				</field>
 				<field
 					id='country_restriction'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='16'
 					translate='label'
 					type='select'
-					sortOrder='16'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Country Restriction</label>
 					<source_model>Df\Config\Source\NoWhiteBlack</source_model>
@@ -264,12 +238,10 @@ Checkout API версии 3 работает только в США и Вели�
 				</field>
 				<field
 					id='countries'
+					showInDefault='1' showInStore='1' showInWebsite='1'
+					sortOrder='17'
 					translate='label'
 					type='Df\Framework\Form\Element\Multiselect'
-					sortOrder='17'
-					showInDefault='1'
-					showInWebsite='1'
-					showInStore='1'
 				>
 					<label>Countries</label>
 					<source_model>Magento\Directory\Model\Config\Source\Country</source_model>
