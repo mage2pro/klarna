@@ -38,8 +38,8 @@ abstract class Exception extends \Df\Payment\Exception {
 	 */
 	final function message() {return df_cc_n(
 		'The Klarna request is failed.'
-		,'Response:', df_json_encode_pretty($this->responseA($this->prev()))
-		,'Request:', df_json_encode_pretty($this->req())
+		,'Response:', df_json_encode($this->responseA($this->prev()))
+		,'Request:', df_json_encode($this->req())
 	);}
 
 	/**
