@@ -1,6 +1,6 @@
 {
 	"name": "mage2pro/klarna"
-	,"version": "0.3.6"
+	,"version": "0.3.7"
 	,"description": "The «Klarna» payment extension for Magento 2."
 	,"type": "magento2-module"
 	,"homepage": "https://mage2.pro/c/extensions/klarna"
@@ -11,7 +11,7 @@
 		"homepage": "https://mage2.pro/users/dmitry_fedyuk",
 		"role": "Developer"
 	}]
-	,"require": {"klarna/checkout": "*", "mage2pro/core": ">=2.7.40", "mage2pro/klarna-sdk-v3": "^2.2.3"}
+	,"require": {"klarna/checkout": "*", "mage2pro/core": ">=2.8.0", "mage2pro/klarna-sdk-v3": "^2.2.3"}
 	,"autoload": {"files": ["registration.php"], "psr-4": {"Dfe\\Klarna\\": ""}}
 	,"keywords": [
 		"API"

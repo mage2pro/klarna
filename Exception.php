@@ -25,10 +25,7 @@ abstract class Exception extends \Df\Payment\Exception {
 	 * @param \Exception $e
 	 * @param array(string => mixed) $req
 	 */
-	final function __construct(\Exception $e, array $req) {
-		$this->_req = $req;
-		parent::__construct($e);
-	}
+	final function __construct(\Exception $e, array $req) {$this->_req = $req; parent::__construct($e);}
 
 	/**
 	 * 2017-01-26
@@ -36,11 +33,7 @@ abstract class Exception extends \Df\Payment\Exception {
 	 * @see \Df\Core\Exception::message()
 	 * @return string
 	 */
-	final function message() {return df_cc_n(
-		'The Klarna request is failed.'
-		,'Response:', df_json_encode($this->responseA($this->prev()))
-		,'Request:', df_json_encode($this->req())
-	);}
+	final function message() {return df_api_rr_failed($this, $this->responseA($this->prev()), $this->req());}
 
 	/**
 	 * 2017-01-26
