@@ -52,7 +52,7 @@ define([
 					_this.klHtml(d['html']);
 				})
 			;
-		}});
+		}}, false);
 		return this;
 	},
 });});
