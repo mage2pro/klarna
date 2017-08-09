@@ -51,14 +51,12 @@ class Button extends _P implements IShortcut {
 	 * @return string                                
 	 */
 	final protected function _toHtml() {
-		$base = 'https://cdn.klarna.com/1.0/';
-		// 2017-04-24
-		// Другое значение: «blue-black».
-		/** @var string $style */
-		$style = 'white';
-		/** @var bool $textIsBefore */ $textIsBefore = true;
-		/** @var string $title */ $title = __('Check out with Klarna');
-		/** @var int $width */ $width = 70;
+		$base = 'https://cdn.klarna.com/1.0/';  /** @var string $base */
+		// 2017-04-24  Другое значение: «blue-black».
+		$style = 'white'; /** @var string $style */
+		$textIsBefore = true; /** @var bool $textIsBefore */
+		$title = __('Check out with Klarna');  /** @var string $title */
+		$width = 70; /** @var int $width */
 		$contentA = [
 			df_tag('span', $textIsBefore ? 'dfBefore' : 'dfAfter', __('Check out with'))
 			,df_tag('img', [
