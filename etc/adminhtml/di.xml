@@ -3,14 +3,11 @@
 	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
 	xsi:noNamespaceSchemaLocation='urn:magento:framework:ObjectManager/etc/config.xsd'
 >
-	<virtualType name='Dfe\Klarna\Validator\Currency' type='Df\Framework\Validator\Currency'>
-		<arguments>
-<!--
-2017-01-21
-Это не совсем правильно и должно быть переделано:
+<!-- 2017-01-21
+It is not quite right, and should be refactored:
 https://github.com/mage2pro/klarna/blob/6ef6ebb/etc/adminhtml/system.xml#L160-L183
 -->
-			<argument name='iso3' xsi:type='string'>EUR,NOK,SEK</argument>
-		</arguments>
+	<virtualType name='Dfe\Klarna\Validator\Currency' type='Df\Framework\Validator\Currency'>
+		<arguments><argument name='iso3' xsi:type='string'>EUR,NOK,SEK</argument></arguments>
 	</virtualType>
 </config>
