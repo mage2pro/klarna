@@ -116,7 +116,7 @@ final class Charge {
 			// Type: string.
 			'layout' => 'desktop'
 			// 2017-01-26
-			// «An array of options to define the checkout behaviour.
+			// «An array of options to define the checkout behavior.
 			// Supported options `disable_autofocus`.»
 			// Required: no.
 			// Type: array of strings.
