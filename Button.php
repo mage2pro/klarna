@@ -34,6 +34,7 @@ class Button extends _P implements IShortcut {
 	 * 2017-04-21 https://developers.klarna.com/en/se/kco-v2/logos
 	 * @override
 	 * @see _P::_toHtml()
+	 * @used-by _P::toHtml():
 	 *		$html = $this->_loadCache();
 	 *		if ($html === false) {
 	 *			if ($this->hasData('translate_inline')) {
