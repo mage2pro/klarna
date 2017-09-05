@@ -4,19 +4,13 @@ define([
 	,'Magento_Checkout/js/model/quote'
 	,'Magento_Customer/js/model/customer'
 	,'Magento_Checkout/js/model/url-builder'
-], function(
-	df, api, billingAddressChange, parent, $, ko
-	,q, customer, ub
-) {'use strict'; return parent.extend({
-	defaults: {
-		df: {
-			test: {showBackendTitle: false},
-			// 2016-12-17
-			// @used-by Df_Payment/main
-			// https://github.com/mage2pro/core/blob/2.4.21/Payment/view/frontend/web/template/main.html#L36-L38
-			formTemplate: 'Dfe_Klarna/form'
-		}
-	},
+], function(df, api, billingAddressChange, parent, $, ko, q, customer, ub) {'use strict';
+/** 2017-09-06 @uses Class::extend() https://github.com/magento/magento2/blob/2.2.0-rc2.3/app/code/Magento/Ui/view/base/web/js/lib/core/class.js#L106-L140 */
+return parent.extend({
+	// 2016-12-17
+	// @used-by Df_Payment/main
+	// https://github.com/mage2pro/core/blob/2.4.21/Payment/view/frontend/web/template/main.html#L36-L38	
+	defaults: {df: {formTemplate: 'Dfe_Klarna/form'}},
 	/**
 	 * 2017-04-04
 	 * @override
