@@ -29,12 +29,12 @@ final class Charge extends \Df\Payment\TestCase {
 				foreach (['at', 'de', 'fi', 'no', 'se'] as $c) {
 					/** @var string $c */
 					file_put_contents(BP . "/_my/Klarna/{$c}.html", C::html(null, strtoupper($c)));
-					echo df_country_ctn($c) . " OK\n";
+					print_r(df_country_ctn($c) . " OK\n");
 				}
 			}
 		}
 		catch (\Exception $e) {
-			echo df_etsd($e);
+			print_r(df_etsd($e));
 		}
 	}
 }
