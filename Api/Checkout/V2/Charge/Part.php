@@ -27,7 +27,7 @@ abstract class Part {
 	 * @return int
 	 */
 	final protected function amount($v) {return round(100 * df_currency_convert(
-		$v, df_oq_currency($this->oq())->getCode(), $this->owner()->currency()
+		$v, df_oq_currency_c($this->oq()), $this->owner()->currency()
 	));}
 
 	/**
