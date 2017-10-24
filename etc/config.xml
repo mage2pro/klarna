@@ -9,7 +9,6 @@
 				<countries>AT,FI,DE,NO,SE</countries>
 				<country_restriction>whitelist</country_restriction>
 				<requireBillingAddress>1</requireBillingAddress>
-				<payment_action>authorize_capture</payment_action>
 				<title>Klarna</title>
 				<title_backend>Klarna</title_backend>
 				<toc>customer-service</toc>
