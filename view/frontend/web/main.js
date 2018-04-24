@@ -27,8 +27,7 @@ return parent.extend({
 			// So we need to pass the chosen country ID to the server part.
 			//console.log(newAddress.countryId);
 			//_this.klHtml(newAddress.countryId);
-			/** @type {Boolean} */
-			var l = customer.isLoggedIn();
+			/** @type {Boolean} */ var l = customer.isLoggedIn();
 			$.when(api(this,
 				// 2017-04-05
 				// Для анонимных покупателей q.getQuoteId() — это строка вида
@@ -38,8 +37,7 @@ return parent.extend({
 			))
 				.fail(function() {debugger;})
 				.done($.proxy(function(json) {
-					// 2017-04-05
-					// Отныне json у нас всегда строка: @see dfw_encode().
+					// 2017-04-05 Отныне json у нас всегда строка: @see dfw_encode().
 					/** @type {Object} */
 					var d = !json ? {} : $.parseJSON(json);
 					this.klHtml(d['html']);
@@ -47,5 +45,5 @@ return parent.extend({
 			;
 		}}, false);
 		return this;
-	},
+	}
 });});
