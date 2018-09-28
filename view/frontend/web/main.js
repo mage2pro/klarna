@@ -29,9 +29,8 @@ return parent.extend({
 			//_this.klHtml(newAddress.countryId);
 			/** @type {Boolean} */ var l = customer.isLoggedIn();
 			$.when(api(this,
-				// 2017-04-05
-				// Для анонимных покупателей q.getQuoteId() — это строка вида
-				// «63b25f081bfb8e4594725d8a58b012f7».
+				// 2017-04-05, 2018-09-28
+				// q.getQuoteId() is a string like «63b25f081bfb8e4594725d8a58b012f7» for guests.
 				ub.createUrl(df.s.t('/dfe-klarna/%s/html', l ? 'mine' : q.getQuoteId()), {})
 				,_.assign({ba: q.billingAddress(), qp: this.getData()}, l ? {} : {email: q.guestEmail})
 			))
