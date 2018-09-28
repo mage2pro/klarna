@@ -8,7 +8,7 @@ use Magento\Quote\Model\Quote\Payment as QP;
 // 2017-04-04
 final class Html {
 	/**
-	 * 2017-04-04 Для анонимных покупателей $cartId — это строка вида «63b25f081bfb8e4594725d8a58b012f7».
+	 * 2017-04-04 $cartId is a string like «63b25f081bfb8e4594725d8a58b012f7» for guests.
 	 * 2017-04-20
 	 * $qp в поле @see \Magento\Framework\DataObject::_data содержит код способа оплаты,
 	 * а также ту дополнительную информацию, которую передала клиентская часть модуля оплаты.
