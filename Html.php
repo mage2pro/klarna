@@ -20,10 +20,9 @@ final class Html {
 	 * 2017-04-05 Важно возвращать именно string: @see dfw_encode()
 	 * @return string
 	 */
-	function guest($cartId, $email, IQP $qp, IQA $ba = null) {
-		df_break();
-		return dfw_encode(['html' => API::html(null, 'SE')]);
-	}
+	function guest($cartId, $email, IQP $qp, IQA $ba = null) {return dfw_encode([
+		'html' => API::html(null, 'SE'
+	)]);}
 
 	/**
 	 * 2017-04-04
@@ -37,8 +36,7 @@ final class Html {
 	 * 2017-04-05 Важно возвращать именно string: @see dfw_encode()
 	 * @return string
 	 */
-	function registered($cartId, IQP $qp, IQA $ba = null) {
-		df_break();
-		return dfw_encode(['html' => API::html(null, 'SE')]);
-	}
+	function registered($cartId, IQP $qp, IQA $ba = null) {return dfw_encode([
+		'html' => API::html(null, 'SE')
+	]);}
 }
