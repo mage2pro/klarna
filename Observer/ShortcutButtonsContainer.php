@@ -48,8 +48,7 @@ final class ShortcutButtonsContainer implements IO {
 	 */
 	function execute(O $o) {
 		if (dfps($this)->enable()) {
-			/** @var Container|MiniContainer $c */
-			$c = $o['container'];
+			$c = $o['container'];/** @var Container|MiniContainer $c */
 			$c->addShortcut(df_block(Button::class));
 		}
 	}

@@ -6,10 +6,9 @@ use Magento\Framework\View\Element\Template as _P;
  * 2017-04-21
  * @final Unable to use the PHP «final» keyword here because of the M2 code generation.
  * @used-by \Dfe\Klarna\Observer\ShortcutButtonsContainer::execute()
- * We are forced inherit from @see \Magento\Framework\View\Element\Template
+ * We are forced to inherit from @see \Magento\Framework\View\Element\Template
  * because of the @see \Magento\Catalog\Block\ShortcutButtons::addShortcut() method signature:
- *		public function addShortcut(Template $block)
- *		{
+ *		public function addShortcut(Template $block) {
  *			if ($block instanceof ShortcutInterface) {
  *				$this->_shortcuts[] = $block;
  *			}
