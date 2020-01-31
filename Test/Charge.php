@@ -1,5 +1,5 @@
 <?php
-namespace Dfe\Klarna\T;
+namespace Dfe\Klarna\Test;
 use Dfe\Klarna\Api\Checkout as C;
 // 2017-01-22
 /** @method \Dfe\Klarna\Settings s() */

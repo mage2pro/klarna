@@ -238,7 +238,7 @@ final class Checkout {
 	 * разные корзины для каждой тестируемой страны, а можно вместо этого использовать единую корзину,
 	 * передавая тестируемую стану параметром $bCountry.
 	 * @used-by \Dfe\Klarna\ConfigProvider::config()
-	 * @used-by \Dfe\Klarna\T\Charge::t01()
+	 * @used-by \Dfe\Klarna\Test\Charge::t01()
 	 * @param IQ|Q|int|null $q [optional]
 	 * @param string|null $bCountry [optional]
 	 * @return string
