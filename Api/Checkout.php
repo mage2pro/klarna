@@ -36,12 +36,9 @@ final class Checkout {
 	 */
 	private function _html() {
 		$bCountry = $this->_bCountry;
-		/** @var S $s */
-		$s = dfps(__CLASS__);
-		/** @var bool $isV2 */
-		$isV2 = !in_array($bCountry, ['GB', 'US']);
-		/** @var array(string => mixed) $request */
-		$request = $isV2 ? Charge2::p($bCountry) : Charge3::p();
+		$s = dfps(__CLASS__); /** @var S $s */
+		$isV2 = !in_array($bCountry, ['GB', 'US']);  /** @var bool $isV2 */
+		$request = $isV2 ? Charge2::p($bCountry) : Charge3::p(); /** @var array(string => mixed) $request */
 		/**
 		 * 2017-01-24
 		 * https://developers.klarna.com/api/?json#api-urls
@@ -79,20 +76,16 @@ final class Checkout {
 		 *
 		 * 3.4) @see \Klarna\Rest\Transport\ConnectorInterface::NA_TEST_BASE_URL
 		 * https://api-na.playground.klarna.com
-		 *
-		 * @var string $url
 		 */
 		$url = sprintf('https://%s%s.klarna.com',
 			$isV2 ? 'checkout' : ('api' . ('US' === $bCountry ? '-na' : ''))
 			,!$s->test() ? '' : ('.' . ($isV2 ? 'testdrive' : 'playground'))
-		);
-		/** @var string $secret */
-		$secret = $s->sharedSecret();
-		/** @var klOrder2|klOrder3 $klOrder */
+		); /** @var string $url */
+		$secret = $s->sharedSecret(); /** @var string $secret */
 		$klOrder = $isV2
 			? new klOrder2(klConnector2::create($secret, $url))
 			: new klOrder3(klConnector3::create($s->merchantID(), $secret, $url, new UA))
-		;
+		; /** @var klOrder2|klOrder3 $klOrder */
 		try {
 			/**
 			 * 2017-01-28
