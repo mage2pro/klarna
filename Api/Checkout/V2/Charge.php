@@ -1,5 +1,5 @@
 <?php
-// 2017-01-26
+# 2017-01-26
 namespace Dfe\Klarna\Api\Checkout\V2;
 final class Charge {
 	/**
@@ -58,86 +58,86 @@ final class Charge {
 	 * @return array(string => mixed)
 	 */
 	private function kl_order() {return [
-		// 2017-01-26
-		// «Additional purchase information required for some industries.»
-		// Required: no.
-		// Type: attachment object.
-		// https://developers.klarna.com/en/se/kco-v2/checkout-api#attachment-object-properties
+		# 2017-01-26
+		# «Additional purchase information required for some industries.»
+		# Required: no.
+		# Type: attachment object.
+		# https://developers.klarna.com/en/se/kco-v2/checkout-api#attachment-object-properties
 		//
-		// 2017-01-28
-		// A list of available attachment types:
-		// https://developers.klarna.com/en/se/kco-v2/checkout-api/attachments
+		# 2017-01-28
+		# A list of available attachment types:
+		# https://developers.klarna.com/en/se/kco-v2/checkout-api/attachments
 		'attachment' => (new Charge\Attachment)->p()
-		// 2017-01-26
-		// «The cart»
-		// Required: yes.
-		// Type: cart object.
-		// https://developers.klarna.com/en/se/kco-v2/checkout-api#cart-object-properties
+		# 2017-01-26
+		# «The cart»
+		# Required: yes.
+		# Type: cart object.
+		# https://developers.klarna.com/en/se/kco-v2/checkout-api#cart-object-properties
 		,'cart' => [
-			// 2017-01-26
-			// «List of cart items»
-			// Required: yes.
-			// Type: array of cart item objects.
-			// https://developers.klarna.com/en/se/kco-v2/checkout-api#cart-item-object-properties
+			# 2017-01-26
+			# «List of cart items»
+			# Required: yes.
+			# Type: array of cart item objects.
+			# https://developers.klarna.com/en/se/kco-v2/checkout-api#cart-item-object-properties
 			//
-			// 2017-02-02
-			// Why does Klarna not show a cart contents to the Norway and Sweden based customers,
-			// but shows it to the all other customers? https://mage2.pro/t/2594
-			// https://mail.google.com/mail/u/0/#sent/159fc6464717d4ab
+			# 2017-02-02
+			# Why does Klarna not show a cart contents to the Norway and Sweden based customers,
+			# but shows it to the all other customers? https://mage2.pro/t/2594
+			# https://mail.google.com/mail/u/0/#sent/159fc6464717d4ab
 			'items' => $this->kl_order_lines()
 		]
-		// 2017-01-26
-		// «Information about the liable customer of the order.»
-		// Required: no.
-		// Type: customer object.
-		// https://developers.klarna.com/en/se/kco-v2/checkout-api#customer-object-properties
+		# 2017-01-26
+		# «Information about the liable customer of the order.»
+		# Required: no.
+		# Type: customer object.
+		# https://developers.klarna.com/en/se/kco-v2/checkout-api#customer-object-properties
 		,'customer' => (new Charge\Customer($this))->p()
-		// 2017-01-27
-		// «External checkout providers.»
-		// Required: no.
-		// Type: array of external checkout objects.
-		// https://developers.klarna.com/en/se/kco-v2/checkout-api#external_checkout-object-properties
+		# 2017-01-27
+		# «External checkout providers.»
+		# Required: no.
+		# Type: array of external checkout objects.
+		# https://developers.klarna.com/en/se/kco-v2/checkout-api#external_checkout-object-properties
 		,'external_checkouts' => []
-		// 2017-01-27
-		// «External payment methods.»
-		// Required: no.
-		// Type: array of external payment method objects.
-		// https://developers.klarna.com/en/se/kco-v2/checkout-api#external_payment_method-object-properties
+		# 2017-01-27
+		# «External payment methods.»
+		# Required: no.
+		# Type: array of external payment method objects.
+		# https://developers.klarna.com/en/se/kco-v2/checkout-api#external_payment_method-object-properties
 		,'external_payment_methods' => []
-		// 2017-01-26
-		// «The gui object»
-		// Required: no.
-		// Type: gui object.
-		// https://developers.klarna.com/en/se/kco-v2/checkout-api#gui-object-properties
+		# 2017-01-26
+		# «The gui object»
+		# Required: no.
+		# Type: gui object.
+		# https://developers.klarna.com/en/se/kco-v2/checkout-api#gui-object-properties
 		,'gui' => [
-			// 2017-01-26
-			// «Layout. `desktop` by default, alternatively `mobile`»
-			// Required: no.
-			// Type: string.
+			# 2017-01-26
+			# «Layout. `desktop` by default, alternatively `mobile`»
+			# Required: no.
+			# Type: string.
 			'layout' => 'desktop'
-			// 2017-01-26
-			// «An array of options to define the checkout behavior.
-			// Supported options `disable_autofocus`.»
-			// Required: no.
-			// Type: array of strings.
+			# 2017-01-26
+			# «An array of options to define the checkout behavior.
+			# Supported options `disable_autofocus`.»
+			# Required: no.
+			# Type: array of strings.
 			,'options' => []
 		]
-		// 2017-01-26
-		// «Locale indicative for language & other location-specific details (RFC1766)»
-		// Required: yes.
-		// Type: string.
-		// «Which locales are supported by the version 2 of Klarna Checkout API?»
-		// https://mage2.pro/t/2533
-		// https://developers.klarna.com/en/se/kco-v2/checkout-api#supported-locales
+		# 2017-01-26
+		# «Locale indicative for language & other location-specific details (RFC1766)»
+		# Required: yes.
+		# Type: string.
+		# «Which locales are supported by the version 2 of Klarna Checkout API?»
+		# https://mage2.pro/t/2533
+		# https://developers.klarna.com/en/se/kco-v2/checkout-api#supported-locales
 		//
-		// 2017-01-28
-		// Пустое значение приводит к сбою «Bad format».
+		# 2017-01-28
+		# Пустое значение приводит к сбою «Bad format».
 		,'locale' => $this->localeFormatted()
-		// 2017-01-26
-		// «Merchant related information.»
-		// Required: yes.
-		// Type: merchant object.
-		// https://developers.klarna.com/en/se/kco-v2/checkout-api#merchant-object-properties
+		# 2017-01-26
+		# «Merchant related information.»
+		# Required: yes.
+		# Type: merchant object.
+		# https://developers.klarna.com/en/se/kco-v2/checkout-api#merchant-object-properties
 		,'merchant' => (new Charge\Merchant)->p()
 		/**
 		 * 2017-01-26
@@ -153,15 +153,15 @@ final class Charge {
 		 * https://mail.google.com/mail/u/0/#sent/159e514b238a039c
 		 */
 		,'merchant_reference' => [
-			// 2017-01-26
-			// «Used for storing merchant's internal order number or other reference.»
-			// Required: no.
-			// Type: string.
+			# 2017-01-26
+			# «Used for storing merchant's internal order number or other reference.»
+			# Required: no.
+			# Type: string.
 			'orderid1' => '1'
-			// 2017-01-26
-			// «Used for storing merchant's internal order number or other reference.»
-			// Required: no.
-			// Type: string.
+			# 2017-01-26
+			# «Used for storing merchant's internal order number or other reference.»
+			# Required: no.
+			# Type: string.
 			,'orderid2' => '1'
 		]
 		/**
@@ -200,18 +200,18 @@ final class Charge {
 		 * Пустое значение приводит к сбою «Bad format».
 		 */
 		,'purchase_currency' => $this->currency()
-		// 2017-01-26
-		// «Only in Sweden, Norway and Finland:
-		// Indicates whether this purchase is a recurring order»
-		// https://developers.klarna.com/en/se/kco-v2/checkout/use-cases#Recurring-Orders
-		// Required: no.
-		// Type: boolean.
+		# 2017-01-26
+		# «Only in Sweden, Norway and Finland:
+		# Indicates whether this purchase is a recurring order»
+		# https://developers.klarna.com/en/se/kco-v2/checkout/use-cases#Recurring-Orders
+		# Required: no.
+		# Type: boolean.
 		,'recurring' => false
-		// 2017-01-26
-		// «The shipping address»
-		// Required: no.
-		// Type: address object.
-		// https://developers.klarna.com/en/se/kco-v2/checkout-api#address-object-properties
+		# 2017-01-26
+		# «The shipping address»
+		# Required: no.
+		# Type: address object.
+		# https://developers.klarna.com/en/se/kco-v2/checkout-api#address-object-properties
 		,'shipping_address' => (new Charge\ShippingAddress($this))->p()
 	];}
 

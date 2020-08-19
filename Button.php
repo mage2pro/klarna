@@ -52,7 +52,7 @@ class Button extends _P implements IShortcut {
 	 */
 	final protected function _toHtml() {
 		$base = 'https://cdn.klarna.com/1.0/';  /** @var string $base */
-		// 2017-04-24  Другое значение: «blue-black».
+		# 2017-04-24  Другое значение: «blue-black».
 		$style = 'white'; /** @var string $style */
 		$textIsBefore = true; /** @var bool $textIsBefore */
 		$title = __('Check out with Klarna');  /** @var string $title */

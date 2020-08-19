@@ -5,7 +5,7 @@ use Magento\Quote\Api\Data\AddressInterface as IQA;
 use Magento\Quote\Api\Data\PaymentInterface as IQP;
 use Magento\Quote\Model\Quote\Address as QA;
 use Magento\Quote\Model\Quote\Payment as QP;
-// 2017-04-04
+# 2017-04-04
 final class Html {
 	/**
 	 * 2017-04-04 $cartId is a string like «63b25f081bfb8e4594725d8a58b012f7» for guests.

@@ -2,7 +2,7 @@
 namespace Dfe\Klarna\Api\Checkout\V2\Charge;
 use Magento\Quote\Model\Quote\Item as QI;
 use Magento\Sales\Model\Order\Item as OI;
-// 2017-02-04
+# 2017-02-04
 final class Products extends Part {
 	/**
 	 * 2017-01-31

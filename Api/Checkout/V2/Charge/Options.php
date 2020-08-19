@@ -1,5 +1,5 @@
 <?php
-// 2017-02-04
+# 2017-02-04
 namespace Dfe\Klarna\Api\Checkout\V2\Charge;
 final class Options {
 	/**

@@ -13,7 +13,7 @@ use Klarna\Rest\Checkout\Order as klOrder3;
 use Klarna\Rest\Transport\Connector as klConnector3;
 use Magento\Quote\Api\Data\CartInterface as IQ;
 use Magento\Quote\Model\Quote as Q;
-// 2017-01-25
+# 2017-01-25
 final class Checkout {
 	/**
 	 * 2017-04-07
@@ -99,7 +99,7 @@ final class Checkout {
 			 * Klarna SDK обрабатывает эту ситуацию в методе
 			 * @see \Klarna_Checkout_BasicConnector::handleResponse():
 			 *		case 201:
-			 *			// Update Location
+			 *			# Update Location
 			 *			$resource->setLocation($url);
 			 *			break;
 			 * https://github.com/klarna/kco_php/blob/v4.0.0/src/Klarna/Checkout/BasicConnector.php#L287-L290

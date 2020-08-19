@@ -1,5 +1,5 @@
 <?php
-// 2017-01-24
+# 2017-01-24
 namespace Dfe\Klarna;
 /** @method static Settings s() */
 final class Settings extends \Df\Payment\Settings {
