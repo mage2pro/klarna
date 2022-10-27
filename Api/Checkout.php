@@ -17,7 +17,7 @@ use Magento\Quote\Model\Quote as Q;
 final class Checkout {
 	/**
 	 * 2017-04-07
-	 * @used-by html()
+	 * @used-by self::html()
 	 * @param IQ|Q|int|null $q [optional]
 	 * @param string|null $bCountry [optional]
 	 */
@@ -26,9 +26,8 @@ final class Checkout {
 	}
 
 	/**
-	 * 2017-01-25
-	 * Returns a Klarna's HTML snippet: https://mage2.pro/t/2544
-	 * @used-by html()
+	 * 2017-01-25 Returns a Klarna's HTML snippet: https://mage2.pro/t/2544
+	 * @used-by self::html()
 	 * @return string
 	 * @throws Exception2
 	 * @throws Exception3_Guzzle
@@ -210,14 +209,14 @@ final class Checkout {
 
 	/**
 	 * 2017-04-07
-	 * @used-by __construct()
+	 * @used-by self::__construct()
 	 * @var string|null
 	 */
 	private $_bCountry;
 
 	/**
 	 * 2017-04-07
-	 * @used-by __construct()
+	 * @used-by self::__construct()
 	 * @var IQ|Q
 	 */
 	private $_q;

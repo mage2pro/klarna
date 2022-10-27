@@ -247,9 +247,8 @@ final class ShippingAddress extends Part {
 	private function test($key) {return df_nts(dfa(self::$test[$this->owner()->bCountry()], $key));}
 
 	/**
-	 * 2017-01-30
-	 * «[Klarna] Test addresses» https://mage2.pro/t/2555
-	 * @used-by test()
+	 * 2017-01-30 «[Klarna] Test addresses» https://mage2.pro/t/2555
+	 * @used-by self::test()
 	 * @var array(string => array(string => string|int))
 	 */
 	private static $test = [

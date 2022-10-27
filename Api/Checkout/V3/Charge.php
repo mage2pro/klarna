@@ -6,7 +6,7 @@ final class Charge {
 	 * 2017-01-23
 	 * «Additional purchase information required for some industries.»
 	 * https://developers.klarna.com/api/?json#checkout-api__order__attachment
-	 * @used-by kl_order()
+	 * @used-by self::kl_order()
 	 * @return array(string => string)
 	 */
 	private function kl_attachment() {return [
@@ -40,7 +40,7 @@ final class Charge {
 	/**
 	 * 2017-01-23
 	 * https://developers.klarna.com/api/?json#checkout-api__order__billing_address
-	 * @used-by kl_order()
+	 * @used-by self::kl_order()
 	 * @return array(string => string)
 	 */
 	private function kl_billing_address() {return [
@@ -141,7 +141,7 @@ final class Charge {
 	 * 2017-01-23
 	 * «Information about the liable customer of the order.»
 	 * https://developers.klarna.com/api/?json#checkout-api__order__customer
-	 * @used-by kl_order()
+	 * @used-by self::kl_order()
 	 * @return array(string => string)
 	 */
 	private function kl_customer() {return [
@@ -161,7 +161,7 @@ final class Charge {
 	 * 2017-01-23
 	 * «The merchant_urls object.»
 	 * https://developers.klarna.com/api/?json#checkout-api__order__merchant_urls
-	 * @used-by kl_order()
+	 * @used-by self::kl_order()
 	 * @return array(string => string)
 	 */
 	private function kl_merchant_urls() {return [
@@ -256,7 +256,7 @@ final class Charge {
 	 * 2017-01-23
 	 * «Options for this purchase.»
 	 * https://developers.klarna.com/api/?json#checkout-api__order__options
-	 * @used-by kl_order()
+	 * @used-by self::kl_order()
 	 * @return array(string => string|boolean)
 	 */
 	private function kl_options() {return [
@@ -442,7 +442,7 @@ final class Charge {
 	 * 2017-01-22
 	 * https://developers.klarna.com/api/?json#checkout-api-order
 	 * https://developers.klarna.com/en/us/kco-v3/checkout/2-render-the-checkout#add-cart-items
-	 * @used-by p()
+	 * @used-by self::p()
 	 * @return array(string => mixed)
 	 */
 	private function kl_order() {return [
@@ -608,9 +608,8 @@ final class Charge {
 	];}
 
 	/**
-	 * 2017-01-22
-	 * https://developers.klarna.com/api/#checkout-api__order__order_lines
-	 * @used-by kl_order()
+	 * 2017-01-22 https://developers.klarna.com/api/#checkout-api__order__order_lines
+	 * @used-by self::kl_order()
 	 * @return array(string => string|int)
 	 */
 	private function kl_order_lines() {return [[

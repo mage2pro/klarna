@@ -53,4 +53,3 @@ final class ShortcutButtonsContainer implements IO {
 		}
 	}
 }
-

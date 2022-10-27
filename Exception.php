@@ -8,7 +8,7 @@ namespace Dfe\Klarna;
 abstract class Exception extends \Df\Payment\Exception {
 	/**
 	 * 2017-01-26
-	 * @used-by message()
+	 * @used-by self::message()
 	 * @see \Dfe\Klarna\Api\Checkout\V2\Exception::responseA()
 	 * @see \Dfe\Klarna\Api\Checkout\V3\Exception\Guzzle::responseA()
 	 * @see \Dfe\Klarna\Api\Checkout\V3\Exception\Connector::responseA()
@@ -52,8 +52,8 @@ abstract class Exception extends \Df\Payment\Exception {
 
 	/**
 	 * 2017-01-26
-	 * @used-by __construct()
-	 * @used-by req()
+	 * @used-by self::__construct()
+	 * @used-by self::req()
 	 * @var array(string => mixed)
 	 */
 	private $_req;

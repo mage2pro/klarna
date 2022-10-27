@@ -48,8 +48,8 @@ abstract class Part {
 
 	/**
 	 * 2017-02-04
-	 * @used-by __construct()
-	 * @used-by owner()
+	 * @used-by self::__construct()
+	 * @used-by self::owner()
 	 * @var Charge
 	 */
 	private $_owner;

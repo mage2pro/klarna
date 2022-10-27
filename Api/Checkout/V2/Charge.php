@@ -10,10 +10,10 @@ final class Charge {
 	 * «Are the Klarna's API URLs based on a merchant's country or on a buyer's country?»
 	 * https://mage2.pro/t/2517
 	 * «Why are Klarna's API URLs for USA buyers different from others?» https://mage2.pro/t/2516
-	 * @used-by __construct()
-	 * @used-by currency()
-	 * @used-by kl_order()
-	 * @used-by locale()
+	 * @used-by self::__construct()
+	 * @used-by self::currency()
+	 * @used-by self::kl_order()
+	 * @used-by self::locale()
 	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\ShippingAddress::p()
 	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\ShippingAddress::test()
 	 * @param string $code [optional]
@@ -24,7 +24,7 @@ final class Charge {
 	/**
 	 * 2017-02-01
 	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\Part::amount()
-	 * @used-by kl_order()
+	 * @used-by self::kl_order()
 	 * @return string
 	 */
 	function currency() {return dfc($this, function() {return df_currency_by_country_c(
@@ -34,7 +34,7 @@ final class Charge {
 	/**
 	 * 2017-02-02
 	 * «sv_SE»
-	 * @used-by localeFormatted()
+	 * @used-by self::localeFormatted()
 	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\Products::p()
 	 * @return string
 	 */
@@ -42,7 +42,7 @@ final class Charge {
 
 	/**
 	 * 2017-01-29
-	 * @used-by p()
+	 * @used-by self::p()
 	 * @param string $bCountry
 	 */
 	private function __construct($bCountry) {$this->_bCountry = $bCountry;}
@@ -51,10 +51,8 @@ final class Charge {
 	 * 2017-01-26
 	 * https://developers.klarna.com/en/se/kco-v2/checkout-api#resource-properties
 	 * https://developers.klarna.com/en/se/kco-v2/checkout/2-embed-the-checkout#configure-checkout-order
-	 * 2017-01-30
-	 * Указание здесь поля «billing_address» приведёт к сбою:
-	 * «The field 'billing_address' is read-only».
-	 * @used-by p()
+	 * 2017-01-30 Указание здесь поля «billing_address» приведёт к сбою: «The field 'billing_address' is read-only».
+	 * @used-by self::p()
 	 * @return array(string => mixed)
 	 */
 	private function kl_order() {return [
@@ -63,10 +61,8 @@ final class Charge {
 		# Required: no.
 		# Type: attachment object.
 		# https://developers.klarna.com/en/se/kco-v2/checkout-api#attachment-object-properties
-		//
 		# 2017-01-28
-		# A list of available attachment types:
-		# https://developers.klarna.com/en/se/kco-v2/checkout-api/attachments
+		# The list of available attachment types: https://developers.klarna.com/en/se/kco-v2/checkout-api/attachments
 		'attachment' => (new Charge\Attachment)->p()
 		# 2017-01-26
 		# «The cart»
@@ -234,7 +230,7 @@ final class Charge {
 	 * *) @see \Dfe\TwoCheckout\Charge::lineItems()
 	 * https://github.com/mage2pro/2checkout/blob/1.1.16/Charge.php?ts=4#L153-L183
 	 *
-	 * @used-by kl_order()
+	 * @used-by self::kl_order()
 	 * @return array(string => string|int)
 	 */
 	private function kl_order_lines() {return (new Charge\AddDiscount($this))->p(array_merge(
@@ -242,9 +238,8 @@ final class Charge {
 	));}
 
 	/**
-	 * 2017-02-02
-	 * «sv_SE» => «sv-se»
-	 * @used-by kl_order()
+	 * 2017-02-02 «sv_SE» => «sv-se»
+	 * @used-by self::kl_order()
 	 * @return string
 	 */
 	private function localeFormatted() {return str_replace('_', '-', strtolower($this->locale()));}
@@ -257,8 +252,8 @@ final class Charge {
 	 * «Are the Klarna's API URLs based on a merchant's country or on a buyer's country?»
 	 * https://mage2.pro/t/2517
 	 * «Why are Klarna's API URLs for USA buyers different from others?» https://mage2.pro/t/2516
-	 * @used-by __construct()
-	 * @used-by bCountry()
+	 * @used-by self::__construct()
+	 * @used-by self::bCountry()
 	 * @var string
 	 */
 	private $_bCountry;
