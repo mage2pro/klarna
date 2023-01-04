@@ -7,7 +7,7 @@ final class Shipping extends Part {
 	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge::kl_order_lines()
 	 * @return array(string => string|int)
 	 */
-	function p() {return [
+	function p():array {return [
 		/**
 		 * 2017-01-26
 		 * «Percentage of discount, multiplied by 100 and provided as an integer.
