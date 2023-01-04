@@ -18,8 +18,8 @@ final class Html {
 	 * @param IQA|QA|null $ba
 	 */
 	function guest(string $cartId, string $email, IQP $qp, IQA $ba = null):string {return dfw_encode([
-		'html' => API::html(null, 'SE'
-	)]);}
+		'html' => API::html(null, 'SE')
+	]);}
 
 	/**
 	 * 2017-04-04
