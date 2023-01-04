@@ -21,9 +21,7 @@ final class Checkout {
 	 * @param IQ|Q|int|null $q [optional]
 	 * @param string|null $bCountry [optional]
 	 */
-	private function __construct($q = null, $bCountry = null) {
-		$this->_q = df_quote($q); $this->_bCountry = $bCountry;
-	}
+	private function __construct($q = null, $bCountry = null) {$this->_q = df_quote($q); $this->_bCountry = $bCountry;}
 
 	/**
 	 * 2017-01-25 Returns a Klarna's HTML snippet: https://mage2.pro/t/2544
@@ -230,6 +228,7 @@ final class Checkout {
 	 * разные корзины для каждой тестируемой страны, а можно вместо этого использовать единую корзину,
 	 * передавая тестируемую стану параметром $bCountry.
 	 * @used-by \Dfe\Klarna\ConfigProvider::config()
+	 * @used-by \Dfe\Klarna\Html::guest()
 	 * @used-by \Dfe\Klarna\Test\Charge::t01()
 	 * @param IQ|Q|int|null $q [optional]
 	 * @param string|null $bCountry [optional]
