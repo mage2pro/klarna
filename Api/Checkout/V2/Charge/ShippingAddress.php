@@ -239,7 +239,6 @@ final class ShippingAddress extends Part {
 	 * потому что передача null вместо пустой строки в запросе API
 	 * приведёт к ответу сервера «Bad format»
 	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\ShippingAddress::p()
-	 * @param string $key
 	 * @return string
 	 */
 	private function test(string $key) {return df_nts(dfa(self::$test[$this->owner()->bCountry()], $key));}
