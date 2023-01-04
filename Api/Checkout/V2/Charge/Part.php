@@ -39,6 +39,7 @@ abstract class Part {
 
 	/**
 	 * 2017-02-04
+	 * @used-by self::amount()
 	 */
 	final protected function owner():Charge {return $this->_owner;}
 
