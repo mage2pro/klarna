@@ -31,7 +31,5 @@ final class Html {
 	 * @param IQP|QP $qp
 	 * @param IQA|QA|null $ba
 	 */
-	function registered(int $cartId, IQP $qp, IQA $ba = null):string {return dfw_encode([
-		'html' => API::html(null, 'SE')
-	]);}
+	function registered(int $cartId, IQP $qp, IQA $ba = null):string {return dfw_encode(['html' => API::html(null, 'SE')]);}
 }
