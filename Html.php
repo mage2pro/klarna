@@ -13,9 +13,9 @@ final class Html {
 	 * $qp в поле @see \Magento\Framework\DataObject::_data содержит код способа оплаты,
 	 * а также ту дополнительную информацию, которую передала клиентская часть модуля оплаты.
 	 * Например: [additional_data => [], method => "dfe_klarna"].
+	 * 2017-04-05 Важно возвращать именно string: @see dfw_encode()
 	 * @param IQP|QP $qp
 	 * @param IQA|QA|null $ba
-	 * 2017-04-05 Важно возвращать именно string: @see dfw_encode()
 	 */
 	function guest(string $cartId, string $email, IQP $qp, IQA $ba = null):string {return dfw_encode([
 		'html' => API::html(null, 'SE'
