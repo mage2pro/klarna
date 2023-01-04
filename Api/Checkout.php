@@ -232,7 +232,6 @@ final class Checkout {
 	 * @used-by \Dfe\Klarna\Html::registered()
 	 * @used-by \Dfe\Klarna\Test\Charge::t01()
 	 * @param IQ|Q|int|null $q [optional]
-	 * @return string
 	 */
-	static function html($q = null, string $bCountry = '') {return (new self($q, $bCountry))->_html();}
+	static function html($q = null, string $bCountry = ''):string {return (new self($q, $bCountry))->_html();}
 }
