@@ -232,9 +232,8 @@ final class Charge {
 	/**
 	 * 2017-02-02 «sv_SE» => «sv-se»
 	 * @used-by self::kl_order()
-	 * @return string
 	 */
-	private function localeFormatted() {return str_replace('_', '-', strtolower($this->locale()));}
+	private function localeFormatted():string {return str_replace('_', '-', strtolower($this->locale()));}
 
 	/**
 	 * 2017-01-29
