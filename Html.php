@@ -32,7 +32,7 @@ final class Html {
 	 * 2017-04-05 Важно возвращать именно string: @see dfw_encode()
 	 * @return string
 	 */
-	function registered(int $cartId, IQP $qp, IQA $ba = null) {return dfw_encode([
+	function registered(int $cartId, IQP $qp, IQA $ba = null):string {return dfw_encode([
 		'html' => API::html(null, 'SE')
 	]);}
 }
