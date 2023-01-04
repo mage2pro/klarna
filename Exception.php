@@ -15,7 +15,7 @@ abstract class Exception extends \Df\Payment\Exception {
 	 * @param \Exception $e
 	 * @return array(string => mixed)
 	 */
-	abstract protected function responseA(\Exception $e);
+	abstract protected function responseA(\Exception $e):array;
 
 	/**
 	 * 2017-01-26
