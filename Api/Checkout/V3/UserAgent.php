@@ -72,12 +72,8 @@ class UserAgent extends \Klarna\Rest\Transport\UserAgent {
 
 	/**
 	 * 2017-01-25
-	 * @param string $k
-	 * @param string $name
-	 * @param string $version [optional]
-	 * @param string[] $options [optional]
 	 */
-	private function f($k, $name, $version = '', array $options = []) {$this->setField(
+	private function f(string $k, string $name, string $version = '', array $options = []) {$this->setField(
 		$k, $name, $version, $options
 	);}
 }
