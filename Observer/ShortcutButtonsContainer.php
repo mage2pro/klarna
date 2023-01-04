@@ -45,7 +45,7 @@ final class ShortcutButtonsContainer implements IO {
 	 * @see IO::execute()
 	 * @used-by Invoker::_callObserverMethod()
 	 */
-	function execute(O $o) {
+	function execute(O $o):void {
 		if (dfps($this)->enable()) {
 			$c = $o['container'];/** @var Container|MiniContainer $c */
 			$c->addShortcut(df_block(Button::class));
