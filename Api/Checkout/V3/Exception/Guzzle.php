@@ -1,7 +1,7 @@
 <?php
 namespace Dfe\Klarna\Api\Checkout\V3\Exception;
-use GuzzleHttp\Message\Response;
-use GuzzleHttp\Message\ResponseInterface as IResponse;
+use GuzzleHttp\Psr7\Response;
+use Psr\Http\Message\RequestInterface as IResponse;
 /**
  * 2017-01-26
  * Исключительная ситуация этого класса возбуждается в 2 случаях:
@@ -37,11 +37,7 @@ class Guzzle extends \Dfe\Klarna\Api\Checkout\V3\Exception {
 	 * @return array(string => mixed)
 	 */
 	protected function responseA(\Exception $e):array {
-		/** @var IResponse|Response $r */
-		$r = $e->getResponse();
-		return [
-			'HTTP Status Code' => $r->getStatusCode()
-			,'Reason' => $r->getReasonPhrase()
-		];
+		$r = $e->getResponse(); /** @var IResponse|Response $r */
+		return ['HTTP Status Code' => $r->getStatusCode(), 'Reason' => $r->getReasonPhrase()];
 	}
 }
