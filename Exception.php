@@ -22,7 +22,6 @@ abstract class Exception extends \Df\Payment\Exception {
 	 * @override
 	 * @see \Df\Core\Exception::__construct()
 	 * @used-by \Dfe\Klarna\Api\Checkout::html()
-	 * @param \Exception $e
 	 * @param array(string => mixed) $req
 	 */
 	final function __construct(\Exception $e, array $req) {$this->_req = $req; parent::__construct($e);}
