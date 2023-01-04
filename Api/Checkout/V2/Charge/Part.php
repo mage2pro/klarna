@@ -14,7 +14,6 @@ use Magento\Quote\Model\Quote as Q;
 abstract class Part {
 	/**
 	 * 2017-02-04
-	 * @param Charge $owner
 	 */
 	final function __construct(Charge $owner) {$this->_owner = $owner;}
 
