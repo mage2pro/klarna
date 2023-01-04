@@ -27,7 +27,7 @@ class Button extends _P implements IShortcut {
 	 *		}
 	 * https://github.com/magento/magento2/blob/2.1.6/app/code/Magento/Catalog/Block/ShortcutButtons.php#L91-L93
 	 */
-	function getAlias() {return __CLASS__;}
+	function getAlias():string {return __CLASS__;}
 
 	/**
 	 * 2017-04-21 https://developers.klarna.com/en/se/kco-v2/logos
