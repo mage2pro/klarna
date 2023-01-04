@@ -13,5 +13,5 @@ final class Exception extends \Dfe\Klarna\Exception {
 	 * @param \Exception|\Klarna_Checkout_ApiErrorException $e
 	 * @return array(string => mixed)
 	 */
-	protected function responseA(\Exception $e) {return $e->getPayload();}
+	protected function responseA(\Exception $e):array {return $e->getPayload();}
 }
