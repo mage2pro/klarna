@@ -36,9 +36,8 @@ final class Charge {
 	/**
 	 * 2017-01-29
 	 * @used-by self::p()
-	 * @param string $bCountry
 	 */
-	private function __construct($bCountry) {$this->_bCountry = $bCountry;}
+	private function __construct(string $bCountry) {$this->_bCountry = $bCountry;}
 
 	/**
 	 * 2017-01-26
