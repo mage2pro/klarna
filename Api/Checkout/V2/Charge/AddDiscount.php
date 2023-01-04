@@ -8,7 +8,7 @@ final class AddDiscount extends Part {
 	 * @param array(array(string => string|int)) $items
 	 * @return array(array(string => string|int))
 	 */
-	function p(array $items) {
+	function p(array $items):array {
 		/** @var int $total */
 		/**
 		 * 2017-02-03
