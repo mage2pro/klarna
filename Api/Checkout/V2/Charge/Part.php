@@ -41,6 +41,7 @@ abstract class Part {
 	 * 2017-02-04
 	 * @used-by self::amount()
 	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\Products::p()
+	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\ShippingAddress::p()
 	 */
 	final protected function owner():Charge {return $this->_owner;}
 
