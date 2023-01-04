@@ -23,9 +23,8 @@ final class Charge {
 	 * 2017-02-01
 	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\Part::amount()
 	 * @used-by self::kl_order()
-	 * @return string
 	 */
-	function currency() {return dfc($this, function() {return df_currency_by_country_c(
+	function currency():string {return dfc($this, function():string {return df_currency_by_country_c(
 		$this->bCountry()
 	);});}
 
