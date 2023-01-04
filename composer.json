@@ -1,6 +1,6 @@
 {
 	"name": "mage2pro/klarna"
-	,"version": "0.4.5"
+	,"version": "0.5.0"
 	,"description": "Klarna integration with Magento 2"
 	,"type": "magento2-module"
 	,"homepage": "https://mage2.pro/c/extensions/klarna"
@@ -12,7 +12,7 @@
 		"role": "Developer"
 	}]
 	,"require": {
-		"klarna/checkout": "*", "mage2pro/core": ">=3.4.1", "mage2pro/klarna-sdk-v3": "^2.2.3", "php-http/guzzle7-adapter":  "*"
+		"klarna/checkout": "*", "mage2pro/core": ">=9.0.5", "mage2pro/klarna-sdk-v3": "^2.2.3", "php-http/guzzle7-adapter":  "*"
 	}
 	,"autoload": {"files": ["registration.php"], "psr-4": {"Dfe\\Klarna\\": ""}}
 	,"keywords": [
