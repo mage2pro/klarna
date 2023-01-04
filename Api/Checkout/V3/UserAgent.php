@@ -72,6 +72,7 @@ class UserAgent extends \Klarna\Rest\Transport\UserAgent {
 
 	/**
 	 * 2017-01-25
+	 * @used-by self::__construct()
 	 */
 	private function f(string $k, string $name, string $version = '', array $options = []):void {$this->setField(
 		$k, $name, $version, $options
