@@ -39,9 +39,8 @@ abstract class Part {
 
 	/**
 	 * 2017-02-04
-	 * @return Charge
 	 */
-	final protected function owner() {return $this->_owner;}
+	final protected function owner():Charge {return $this->_owner;}
 
 	/**
 	 * 2017-02-04
