@@ -15,7 +15,7 @@ final class Attachment {
 	 * A list of available attachment types:
 	 * https://developers.klarna.com/en/se/kco-v2/checkout-api/attachments
 	 */
-	function p() {return [
+	function p():array {return [
 		/**
 		 * 2017-01-26
 		 * «The attachment body.»
