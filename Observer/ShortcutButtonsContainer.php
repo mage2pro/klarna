@@ -44,7 +44,6 @@ final class ShortcutButtonsContainer implements IO {
 	 * @override
 	 * @see IO::execute()
 	 * @used-by Invoker::_callObserverMethod()
-	 * @param O $o
 	 */
 	function execute(O $o) {
 		if (dfps($this)->enable()) {
