@@ -22,9 +22,7 @@ final class AddDiscount extends Part {
 		}, $items)); /** @var int $totalK */
 		/** @var int $totalM */
 		$totalM = $this->amount($this->oq()->getGrandTotal());
-		# 2017-02-03
-		# При этом мы сознательно идём на то, что скидка может оказаться положительным числом,
-		# т.е. наценкой
+		# 2017-02-03 При этом мы сознательно идём на то, что скидка может оказаться положительным числом, т.е. наценкой
 		/** @var int $discount */
 		$discount = $totalM - $totalK;
 		return !$discount ? $items : array_merge($items, [[
