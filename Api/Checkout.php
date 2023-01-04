@@ -229,6 +229,7 @@ final class Checkout {
 	 * передавая тестируемую стану параметром $bCountry.
 	 * @used-by \Dfe\Klarna\ConfigProvider::config()
 	 * @used-by \Dfe\Klarna\Html::guest()
+	 * @used-by \Dfe\Klarna\Html::registered()
 	 * @used-by \Dfe\Klarna\Test\Charge::t01()
 	 * @param IQ|Q|int|null $q [optional]
 	 * @param string|null $bCountry [optional]
