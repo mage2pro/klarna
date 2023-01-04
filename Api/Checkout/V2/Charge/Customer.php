@@ -11,7 +11,7 @@ final class Customer extends Part {
 	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge::kl_order()
 	 * @return array(string => string)
 	 */
-	function p() {return [
+	function p():array {return [
 		/**
 		 * 2017-01-26
 		 * «If provided by customer, or retrieved from national ID.
