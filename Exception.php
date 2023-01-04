@@ -47,7 +47,7 @@ abstract class Exception extends \Df\Payment\Exception {
 	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Exception::message()
 	 * @return array(string => mixed)
 	 */
-	final protected function req() {return $this->_req;}
+	final protected function req():array {return $this->_req;}
 
 	/**
 	 * 2017-01-26
