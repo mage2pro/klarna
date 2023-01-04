@@ -5,7 +5,7 @@ use Dfe\Klarna\Api\Checkout as C;
 /** @method \Dfe\Klarna\Settings s() */
 final class Charge extends \Df\Payment\TestCase {
 	/** 2017-01-22 @test */
-	function t01() {
+	function t01():void {
 		try {
 			/**
 			 * 2017-01-30
