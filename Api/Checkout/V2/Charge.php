@@ -225,7 +225,7 @@ final class Charge {
 	 * @used-by self::kl_order()
 	 * @return array(string => string|int)
 	 */
-	private function kl_order_lines() {return (new Charge\AddDiscount($this))->p(array_merge(
+	private function kl_order_lines():array {return (new Charge\AddDiscount($this))->p(array_merge(
 		(new Charge\Products($this))->p(), df_clean([(new Charge\Shipping($this))->p()])
 	));}
 
