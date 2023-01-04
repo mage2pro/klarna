@@ -19,9 +19,8 @@ final class Checkout {
 	 * 2017-04-07
 	 * @used-by self::html()
 	 * @param IQ|Q|int|null $q [optional]
-	 * @param string|null $bCountry [optional]
 	 */
-	private function __construct($q = null, $bCountry = null) {$this->_q = df_quote($q); $this->_bCountry = $bCountry;}
+	private function __construct($q = null, string $bCountry = '') {$this->_q = df_quote($q); $this->_bCountry = $bCountry;}
 
 	/**
 	 * 2017-01-25 Returns a Klarna's HTML snippet: https://mage2.pro/t/2544
