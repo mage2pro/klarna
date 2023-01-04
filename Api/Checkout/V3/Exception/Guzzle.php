@@ -36,7 +36,7 @@ class Guzzle extends \Dfe\Klarna\Api\Checkout\V3\Exception {
 	 * @param \Exception|\GuzzleHttp\Exception\ClientException $e
 	 * @return array(string => mixed)
 	 */
-	protected function responseA(\Exception $e) {
+	protected function responseA(\Exception $e):array {
 		/** @var IResponse|Response $r */
 		$r = $e->getResponse();
 		return [
