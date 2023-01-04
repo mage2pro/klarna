@@ -15,10 +15,9 @@ final class Charge {
 	 * @used-by self::locale()
 	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\ShippingAddress::p()
 	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\ShippingAddress::test()
-	 * @param string $code [optional]
 	 * @return string|bool
 	 */
-	function bCountry($code = null) {return !$code ? $this->_bCountry : $code === $this->_bCountry;}
+	function bCountry(string $code = '') {return !$code ? $this->_bCountry : $code === $this->_bCountry;}
 
 	/**
 	 * 2017-02-01
