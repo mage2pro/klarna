@@ -6,7 +6,6 @@ final class Settings extends \Df\Payment\Settings {
 	/**
 	 * 2017-01-24
 	 * @used-by \Dfe\Klarna\Api\Checkout::html()
-	 * @return string
 	 */
-	function sharedSecret() {return $this->testableP();}
+	function sharedSecret():string {return $this->testableP();}
 }
