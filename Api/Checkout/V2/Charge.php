@@ -240,8 +240,7 @@ final class Charge {
 	 * 2017-04-03
 	 * Страна покупателя.
 	 * Именно от неё зависит поведение API, а не от страны продавца:
-	 * «Are the Klarna's API URLs based on a merchant's country or on a buyer's country?»
-	 * https://mage2.pro/t/2517
+	 * «Are the Klarna's API URLs based on a merchant's country or on a buyer's country?» https://mage2.pro/t/2517
 	 * «Why are Klarna's API URLs for USA buyers different from others?» https://mage2.pro/t/2516
 	 * @used-by self::__construct()
 	 * @used-by self::bCountry()
