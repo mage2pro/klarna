@@ -17,10 +17,9 @@ final class AddDiscount extends Part {
 		 * @see olProducts()
 		 * @see olShipping()
 		 */
-		/** @var int $totalK */
 		$totalK = array_sum(array_map(function(array $i) {return
 			$i['quantity'] * $i['unit_price'];
-		}, $items));
+		}, $items)); /** @var int $totalK */
 		/** @var int $totalM */
 		$totalM = $this->amount($this->oq()->getGrandTotal());
 		# 2017-02-03
