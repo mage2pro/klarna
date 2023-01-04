@@ -18,5 +18,5 @@ class Connector extends \Dfe\Klarna\Api\Checkout\V3\Exception {
 	 * @todo Ещё не реализовано, потому что у меня нет пока доступов к API версии 3:
 	 * https://mage2.pro/t/2531
 	 */
-	protected function responseA(\Exception $e) {return [];}
+	protected function responseA(\Exception $e):array {return [];}
 }
