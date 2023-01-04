@@ -31,17 +31,17 @@ abstract class Exception extends \Df\Payment\Exception {
 	 * 2017-01-26
 	 * @override
 	 * @see \Df\Core\Exception::message()
-	 * @return string
+	 * @used-by df_xts()
 	 */
-	final function message() {return df_api_rr_failed($this, $this->responseA($this->prev()), $this->req());}
+	final function message():string {return df_api_rr_failed($this, $this->responseA($this->prev()), $this->req());}
 
 	/**
 	 * 2017-01-26
 	 * @override
 	 * @see \Df\Core\Exception::messageC()
-	 * @return string
+	 * @used-by \Df\Payment\PlaceOrderInternal::message()
 	 */
-	final function messageC() {return dfp_error_message($this->prev()->getMessage());}
+	final function messageC():string {return dfp_error_message($this->prev()->getMessage());}
 
 	/**
 	 * 2017-01-26

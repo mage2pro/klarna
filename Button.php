@@ -48,9 +48,8 @@ class Button extends _P implements IShortcut {
 	 *		}
 	 *		$html = $this->_afterToHtml($html);
 	 * https://github.com/magento/magento2/blob/2.2.0/lib/internal/Magento/Framework/View/Element/AbstractBlock.php#L643-L689
-	 * @return string                                
 	 */
-	final protected function _toHtml() {
+	final protected function _toHtml():string {
 		$base = 'https://cdn.klarna.com/1.0/';  /** @var string $base */
 		# 2017-04-24  Другое значение: «blue-black».
 		$style = 'white'; /** @var string $style */

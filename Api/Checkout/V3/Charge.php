@@ -257,7 +257,7 @@ final class Charge {
 	 * «Options for this purchase.»
 	 * https://developers.klarna.com/api/?json#checkout-api__order__options
 	 * @used-by self::kl_order()
-	 * @return array(string => string|boolean)
+	 * @return array(string => string|bool)
 	 */
 	private function kl_options() {return [
 		/**

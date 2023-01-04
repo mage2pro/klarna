@@ -32,13 +32,11 @@ final class Charge {
 	);});}
 
 	/**
-	 * 2017-02-02
-	 * «sv_SE»
+	 * 2017-02-02 «sv_SE»
 	 * @used-by self::localeFormatted()
 	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\Products::p()
-	 * @return string
 	 */
-	function locale() {return dfc($this, function() {return df_locale_by_country($this->bCountry());});}
+	function locale():string {return dfc($this, function() {return df_locale_by_country($this->bCountry());});}
 
 	/**
 	 * 2017-01-29

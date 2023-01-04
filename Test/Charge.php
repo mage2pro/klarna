@@ -4,7 +4,7 @@ use Dfe\Klarna\Api\Checkout as C;
 # 2017-01-22
 /** @method \Dfe\Klarna\Settings s() */
 final class Charge extends \Df\Payment\TestCase {
-	/** @test 2017-01-22 */
+	/** 2017-01-22 @test */
 	function t01() {
 		try {
 			/**
@@ -34,7 +34,7 @@ final class Charge extends \Df\Payment\TestCase {
 			}
 		}
 		catch (\Exception $e) {
-			print_r(df_etsd($e));
+			print_r(df_xtsd($e));
 		}
 	}
 }
