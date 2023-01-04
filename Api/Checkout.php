@@ -25,12 +25,11 @@ final class Checkout {
 	/**
 	 * 2017-01-25 Returns a Klarna's HTML snippet: https://mage2.pro/t/2544
 	 * @used-by self::html()
-	 * @return string
 	 * @throws Exception2
 	 * @throws Exception3_Guzzle
 	 * @throws Exception3_Connector
 	 */
-	private function _html() {
+	private function _html():string {
 		$bCountry = $this->_bCountry;
 		$s = dfps(__CLASS__); /** @var S $s */
 		$isV2 = !in_array($bCountry, ['GB', 'US']);  /** @var bool $isV2 */
