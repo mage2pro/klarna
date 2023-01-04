@@ -47,7 +47,7 @@ final class Charge {
 	 * @used-by self::p()
 	 * @return array(string => mixed)
 	 */
-	private function kl_order() {return [
+	private function kl_order():array {return [
 		# 2017-01-26
 		# «Additional purchase information required for some industries.»
 		# Required: no.
