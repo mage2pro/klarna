@@ -252,5 +252,5 @@ final class Charge {
 	 * 2017-01-26
 	 * @return array(string => mixed)
 	 */
-	static function p(string $bCountry) {return (new self($bCountry))->kl_order();}
+	static function p(string $bCountry):array {return (new self($bCountry))->kl_order();}
 }
