@@ -23,8 +23,7 @@ final class AddDiscount extends Part {
 		/** @var int $totalM */
 		$totalM = $this->amount($this->oq()->getGrandTotal());
 		# 2017-02-03 При этом мы сознательно идём на то, что скидка может оказаться положительным числом, т.е. наценкой
-		/** @var int $discount */
-		$discount = $totalM - $totalK;
+		$discount = $totalM - $totalK; /** @var int $discount */
 		return !$discount ? $items : array_merge($items, [[
 			/**
 			 * 2017-01-26
