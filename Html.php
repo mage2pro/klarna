@@ -16,9 +16,8 @@ final class Html {
 	 * @param IQP|QP $qp
 	 * @param IQA|QA|null $ba
 	 * 2017-04-05 Важно возвращать именно string: @see dfw_encode()
-	 * @return string
 	 */
-	function guest(string $cartId, string $email, IQP $qp, IQA $ba = null) {return dfw_encode([
+	function guest(string $cartId, string $email, IQP $qp, IQA $ba = null):string {return dfw_encode([
 		'html' => API::html(null, 'SE'
 	)]);}
 
