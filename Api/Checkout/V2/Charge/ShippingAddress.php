@@ -16,7 +16,6 @@ final class ShippingAddress extends Part {
 	 * @todo Надо всё-таки проверить, попытаться что-то передать (имя, фамилию...).
 	 * В то же время, Checkout API версии 3 позвляет нам передавать сервису «billing_address»:
 	 * https://developers.klarna.com/api/?json#checkout-api__order__billing_address
-	 *
 	 * 2017-01-28 Передача пустого массива приводит к сбою «Bad format».
 	 */
 	function p():array {return [
