@@ -22,9 +22,8 @@ abstract class Part {
 	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\AddDiscount::p()
 	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\Products::p()
 	 * @used-by \Dfe\Klarna\Api\Checkout\V2\Charge\Shipping::p()
-	 * @return int
 	 */
-	final protected function amount(float $v) {return round(100 * df_currency_convert(
+	final protected function amount(float $v):int {return round(100 * df_currency_convert(
 		$v, df_oq_currency_c($this->oq()), $this->owner()->currency()
 	));}
 
