@@ -31,6 +31,8 @@ final class Html {
 	 * а также ту дополнительную информацию, которую передала клиентская часть модуля оплаты.
 	 * Например: [additional_data => [], method => "dfe_klarna"].
 	 * 2017-04-05 Важно возвращать именно string: @see dfw_encode()
+	 * 2023-01-28
+	 * «Method's return type must be specified using @return annotation»: https://github.com/mage2pro/core/issues/179
 	 * @param IQP|QP $qp
 	 * @param IQA|QA|null $ba
 	 */
