@@ -31,8 +31,6 @@ final class Html {
 	 * 2017-04-05 Важно возвращать именно string: @see dfw_encode()
 	 * 2023-01-28
 	 * «Method's return type must be specified using @return annotation»: https://github.com/mage2pro/core/issues/179
-	 * @param IQP|QP $qp
-	 * @param IQA|QA|null $ba
 	 */
 	function registered(int $cartId, IQP $qp, IQA $ba = null):string {return dfw_encode(['html' => API::html(null, 'SE')]);}
 }
