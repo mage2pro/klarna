@@ -1,5 +1,6 @@
 <?php
 namespace Dfe\Klarna;
+use \Throwable as T; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 /**
  * 2017-01-26
  * @see \Dfe\Klarna\Api\Checkout\V2\Exception
@@ -12,10 +13,9 @@ abstract class Exception extends \Df\Payment\Exception {
 	 * @see \Dfe\Klarna\Api\Checkout\V2\Exception::responseA()
 	 * @see \Dfe\Klarna\Api\Checkout\V3\Exception\Guzzle::responseA()
 	 * @see \Dfe\Klarna\Api\Checkout\V3\Exception\Connector::responseA()
-	 * @param \Exception $e
 	 * @return array(string => mixed)
 	 */
-	abstract protected function responseA(\Exception $e):array;
+	abstract protected function responseA(T $t):array;
 
 	/**
 	 * 2017-01-26
@@ -24,7 +24,7 @@ abstract class Exception extends \Df\Payment\Exception {
 	 * @used-by \Dfe\Klarna\Api\Checkout::html()
 	 * @param array(string => mixed) $req
 	 */
-	final function __construct(\Exception $e, array $req) {$this->_req = $req; parent::__construct($e);}
+	final function __construct(T $t, array $req) {$this->_req = $req; parent::__construct($t);}
 
 	/**
 	 * 2017-01-26
@@ -40,7 +40,7 @@ abstract class Exception extends \Df\Payment\Exception {
 	 * @see \Df\Core\Exception::messageC()
 	 * @used-by \Df\Payment\PlaceOrderInternal::message()
 	 */
-	final function messageC():string {return dfp_error_message($this->prev()->getMessage());}
+	final function messageC():string {return dfp_error_message(df_xts($this->prev()));}
 
 	/**
 	 * 2017-01-26

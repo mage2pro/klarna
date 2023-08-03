@@ -2,6 +2,7 @@
 namespace Dfe\Klarna\Api\Checkout\V3\Exception;
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\RequestInterface as IResponse;
+use \Throwable as T; # 2023-08-03 "Treat `\Throwable` similar to `\Exception`": https://github.com/mage2pro/core/issues/311
 /**
  * 2017-01-26
  * Исключительная ситуация этого класса возбуждается в 2 случаях:
@@ -33,11 +34,11 @@ class Guzzle extends \Dfe\Klarna\Api\Checkout\V3\Exception {
 	 * @override
 	 * @see \Dfe\Klarna\Exception::responseA()
 	 * @used-by \Dfe\Klarna\Exception::message()
-	 * @param \Exception|\GuzzleHttp\Exception\ClientException $e
+	 * @param T|\GuzzleHttp\Exception\ClientException $t
 	 * @return array(string => mixed)
 	 */
-	protected function responseA(\Exception $e):array {
-		$r = $e->getResponse(); /** @var IResponse|Response $r */
+	protected function responseA(T $t):array {
+		$r = $t->getResponse(); /** @var IResponse|Response $r */
 		return ['HTTP Status Code' => $r->getStatusCode(), 'Reason' => $r->getReasonPhrase()];
 	}
 }

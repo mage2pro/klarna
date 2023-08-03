@@ -33,8 +33,8 @@ final class Charge extends \Df\Payment\TestCase {
 				}
 			}
 		}
-		catch (\Exception $e) {
-			print_r(df_xtsd($e));
+		catch (\Throwable $t) {
+			print_r(df_xtsd($t));
 		}
 	}
 }
